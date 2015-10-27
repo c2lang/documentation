@@ -16,7 +16,7 @@ Currently supported attributes are:
 
 The standard syntax for all attributes is `@(  )`  (get it?!, @, at, attributes... ;) )
 
-see below how to add them to various declarations
+Please, take a look at the following example showing how to add them to various declarations:
 
 ```c
 // variables

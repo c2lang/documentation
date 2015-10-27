@@ -13,7 +13,7 @@ A C2 project has a `recipe` file. This file describes:
 For big projects, the recipe file would be generated (for example by `make menuconfig`),
 especially if there are many different configurations.
 
-The exact format of the recipe file is stil in progress, but it currently looks like:
+The exact format of the recipe file is still in progress, but it currently looks like:
 
 ```ini
 # an example recipe file
@@ -30,14 +30,16 @@ lib graphics static
   api/file3.c2
 end
 ```
+Note that the path to each c2 file is relative to the position of the __recipe file__, not
+to that of the c2c binary.
 
 ### calling directory
-When building these targets, `c2c` is only called __once__. So the compiler knows the
+When building these targets, `c2c` is only called __once__. This way the compiler knows the
 target type and all files required. Since you might be working in some subdir of your
 project, c2c will iteratively search dirs to root until *recipe.txt* is found, no
 need to change dirs to run it!
 
-So these 2 calls are equal if *my_project/* contains the *recipe.txt*
+So these 2 calls are equal if *my_project/* contains the *recipe.txt*:
 ```
 ~my_project$ c2c
 ~my_project/some_subdir$ c2c
@@ -45,6 +47,7 @@ So these 2 calls are equal if *my_project/* contains the *recipe.txt*
 
 
 ### output directory
-Any output will be put in the *output/* directory in the root of the project.
-So a *make clean* equivalent just means removing this directory.
+Any output will be put in the *output/* directory in the root of the project. Inside
+ the output directory, each target will have its own folder.
+Therefore, to *make clean* just means to remove this directory.
 

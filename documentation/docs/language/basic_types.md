@@ -11,7 +11,7 @@ C2 has the following builtin primitive types:
 There is also a  builtin __void__ type, used for pointers (eg __void*__)
 For convenience, the __char__ keyword is also available and is identical to the __int8__ type.
 
-Note that C2 does __not__ have any type specifiers like __signed__, __unsigned__, __long__, __short__, etc
+Note that C2 does __not__ have any type specifiers like __signed__, __unsigned__, __long__, __short__, etc.
 
 ### c2 pseudo-module ###
 The c2compiler always has a pseudo module called __c2__. This module is used to

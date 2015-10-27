@@ -10,7 +10,7 @@ We also have an outstanding request for a logo. So if you're creative with graph
 you can be the designer of the logo of a next-gen language..
 
 ### forum
-We had to disable The automated forum registration, since the forums
+We had to disable the automated forum registration, since the forums
 were constantly being spammed. See the __Joining__ category in the forum on
 how to manually register.
 

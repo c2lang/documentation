@@ -17,7 +17,7 @@ public func int32 main(int32 argc, char*[] argv) {
 ```
 No need for dirty macros, code-generation scripts etc...
 
-In addition, the C2 module holds some commonly used symbols. This way, no symbols
+In addition, the C2 module also holds some commonly used symbols. This way, no symbols
 have to be placed at the global namespace and thus naming conflict can always be
 resolved by a programmer.
 
