@@ -76,6 +76,7 @@ points += { 30, 31 }
 
 the __sizeof()__ and __elemsof()__ operators will keep track if this of course.
 
+NOTE: Incremental arrays can only be used at __global__ level (not inside functions).
 
 
 ### nil
