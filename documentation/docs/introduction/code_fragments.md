@@ -121,12 +121,12 @@ type MyData struct {
 ```
 
 ### struct initialization and incremental arrays
-Incremental arrays are a special C2 feature see [variables](../language/variables.md)
-for more information.
+Incremental arrays are a special C2 feature. See [Variables](../language/variables.md)
+section for more information.
 ```c
 type Person struct {
     const char* name;
-    uint8 age
+    uint8 age;
 } @(packed)
 
 // the + indicates 'persons' is an incremental array

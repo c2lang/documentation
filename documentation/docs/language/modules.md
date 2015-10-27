@@ -120,7 +120,7 @@ the __as__ keyword.
 import networking as net local;
 import filesystem local;
 ```
-Symbols of both `networking` and `filesystem` can be used without prefix. If a symbols
+Symbols of both `networking` and `filesystem` can be used without prefix. If a symbol
 can be resolved unambiguously (for the current module and set of imports), the module
 prefix is optional. So if both `networking` and `filesystem` have some function `open()`,
 it will still have to be prefixed, since C2 allows no ambiguous symbol use.
