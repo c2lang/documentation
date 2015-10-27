@@ -24,11 +24,11 @@ One of the major show-stoppers in C is the use of header-file includes. The clan
 website has a [very nice article](http://clang.llvm.org/docs/Modules.html#problems-with-the-current-model) on
 the problems of #include.
 Because #includes are recursive, the compiler often has to parse and analyse a lot more
-then just your code. Tests on regular C code have show the factor of user code / external code
+then just your code. Tests on regular C code have shown the factor of user code / external code
 to be roughly 50 times. So for every line you provide, the compiler needs to parse and
 analyse 50 lines!
 
-Additionally the frequent use of preprocessor macros gives headaches to tool developers
+Additionally, the frequent use of preprocessor macros gives headaches to tool developers
 and code analysers.
 
 ## overview of changes
@@ -96,12 +96,15 @@ piece of the puzzle now, a whole C2 module.
 To allow even more optimization, C2 can convert all sources into a single LLVM
 module, allowing full 'LTO' (link-time optimization). Enabling LTO or 'whole program
 optimization' in C is very hard for any realistic size project. In C2 it can be easily
-enabled in the recipe.
+enabled in the recipe file.
 ![single](build_single.svg)
 
 Also the *visibility* of symbols in the resulting binary can be easily controlled
 without the use of linker scripts or special tools as described in the
 [Export control section](../build_system/symbols.md).
+
+For more information about targeting and the build system, 
+please visit [Build system section](../build_system/symbols.md).
 
 ### built-in primitive types
 C2 provides the following built-in primitive types:
@@ -134,14 +137,20 @@ Examples of errors in C2:
 * not returning anything from non-void function
 * some type conversions
 
+Thanks to the stricter diagnostics, c2c tells you where exactly the error is located,
+what kind of error is it, as well as showing a possible fix in some cases, for example for
+a missing semicolon after a function call. Again, this speeds up develepment time, because
+you don't need to frantically search for the root of your problem for as much time as in C.
+
+
 ### attributes
-The C2 language design includes [attributes](../language/attributes.md). So there are
-standardized attributes. Compiler-specific once are also still possible. This simplifies
-development of multi-platform code.
+The C2 language design includes [attributes](../language/attributes.md). Out of the box,
+C2 supports standardized attributes. Compiler-specific once are also still possible. This simplifies
+the development of multi-platform code.
 
 ### tooling
-C2C's functionality like the parser can be used by other tools.
-One example of ths is *c2reto*, C2's refactor tool.
+C2C's functionality as a parser can also be used by other tools.
+One example of this is *c2reto*, C2's refactor tool.
 
 ### special features
 C2 also introduces some new features:

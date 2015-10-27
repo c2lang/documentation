@@ -1,9 +1,9 @@
 ## modules
 
 Like many other modern languages, C2 has the concept of `modules`. Modules are
-used to create a logical group for functions, types and variables. Each __.c2__
-file has to start with the __module__ keyword, specifying which modules it belongs
-to. A module can consist of several files, like
+used to create logical groups of functions, types and variables. Each __.c2__
+file has to start with the __module__ keyword, specifying which module it belongs
+to. A module can consist of several files, such as:
 
 `file1.c2`
 ```c
@@ -26,7 +26,7 @@ module bar;
 // ..
 ```
 
-file1.c2 and file2.c2 belong to the same module `foo`, while file3.c2 belongs to
+file1.c2 and file2.c2 belong to the same module, `foo`, while file3.c2 belongs to
 module `bar`.
 
 Modules allow a developer to split functionality into several files, *without*
@@ -34,13 +34,14 @@ sacrificing speed or adding complexity.
 
 ## import
 To have a file use declarations from another module, it must __import__ that module.
-The __import__ keyword has a file scope. So if `file1.c2` imports module `io`,
-`file2.c2` still cannot use `io`'s symbols, unless it imports `io` as well.
+The __import__ keyword has a file scope. Therefore, if `file1.c2` imports module `stdio`,
+`file2.c2` still cannot use `stdio`'s symbols, unless it imports `stdio` as well.
 
 `file1.c2`
 ```c
 module foo;
 
+//import file and storage
 import file;
 import storage;
 // ..
@@ -50,17 +51,18 @@ import storage;
 ```c
 module foo;
 
+//file and net imported, but not storage
 import file;
 import net;
 // ..
 ```
 
 So `file1.c2` can use external symbols from `file` and `storage`, while `file2.c2`
-can use symbols from `file` and `net`.
+can only use symbols from `file` and `net`.
 
 One big advantage of not using c-style header-file includes is that no filenames will
 ever appear in the code. So renaming/moving the files for some modules requires NO
-change in other code, even it it uses that module!! Powerfull stuff.
+change in other code whatsoever, even if it uses that module!! Powerful stuff.
 
 ## symbol visibility
 
@@ -99,7 +101,7 @@ A global symbol is only allowed ONCE per module, whether __public__ or not. This
 `test` symbol.
 
 ### import as
-When importing a module with a long name, C2 allows aliasing the module name (for the
+When importing a module with a long name, C2 allows aliasing the module name (applies for the
 current file only!), like:
 
 ```c
@@ -107,22 +109,20 @@ module foo;
 
 import extended_filesystems_io as fs;
 ```
-external symbols can now use the shorter `fs` prefix. Using the fullname is even now
-allowed anymore!
+external symbols can now use the shorter `fs` prefix. Even now, using the full name is allowed!
 
 ### import local
 When using a lot of external symbols, the constant prefixing can be cumbersome. C2
-allows using the external symbols of some module directly (without prefix) when the
+allows using the external symbols of a module directly (without any prefix) when the
 import statement is followed by the keyword __local__. This can also be combined with
-the __as__ keyword.
-
+the __as__ keyword, making the prefix optional.
 ```c
 import networking as net local;
 import filesystem local;
 ```
 Symbols of both `networking` and `filesystem` can be used without prefix. If a symbol
 can be resolved unambiguously (for the current module and set of imports), the module
-prefix is optional. So if both `networking` and `filesystem` have some function `open()`,
+prefix is optional. So if both `networking` and `filesystem` have a function called `open()`,
 it will still have to be prefixed, since C2 allows no ambiguous symbol use.
 
 The result of __modules__ and the __import .. (as ..) (local)__, is that there is no

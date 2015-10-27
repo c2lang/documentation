@@ -9,7 +9,7 @@ Creating your first project in C2 is easy, just do:
 ~/hello$ c2c
 ```
 
-and use the fellowing skeleton files:
+and use the following skeleton files:
 
 `hello.c2`
 ```c
