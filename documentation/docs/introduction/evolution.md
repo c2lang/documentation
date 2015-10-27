@@ -142,7 +142,6 @@ what kind of error is it, as well as showing a possible fix in some cases, for e
 a missing semicolon after a function call. Again, this speeds up develepment time, because
 you don't need to frantically search for the root of your problem for as much time as in C.
 
-
 ### attributes
 The C2 language design includes [attributes](../language/attributes.md). Out of the box,
 C2 supports standardized attributes. Compiler-specific once are also still possible. This simplifies
