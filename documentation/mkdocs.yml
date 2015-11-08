@@ -7,7 +7,7 @@ pages:
   - introduction/evolution.md
   - Hello World: introduction/helloworld.md
   - introduction/code_fragments.md
-  - introduction/changes_from_c.md
+  - Changes from C: introduction/changes_from_c.md
 - Getting Started:
   - getting_started/installation.md
   - getting_started/my_first_project.md
