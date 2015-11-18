@@ -87,8 +87,8 @@ line describes which c-header should be included by the C-generation back-end.
 While C2 does not have header files or an *#include* mechanism, it does have *interface*
 files. These are similar to regular .c2 files, except for:
 
-* they have the .c2i extension (c2 inteface, get it?)w
-* function can have no bodies
+* they have the .c2i extension (c2 interface, get it?)
+* functions can have no body
 * every declaration must be public
 * the filename (except .c2i) must match the module name inside (eg foo.c2i -> module foo; )
 * there can be only one file per module
@@ -114,7 +114,7 @@ public func int32 sprintf(char* __s, const char* __format, ...);
 
 ##advantages of integrated library-support
 
-There are several additional advantages of integrating library support in the language:
+There are several additional advantages of integrating library support in the language
 
 ###Library finding
 c2c has an option *--showlibs* that searches the library paths and simply prints all
