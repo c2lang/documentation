@@ -40,7 +40,7 @@ __designer's note__:
 
 C2C does not use Clang's AST and Parser/Sema. This would have provided a *lot* of
 functionality out of the box. However, since C2 does not have forward declarations
-and does not requires any ordering on file level it requires multi-pass analysis.
+and does not require any ordering on file level, it requires multi-pass analysis.
 This does not fit at all into Clang's intra-structure that is based on C-like
 langugages, where there can be single pass compilation.
 
