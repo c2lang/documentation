@@ -112,6 +112,48 @@ public func int32 sprintf(char* __s, const char* __format, ...);
 
 ```
 
+## C2 library build process
+
+One of the goals of C2 is tight intergration with plain old C. So when building a
+library with C2, the developer has the option to either generate interface files for
+C, for C2 or for both. For C, this will mean generating *header-files*. For C2 this
+will mean generating a *manifest* and *.c2i files*.
+
+To make the situation a bit more complex, C2C also has a C-backend. So internally
+it can generate .c/.h files to build targets. These header files should not be
+confused with the interface headerfiles described above. To explain, see the image
+below.
+![build flow](build_libs.svg)
+A lot of things are happening here, so please take some time to study the image.
+In general, 3 things are shown:
+
+* build a C2-library called *mylib* (shown in grey boxes)
+* build a *C2*-application that uses mylib (shown in pink boxes)
+* build a *C*-application that uses mylib (shown in dark green boxes)
+
+Let's look at each of these in turn.
+###building mylib
+The box *C2 mylib sources* contains all the source files for the library. Using
+c2c, these are transformed into the results in *C2 mylib output*.
+
+To support C2 client programs, c2c optionally generates the *manifest*, *mylib.c2i*
+and *mylib_extra.c2i*. For C client programs, c2c can generate *mylib.h* and *mylib_extra.h*.
+Also the library itself *mylib.a* (in this case a static lib) is generated.
+
+Currently c2c uses a C-backend. This means that the C2 sources are transformed into
+C and then compiled using clang/gcc. This part in shown in the *c2c C-backend* box.
+
+###building C2-application
+So now we have a library and some c2 interface files. At this stage, we might be
+somebody else and not even have the sources. For the application, the developer
+writes *application.c2* and adds the mylib dependency in the *recipe* file. c2c
+will take care of the rest and generate the *application-binary*
+
+###building C-application
+The same library can also be used by C programs, by simply including the *mylib.h*
+and *mylib_extra.h* in *application.c*. This is no different then using any other
+c-library.
+
 ##advantages of integrated library-support
 
 There are several additional advantages of integrating library support in the language
