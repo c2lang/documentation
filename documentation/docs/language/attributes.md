@@ -13,6 +13,7 @@ Currently supported attributes are:
 * __inline__ (func)
 * __aligned__ (type, func, var), requires argument
 * __weak__ (func, var)
+* __opaque__ (public struct/union types)
 
 The standard syntax for all attributes is `@(  )`  (get it?!, @, at, attributes... ;) )
 
@@ -43,4 +44,30 @@ public func void init() @(export) {
 
 `NOTE: compiler-specific attributes will be required to start with an underscore,
 like _c3_my_attribute_, so other compilers can recognize and ignore them`
+
+## Opaque pointers
+
+The __opaque__ attributes deserves some special attention. It is used to implement
+the *opaque pointer* pattern in C2. See the Wikipedia article
+[Opaque Pointer](https://en.wikipedia.org/wiki/Opaque_pointer) for more background.
+
+In short, it's used to hide the implementation while handing the users a *handle* to
+pass to your library, maintaining type safety. The __opaque__ attribute can only
+be used on *public struct/union types* and tells the compiler that *other*
+modules can only use that type *by pointer* and are not allowed to dereference it.
+
+```c
+public type Handle struct {
+    ..   // members are not visible outside module
+} @(opaque)
+```
+
+when c2c generates an *interface file* (eg. module.c2i), it will only generate
+```c
+type Handle struct {} @(opaque)
+```
+
+Note that it is allowed to put other non-public types as full member inside
+a public, opaque struct, since the members are not visible outside the module.
+
 
