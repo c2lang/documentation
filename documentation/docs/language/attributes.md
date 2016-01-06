@@ -47,11 +47,12 @@ like _c3_my_attribute_, so other compilers can recognize and ignore them`
 
 ## Opaque pointers
 
-The __opaque__ attributes deserves some special attention. It is used to implement
+The __opaque__ attribute deserves some special attention. It is used to implement
 the *opaque pointer* pattern in C2. See the Wikipedia article
-[Opaque Pointer](https://en.wikipedia.org/wiki/Opaque_pointer) for more background.
+[Opaque Pointer](https://en.wikipedia.org/wiki/Opaque_pointer) for more background info.
 
-In short, it's used to hide the implementation while handing the users a *handle* to
+In short, Opaque pointers are used to hide the implementation while giving the users
+a *typed handle* to
 pass to your library, maintaining type safety. The __opaque__ attribute can only
 be used on *public struct/union types* and tells the compiler that *other*
 modules can only use that type *by pointer* and are not allowed to dereference it.
