@@ -89,7 +89,7 @@ files. These are similar to regular .c2 files, except for:
 
 * they have the .c2i extension (c2 interface, get it?)
 * functions can have no body
-* every declaration must be public
+* every declaration is public by default
 * the filename (except .c2i) must match the module name inside (eg foo.c2i -> module foo; )
 * there can be only one file per module
 
@@ -100,15 +100,15 @@ module stdio;
 
 // .. (stuff left out)
 
-public FILE* stdin;
-public FILE* stdout;
-public FILE* stderr;
+FILE* stdin;
+FILE* stdout;
+FILE* stderr;
 
-public func int32 fclose(FILE* __stream);
-public func int32 fflush(FILE* __stream);
-public func int32 fprintf(FILE* __stream, const char* __format, ...);
-public func int32 printf(const char* __format, ...);
-public func int32 sprintf(char* __s, const char* __format, ...);
+func int32 fclose(FILE* __stream);
+func int32 fflush(FILE* __stream);
+func int32 fprintf(FILE* __stream, const char* __format, ...);
+func int32 printf(const char* __format, ...);
+func int32 sprintf(char* __s, const char* __format, ...);
 
 ```
 
