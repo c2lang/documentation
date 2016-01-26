@@ -31,7 +31,9 @@ will result in:
 
 ## initialization
 
-Variable initialization also looks very similar to C, so
+C2 has some powerful variable initialization features.
+Initialization also looks very similar to C, so
+
 ```c
 type Data struct {
     int32 a;
@@ -48,6 +50,67 @@ Data[] mydata = {
 
 In C2, all global variables are automatically initialized with a default value
 if no explicit initialization is done.
+
+The examples below show some C2 initialization options.
+
+### array index designators
+```c
+int32[] array = {
+    [10] = 0,
+    [11] = 3,
+}
+
+// mixing index designators with default (incremental) initialization
+int32[4] array2 = {
+    0,
+    [3] = 3,
+    4,          // error: access elements in array initializer
+}
+
+// using enum constant as index designator value
+type Enum enum int8 {
+    FOO = 2,
+    BAR = 5,
+}
+
+int32[] array = {
+    [BAR] = 5,
+    0,          // index 6
+    [FOO] = 2
+    3,          // index 3
+    4,
+    5,          // error: duplicate initialization of array index
+}
+
+// using non-compile-time constant as index value is not allowed
+int32 a = 1;
+const int32 b = 2;
+
+int32 array2 = {
+    [a] = 1,    // error: initializer element is not a compile-time constant
+    [b] = 2,
+}
+```
+
+### field designators
+Field designators initialize struct members by name.
+```c
+// basic struct fields
+
+type Point struct {
+    int32 x;
+    const uint8* name;
+}
+
+Point[] array = {
+    { 1, "one" },   // basic struct initialization
+
+    { .x = 3, .name = "three" },    // using field designators
+
+    { 4, .name = "four" },  // error: mixing field designator with non-field designators
+}
+```
+
 
 ## incremental arrays
 A special feature in C2 are incremental arrays. These can be used to avoid messy macros when
