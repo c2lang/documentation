@@ -25,6 +25,7 @@ pages:
   - Export Control: build_system/symbols.md
   - C2 Module: build_system/c2module.md
   - External Libraries: build_system/libraries.md
+  - build_system/diagnostics.md
 - Development:
   - development/contributing.md
   - development/internals.md
