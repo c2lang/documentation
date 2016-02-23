@@ -51,3 +51,17 @@ Any output will be put in the *output/* directory in the root of the project. In
  the output directory, each target will have its own folder.
 Therefore, to *make clean* just means to remove this directory.
 
+## Options
+
+Inside a target, the following options are available:
+
+ * *config [names]* - specify definitions, like #define feature1
+ * *export [modules]* - exports the modules in libraries and generated headers
+ * *generate-c* - enables generation of C code
+ * *generate-ir* - enables generation of LLVM IR code
+ * *warnings [list]* - enable/disable specific warnings during compilation
+ * *deps [options]* - enable generation of dependency file with certain options
+ * *refs* - generate reference file (used for jumping to definition)
+ * *use [libs]* - depend on given libraries
+
+
