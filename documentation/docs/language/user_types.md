@@ -1,7 +1,7 @@
 
 The syntax to define new types is very standard and uniform: `type <name> <definition>`
 Like all global declarations, they may also have the __public__ specifier in front.
-Note that the __public__ specifier is required when the type is used as a parameter or return type 
+Note that the __public__ specifier is required when the type is used as a parameter or return type
 of a public symbol
 
 The definition can be:

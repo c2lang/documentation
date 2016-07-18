@@ -13,6 +13,7 @@ pages:
   - getting_started/my_first_project.md
 - C2 Language:
   - language/basics.md
+  - language/naming.md
   - language/basic_types.md
   - User-defined types: language/user_types.md
   - language/variables.md

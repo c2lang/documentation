@@ -55,7 +55,7 @@ Point[4] b;
 ```
 
 For array types, C2 introduces a new operator, namely __elemsof()__. This returns the number
-of elements in an array and avoid C macros like:
+of elements in an array and avoids C macros like:
 ```c
 #define ARRAY_SIZE(x) ( sizeof(x) / sizeof(x[0]) )
 ```

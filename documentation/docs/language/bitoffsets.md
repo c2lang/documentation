@@ -32,7 +32,7 @@ Overflows are checked and produce errors, like
 uint32 value1 = 0xffff;
 uint8 a = value1[15:0];    // warning{implicit conversion loses integer precision 'uint16' to 'uint8'}
 
-const uint32 value2 = 0x1234;
-int8 b = value2[6:0] + 100;  // error{constant value 152 out-of-bounds for type 'int8', range [-128, 127]}
+const uint32 Value2 = 0x1234;
+int8 b = Value2[6:0] + 100;  // error{constant value 152 out-of-bounds for type 'int8', range [-128, 127]}
 
 ```
