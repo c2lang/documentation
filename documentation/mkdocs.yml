@@ -21,6 +21,7 @@ pages:
   - language/modules.md
   - language/attributes.md
   - language/bitoffsets.md
+  - language/struct_functions.md
 - Build system:
   - build_system/intro.md
   - Export Control: build_system/symbols.md
