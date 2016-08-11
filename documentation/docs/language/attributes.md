@@ -1,3 +1,4 @@
+## Attributes
 
 C2 incorporates standardized __attributes__. There can also be compiled-specific attributes
 to do all sort of funky things compilers do.
@@ -45,7 +46,7 @@ public func void init() @(export) {
 `NOTE: compiler-specific attributes will be required to start with an underscore,
 like _c3_my_attribute_, so other compilers can recognize and ignore them`
 
-## Opaque pointers
+### Opaque pointers
 
 The __opaque__ attribute deserves some special attention. It is used to implement
 the *opaque pointer* pattern in C2. See the Wikipedia article

@@ -2,8 +2,10 @@
 Because C2 is an _evolution_ of C, this page summarizes the
 _changes_ made and the design philosophy behind it.
 
-TODO this page is in progress
+*TODO this page is in progress*
 
+
+### Language changes
 
 * no Header files
     consequence: import statement, and modules
@@ -16,4 +18,25 @@ TODO this page is in progress
     philosophy: remove clutter/reduce change effort
 
 * Unified type definitions
+
+* [Standardized attribute syntax](../language/attributes)
+
+* better external library control
+
+
+### New Features
+C2 also introduces some *NEW* features:
+
+* [BitOffsets](../language/bitoffsets)
+
+* [Struct-functions](../language/struct_functions.md)
+
+* [Modules](../language/modules)
+
+* [Internal build-system](../build_system/intro)
+
+* [Incremental arrays](../language/variables/#incremental-arrays)
+
+* More tooling integration, like dependency and refs file generation
+
 
