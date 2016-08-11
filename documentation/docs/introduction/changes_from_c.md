@@ -19,6 +19,8 @@ _changes_ made and the design philosophy behind it.
 
 * Unified type definitions
 
+* All globals variables are initialized by default
+
 * [Standardized attribute syntax](../language/attributes)
 
 * better external library control

@@ -13,6 +13,7 @@ only on `non-global` ones. Easy.
 ### local keyword
 
 The __local__ keyword has the same meaning as the __static__ keyword when used on local
+(as in non-global)
 variables in C; their lifetime is bigger then the function. for example calling the function below
 3 times
 ```c
