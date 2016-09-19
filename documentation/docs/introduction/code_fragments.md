@@ -131,15 +131,13 @@ type Person struct {
 
 // the + indicates 'persons' is an incremental array
 // the attribute indicates that the data should be placed into the indicated section
-Person[+] persons @(section="__DATA, .mydata") = {
-    { "John",  10 },
-    { "Anna",  20 },
-    { "Peter", 30 },
-}
+Person[+] persons @(section="__DATA, .mydata");
 
-// ..
+persons += { "John",  10 }
+persons += { "Anna",  20 }
+persons += { "Peter", 30 }
 
-// you can add more entries later (in the same file)
+// you can add more entries later (in the same/other file of the same module)
 persons += { "Alice", 40 }
 
 func void demo_elemsof() {
