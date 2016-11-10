@@ -77,6 +77,20 @@ func void demo_enum(Height h) {
 }
 ```
 
+To prevent having to add artificial enum constants to determine the range of an enum (for int to enum
+conversion etc), C2 adds two keywords _enum_min_ and _enum_max_.
+
+```c
+type State enum uint32 {
+    Start,
+    Stop,
+}
+
+// enum_min/max() are compile time constant, just like sizeof() and elemsof()
+const uint32 lowest = enum_min(State);
+const uint32 highest = enum_max(State);
+```
+
 ### struct types
 ```c
 type Callback func int32(char c);

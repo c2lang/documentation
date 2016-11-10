@@ -14,6 +14,7 @@ pages:
 - C2 Language:
   - language/basics.md
   - language/naming.md
+  - language/keywords.md
   - language/basic_types.md
   - User-defined types: language/user_types.md
   - language/variables.md
