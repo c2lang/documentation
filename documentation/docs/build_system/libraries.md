@@ -56,6 +56,7 @@ to C2 modules. This mechanism is the *manifest* file.
 
 [library]
 language = "C"
+type = [ "static", "dynamic" ]
 
 [[modules]]
 name = "stdio"
@@ -83,6 +84,28 @@ the symbol *printf*, not *stdio_printf*.
 The rest of the file maps specific C headers files to C2 modules. Optionally, the *header*
 line describes which c-header should be included by the C-generation back-end.
 
+It's also possible to specify dependencies of a library in the manifest file:
+
+```toml
+...
+
+[[deps]]
+name = "libc"
+type = "dynamic"
+
+...
+```
+
+To specify the link name to use (what is passed to -l option, eg -lmyname)
+
+```toml
+[library]
+language = "C"
+type = [ "dynamic" ]
+linkname = "z"
+```
+
+
 ###interface files
 While C2 does not have header files or an *#include* mechanism, it does have *interface*
 files. These are similar to regular .c2 files, except for:
@@ -98,19 +121,33 @@ Part of *stdio.c2i* looks like this:
 ```c2
 module stdio;
 
-// .. (stuff left out)
+import c2 local;
 
 FILE* stdin;
 FILE* stdout;
 FILE* stderr;
 
-func int32 fclose(FILE* __stream);
-func int32 fflush(FILE* __stream);
-func int32 fprintf(FILE* __stream, const char* __format, ...);
-func int32 printf(const char* __format, ...);
-func int32 sprintf(char* __s, const char* __format, ...);
+func c_int fclose(FILE* __stream);
+func c_int fflush(FILE* __stream);
+func c_int fprintf(FILE* __stream, const c_char* __format, ...);
+func c_int printf(const c_char* __format, ...);
+func c_int sprintf(c_char* __s, const c_char* __format, ...);
 
+// .. (stuff left out)
 ```
+C2 has special types for creating interface files of C libraries. These are in the C2 module:
+
+* c_char
+* c_int
+* c_uint
+* c_long
+* c_ulong
+* c_size
+* c_ssize
+* c_longlong
+* c_float
+* c_double
+
 
 ## C2 library build process
 
@@ -148,6 +185,17 @@ So now we have a library and some c2 interface files. At this stage, we might be
 somebody else and not even have the sources. For the application, the developer
 writes *application.c2* and adds the mylib dependency in the *recipe* file. c2c
 will take care of the rest and generate the *application-binary*
+
+The recipe with a dependency looks like:
+
+```toml
+executable myapp
+    $use mylib static
+    myapp.c2
+end
+```
+So the user of a lib must specify whether to use the dynamic/static version.
+
 
 ###building C-application
 The same library can also be used by C programs, by simply including the *mylib.h*
