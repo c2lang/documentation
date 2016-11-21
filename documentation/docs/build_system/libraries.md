@@ -60,19 +60,15 @@ type = [ "static", "dynamic" ]
 
 [[modules]]
 name = "stdio"
-header = "stdio.h"
 
 [[modules]]
 name = "stdlib"
-header = "stdlib.h"
 
 [[modules]]
 name = "string"
-header = "string.h"
 
 [[modules]]
 name = "strings"
-header = "strings.h"
 ```
 
 The manifest file uses the [TOML-format](https://github.com/toml-lang/toml). The
