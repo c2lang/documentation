@@ -25,7 +25,7 @@ public func int32 main(int32 argc, char*[] argv) {
 
 `recipe.txt`
 ```ini
-target hello
+executable hello
   $warnings no-unused
   $generate-c
   hello.c2
