@@ -1,10 +1,10 @@
 
 A new feature in C2 are __bit-offsets__.
 
-NOTE: dont confuse __bit-offsets__ with __bit-fields__, which are x-bit wide fields inside a
-struct member.
+NOTE: Dont confuse __bit-offsets__ with __bit-fields__, which are x-bits wide fields inside a
+struct for memory conservation.
 
-Bit-offsets are used in code that often needs to fetch certain bits from registers, like
+Bit-offsets are used in code that often needs to fetch certain bits from registers, such as
 driver code.
 
 The syntax of a bit-offset is `value[<highest bit>:<lowest bit>]`.
