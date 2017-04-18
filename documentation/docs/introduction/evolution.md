@@ -1,7 +1,7 @@
 
 __NOTE:
-while might be seen as critique on C, they are not. C is an
-awesome language that survived the test of time for more than 40 years!
+While this might be seen as critique of C, it is not. C is an
+awesome language that has survived the test of time for more than 40 years!
 Respect to its designer...__
 
 *"Evolution consists of mutation and selection.."*
@@ -12,39 +12,43 @@ Things that are seen as *bad* nowadays and can be improved:
 
 - header-file includes.
 - complex/un-readable type syntax
- (can you read ```char *(*(**foo [][8])())[];```?)
+  (can you read ```char *(*(**foo [][8])())[];```? see the bottom of the page for the correct answer)
 - very hard for tooling
-- needs external build system
+- needs an external build system
 
-C was designed in an era when the compiler had to do with very limited processing
-power and memory. Nowadays these restrictions simply don't apply anymore and it would
-be better to put more work on the compiler instead of on the developer.
+C was designed in an era when the compiler had to work with very limited processing
+power and memory. Nowadays, these restrictions simply don't apply anymore and it would
+be better to put more work into the compiler instead of onto the developer.
 
-One of the major show-stoppers in C is the use of header-file includes. The clang
+One of the major show-stoppers in C is the use of header file includes. The clang
 website has a [very nice article](http://clang.llvm.org/docs/Modules.html#problems-with-the-current-model) on
 the problems of #include.
 Because #includes are recursive, the compiler often has to parse and analyse a lot more
 then just your code. Tests on regular C code have shown the factor of user code / external code
-to be roughly 50 times. So for every line you provide, the compiler needs to parse and
+to be roughly 1 to 50. So for every line of code you write, the compiler needs to parse and
 analyse 50 lines!
 
-Additionally, the frequent use of preprocessor macros gives headaches to tool developers
+Additionally, frequent use of preprocessor macros gives headaches to tool developers
 and code analysers.
 
 ## overview of changes
 This section describes the main differences between C and C2.
 
 ### no header files
-C2 uses a modern approach to using external symbols. There is only one type
-of file, .c2 source files. To replace the ```#include```, there is an __import__
-statement. Also all sources are put into [Modules](../language/modules.md).
+C2 uses a modern approach for usage of external symbols. There is only one type
+of files, the **.c2** source files. To replace the ```#include```, there is an __import__
+statement. Also all source code is divided into [Modules](../language/modules.md). Having modules
+as compilation units rather than plain files allows extra flexibility, especially since a module
+can span over several files, which can be taken in and out at will if needed.
 
-__no ordering__
+__no mandatory declaration ordering__
 
-Also there are no *forward declarations* of any kind. Each declaration is just
-defined in a single place. This implies no ordering requirements within a source
-file. So top level declarations can be written in any order. The example below
-is valid
+There are no *forward declarations* in C2 of any kind. Each declaration is just
+defined in a single place. This implies that there are no ordering requirements
+of any kind within a source file. That means that top level declarations can be
+written in any order, which allows the programmer to sort their declaration in a
+way that suites them and their needs the most rather than the way the compiler
+dictates as it is with C. The example below is valid:
 
 ```c
 // type Number and global variable n are used here
@@ -58,7 +62,7 @@ type Number int32;
 ```
 
 ### integrated build system
-Integrating the build system into the compiler may seem restrictive, but actually
+Integrating the build system into the compiler may seem restrictive, but it actually
 enables a lot of improvements. See [this page](../build_system/intro.md) for a
 description of the build system.
 
@@ -68,24 +72,24 @@ The image below show the difference between traditional C compilation and C2 com
 
 In C, the compiler is called separately for each .c file and asked to parse and
 analyse it, then generate the object code. Afterwards, all object files are linked
-into an executable or library.
+into an executable or a library.
 
-In C2, all files are first parsed, then all files are analysed in successive passes.
-Only if there are no errors, is code generation started.
+In C2, all files are first parsed, then analysed in successive passes.
+Only when there are no errors is the code generation started.
 
 The code generation (and optimization) steps require a lot of time. So if you have
 100 C source files and the 99th file has a syntax error, the compiler has to go through
-a lot of work before showing the diagnostic. In C2 it would only take very little time.
+a lot of work before showing the diagnostic. In C2 it only takes very little time.
 So during development, developers never have to wait for diagnostic messages.
 
 ### compilation per target, not file
-One feature the integrated build system offers, is an easy way for developers to
+One feature the integrated build system offers is an easy way for developers to
 have control over how their code is built. Traditionally, C programs are compiled
 as follows:
 ![ansic](build_ansic.svg)
-So each source file in turned into an LLVM module (IR code). The LLVM module is the
-scope for the optimization pass. Then object code is generated (.o file). So the
-optimizer passes only get a single piece of the puzzle each time.
+So each source file is turned into an LLVM module (IR code). The LLVM module is the
+scope for the optimization pass. Then object code is generated (the **.o** file), which means
+the optimizer passes only get a single piece of the puzzle each time.
 
 In C2 the developer can choose between 2 modes: single module or multiple modules.
 In multi-modules mode (the default), all source files within the same C2 module are
@@ -99,11 +103,11 @@ optimization' in C is very hard for any realistic size project. In C2 it can be 
 enabled in the recipe file.
 ![single](build_single.svg)
 
-Also the *visibility* of symbols in the resulting binary can be easily controlled
+Also the *visibility* of the symbols in the resulting binary can be easily controlled
 without the use of linker scripts or special tools as described in the
 [Export control section](../build_system/symbols.md).
 
-For more information about targeting and the build system, 
+For more information on targeting and the build system,
 please visit [Build system section](../build_system/symbols.md).
 
 ### built-in primitive types
@@ -115,36 +119,36 @@ C2 provides the following built-in primitive types:
 * __float32__, __float64__
 * __char__ (equal to int8)
 
-The default __int__ and __float__ types have been removed, as have type modifier like
-__short__, __long__, __signed__, __unsigned__.
+The default __int__ and __float__ types have been removed along with type modifiers such as
+__short__, __long__, __signed__, or __unsigned__.
 
 The `NULL` macro, has been replaced by the __nil__ keyword.
 
 ### uniform type (definition) syntax
 Type definitions in C are sometimes hard to read. Also the syntax is a bit weird with
-the typedef's. C2 provides a uniform syntax to define new types, as shown
+the typedef's. C2 provides uniform syntax to define new types, as shown
 [here](../language/user_types.md).
 
 ### stricter diagnostics
-Most project in C lose quite some time tweaking the warning levels. To get optimal
-diagnostics from a C compilers requires passing a lot of options.
+A lot of projects in C lose quite some time tweaking the warning levels. Getting optimal
+diagnostics from a C compiler requires passing it a lot of options.
 
 The C2 language only uses a few warnings (mostly about unused import/type/var/function/etc).
-All other diagnostics are simply an error.
+All the other diagnostics are simply an error.
 Examples of errors in C2:
 
-* using uninitialized variable
+* using an uninitialized variable
 * not returning anything from non-void function
 * some type conversions
 
 Thanks to the stricter diagnostics, c2c tells you where exactly the error is located,
 what kind of error is it, as well as showing a possible fix in some cases, for example for
-a missing semicolon after a function call. Again, this speeds up develepment time, because
+a missing semicolon after a function call. Again, this speeds up development time, because
 you don't need to frantically search for the root of your problem for as much time as in C.
 
 ### attributes
 The C2 language design includes [attributes](../language/attributes.md). Out of the box,
-C2 supports standardized attributes. Compiler-specific once are also still possible. This simplifies
+C2 supports standardized attributes. Compiler-specific ones are also still available. This simplifies
 the development of multi-platform code.
 
 ### tooling
@@ -157,3 +161,7 @@ C2 also introduces some new features:
 * [incremental arrays](../language/variables.md#incremental-arrays)
 * [c2 pseudo-module](../build_system/c2module.md)
 
+
+
+#### correct answer for the type declaration above
+foo is an array of arrays of 8 pointers to pointers to a function returning a pointer to an array of char pointers.
