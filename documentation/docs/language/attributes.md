@@ -1,9 +1,9 @@
 ## Attributes
 
-C2 incorporates standardized __attributes__. There can also be compiled-specific attributes
-to do all sort of funky things compilers do.
+C2 incorporates standardized __attributes__. There can also be compiler-specific attributes
+to do all sorts of funky things the compilers do.
 
-Currently supported attributes are:
+The currently supported attributes are:
 
 * __export__ (type, func, var)
 * __packed__ (type)
@@ -52,7 +52,7 @@ The __opaque__ attribute deserves some special attention. It is used to implemen
 the *opaque pointer* pattern in C2. See the Wikipedia article
 [Opaque Pointer](https://en.wikipedia.org/wiki/Opaque_pointer) for more background info.
 
-In short, Opaque pointers are used to hide the implementation while giving the users
+In short, opaque pointers are used to hide the implementation while giving the users
 a *typed handle* to
 pass to your library, maintaining type safety. The __opaque__ attribute can only
 be used on *public struct/union types* and tells the compiler that *other*
@@ -69,7 +69,7 @@ when c2c generates an *interface file* (eg. module.c2i), it will only generate
 type Handle struct {} @(opaque)
 ```
 
-Note that it is allowed to put other non-public types as full member inside
-a public, opaque struct, since the members are not visible outside the module.
+Note that it is allowed to put other non-public types as full members inside
+a public opaque struct, since the members are not visible outside the module.
 
 
