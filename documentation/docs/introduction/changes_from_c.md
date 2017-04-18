@@ -1,5 +1,5 @@
 
-Because C2 is an _evolution_ of C, this page summarizes the
+Since C2 is an _evolution_ of C, this page is here to summarize the
 _changes_ made and the design philosophy behind it.
 
 *TODO this page is in progress*
@@ -8,18 +8,18 @@ _changes_ made and the design philosophy behind it.
 ### Language changes
 
 * no Header files
-    consequence: import statement, and modules
+    consequence: import statement and modules
 
 * no forward declarations
     philosophy: types the same thing twice, reduces development speed
-    consequence: needs multi-pass compiler
+    consequence: requires a multi-pass compiler
 
 * member access always through '.', not sometimes '->'
     philosophy: remove clutter/reduce change effort
 
 * Unified type definitions
 
-* All globals variables are initialized by default
+* All global variables are initialized by default
 
 * [Standardized attribute syntax](../language/attributes)
 
@@ -39,6 +39,6 @@ C2 also introduces some *NEW* features:
 
 * [Incremental arrays](../language/variables/#incremental-arrays)
 
-* More tooling integration, like dependency and refs file generation
+* More tooling integration like dependency and refs file generation
 
 
