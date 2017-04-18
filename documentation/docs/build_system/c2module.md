@@ -18,8 +18,11 @@ public func int32 main(int32 argc, char*[] argv) {
 No need for dirty macros, code-generation scripts etc...
 
 In addition, the C2 module also holds some commonly used symbols. This way, no symbols
-have to be placed at the global namespace and thus naming conflict can always be
-resolved by a programmer.
+have to be placed at the global namespace and thus a naming conflict can always be
+resolved by the programmer.
 
 See [Basic types](../language/basic_types.md) for a list of symbols.
+
+The C2 also contains several C types used to map C functions to C2's interface files.
+See [External Libraries](libraries/) for information on the types and interface files.
 
