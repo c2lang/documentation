@@ -9,6 +9,6 @@ Analyser | 60% | needs improved *type checking*, *un-initialized* diagonostics
 C generator | 95% | some corner cases still need to be implemented
 IR generator | 5% | basically only *Hello World* works (functions, strings, function calls)
 
-So the short status would be that for playing around with the language using the C-generation
+So the short status would be that for playing around with the language using the C-generating
 back-end, it's pretty usable.
 
