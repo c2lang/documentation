@@ -1,9 +1,9 @@
 
 ## primitive types
 
-C2 has the following builtin primitive types:
+C2 has the following built-in primitive types:
 
-* __bool__. can be __true__ or __false__
+* __bool__. can be either __true__ or __false__
 * __int8__, __int16__, __int32__, __int64__. The signed types
 * __uint8__, __uint16__, __uint32__, __uint64__. The unsigned types
 * __float32__, __float64__. Floating point types
@@ -15,7 +15,7 @@ Note that C2 does __not__ have any type specifiers like __signed__, __unsigned__
 
 ### c2 pseudo-module ###
 The c2compiler always has a pseudo module called __c2__. This module is used to
-store some language symbols like min/max values and things like build-time, etc.
+store some language symbols such as min/max values and things like build time, etc.
 For each integer type there exists a min/max value:
 
 * __min_int8__, __max_int8__
@@ -33,6 +33,9 @@ import c2;
 
 int32 highest = c2.max_int32;
 ```
+
+It also includes some C type for mapping C declarations in libraries to C2 interface types.
+See [External Libraries](../build_system/libraries/) for more information.
 
 ## pointer types
 
