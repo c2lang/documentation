@@ -1,9 +1,9 @@
 ## modules
 
-Like many other modern languages, C2 has the concept of `modules`. Modules are
+Like many other modern languages, C2 uses the concept of `modules`. Modules are
 used to create logical groups of functions, types and variables. Each __.c2__
 file has to start with the __module__ keyword, specifying which module it belongs
-to. A module can consist of several files, such as:
+to. A module can consist of several files, for example:
 
 `file1.c2`
 ```c
@@ -27,13 +27,13 @@ module bar;
 ```
 
 file1.c2 and file2.c2 belong to the same module, `foo`, while file3.c2 belongs to
-module `bar`.
+the module `bar`.
 
-Modules allow a developer to split functionality into several files, *without*
-sacrificing speed or adding complexity.
+Modules allow the developer to split functionality into several files, *without*
+sacrificing speed or introducing extra complexity.
 
 ## import
-To have a file use declarations from another module, it must __import__ that module.
+For a file to use declarations from another module, it must __import__ said module.
 The __import__ keyword has a file scope. Therefore, if `file1.c2` imports module `stdio`,
 `file2.c2` still cannot use `stdio`'s symbols, unless it imports `stdio` as well.
 
@@ -60,9 +60,9 @@ import net;
 So `file1.c2` can use external symbols from `file` and `storage`, while `file2.c2`
 can only use symbols from `file` and `net`.
 
-One big advantage of not using c-style header-file includes is that no filenames will
-ever appear in the code. So renaming/moving the files for some modules requires NO
-change in other code whatsoever, even if it uses that module!! Powerful stuff.
+One big advantage of not using C-style header-file includes is that no filenames will
+ever appear in the code. This means renaming/moving the files of modules requires
+**NO** change to other code whatsoever, even if said code uses the module itself!! Powerful stuff.
 
 ## symbol visibility
 
@@ -78,8 +78,8 @@ public func void init() { .. }
 func void open() { .. }
 ```
 
-So other modules can use the `init()` function after importing foo, but only files in the
-`foo` module can use `open()`.
+In this example, the other modules can use the `init()` function after importing foo, but
+only files in the `foo` module can use `open()`.
 
 ## symbol resolving
 To access symbols of other modules, the module prefix is added, followed by a dot:
@@ -97,25 +97,25 @@ func void test() {
 }
 ```
 A global symbol is only allowed ONCE per module, whether __public__ or not. This makes
-`module.symbol` unique. In the example above, both modules `one` and `two` have the
-`test` symbol.
+`module.symbol` unique. In the example above, all three modules have the
+`test` symbol, but no clash occurs, since it is always apparent from which module which symbol comes.
 
 ### import as
-When importing a module with a long name, C2 allows aliasing the module name (applies for the
-current file only!), like:
+When importing a module with a long name, C2 allows aliasing the module name (applied to the
+current file only!), like this:
 
 ```c
 module foo;
 
 import extended_filesystems_io as fs;
 ```
-external symbols can now use the shorter `fs` prefix. Even now, using the full name is allowed!
+external symbols can now use the shorter `fs` prefix. Even after aliasing, using the full name is still allowed!
 
 ### import local
 When using a lot of external symbols, the constant prefixing can be cumbersome. C2
 allows using the external symbols of a module directly (without any prefix) when the
 import statement is followed by the keyword __local__. This can also be combined with
-the __as__ keyword, making the prefix optional.
+aliasing (the __as__ keyword), making the prefix completely optional.
 ```c
 import networking as net local;
 import filesystem local;
@@ -123,11 +123,11 @@ import filesystem local;
 Symbols of both `networking` and `filesystem` can be used without prefix. If a symbol
 can be resolved unambiguously (for the current module and set of imports), the module
 prefix is optional. So if both `networking` and `filesystem` have a function called `open()`,
-it will still have to be prefixed, since C2 allows no ambiguous symbol use.
+it will still have to be prefixed, since C2 does not allow usage of ambiguous symbols.
 
-The result of __modules__ and the __import .. (as ..) (local)__, is that there is no
+The result of __modules__ and the __import .. (as ..) (local)__ is that there is no
 need to constantly prefix the __definition__ part of the code anymore. In C it is common
-for a library to prefix all symbols, to avoid name-clashes, for example:
+for a library to prefix all symbols to avoid name clashes, for example:
 
 `networking.h`
 ```c
