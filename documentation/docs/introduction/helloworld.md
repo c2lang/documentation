@@ -1,5 +1,5 @@
 
-Enough philosophy, let's talk code, let's talk Hello world...
+Enough philosophy, let's talk code, let's talk Hello world!
 
 `hello.c2`
 ```c
@@ -13,7 +13,7 @@ func int32 main(int32 argc, char*[] argv) {
 }
 ```
 
-Spot the __six__ differences.. (with C)
+Spot the __six__ differences from C:
 Scroll down for the answer
 
 .
@@ -32,7 +32,7 @@ Scroll down for the answer
 
 .
 
-Here they are:
+Here it is:
 
 1. __module__ keyword, see [modules](../language/modules.md)
 2. __import__ replaced #include, see [Import](../language/modules.md#import)
