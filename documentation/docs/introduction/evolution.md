@@ -37,9 +37,7 @@ This section describes the main differences between C and C2.
 ### no header files
 C2 uses a modern approach for usage of external symbols. There is only one type
 of files, the **.c2** source files. To replace the ```#include```, there is an __import__
-statement. Also all source code is divided into [Modules](../language/modules.md). Having modules
-as compilation units rather than plain files allows extra flexibility, especially since a module
-can span over several files, which can be taken in and out at will if needed.
+statement. Also all source code is divided into [Modules](../language/modules.md).
 
 __no mandatory declaration ordering__
 
