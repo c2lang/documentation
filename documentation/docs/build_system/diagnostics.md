@@ -1,10 +1,10 @@
 
-One of the perks of telling the compiler everything, is that it can do much more
+One of the perks of telling the compiler everything is that it can do much more
 for you. This page describes some of the special ones.
 
 ## Unused warnings
-Most diagnostic messages will be errors, but of the warnings, unused are the most
-common.
+Most diagnostic messages will be errors, but out of the warnings, warnings for unused
+symbols are the most common.
 
 ### unused variables
 
@@ -19,7 +19,7 @@ public func void foo() {
 ```
 
 ### functions
-All functions of the entire program can be checked for used.
+All functions of the entire program can be checked for usage.
 
 ```c
 module test;
