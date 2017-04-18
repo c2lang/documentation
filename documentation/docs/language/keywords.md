@@ -3,7 +3,7 @@
 
 C2 has the following keywords:
 
-### Generic
+### Module related
 * module
 * import
 * as
