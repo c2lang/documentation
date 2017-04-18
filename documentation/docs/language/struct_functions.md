@@ -1,7 +1,7 @@
 
-Another new feature in C2 is __struct-functions__.
+Another new feature in C2 are the __struct-functions__.
 
-Struct-functions is a _syntatic-sugar_ feature that makes code more readable.
+The struct-functions are a _syntatic-sugar_ feature that makes code more readable.
 
 The example below shows how it works:
 
@@ -31,14 +31,14 @@ func void example() {
 ## rules
 * struct-functions only work on struct/union types
 * struct-functions are defined in the same module as the struct (not necessary the same file!)
-* for a type type named _Foo_, struct functions must start with _foo\__. So the initial character changes to lower case and the name
-    is followed by an underscore.
+* for a type type named _Foo_, struct functions must start with _foo\__ prefix. The initial character is
+    changed to lower case and the name is followed by an underscore
 * there cannot be a regular member _x_ and a struct function _foo\_x_.
-* a static struct-functions is called on the type itself: Foo.myfunc(); It's not allowed
-    to call this on a variable.
+* a static struct-function is called on the type itself: Foo.myfunc(); It's not allowed
+    to call this on a variable
 * a static struct-function has no argument requirements
-* a (non-static) struct-functions is required to have 'Type\*' or 'const Type\*' as first argument
-* it's not allowed to use a struct-function for other uses then for a call. So 'Ptr p = var.init'
+* a (non-static) struct-function is required to have 'Type\*' or 'const Type\*' as the first argument
+* it's not allowed to use a struct-function for other uses than to be called. So 'Ptr p = var.init'
     will result in an error
 * sub-structs cannot have struct functions
 
@@ -79,8 +79,8 @@ for more examples, see the tests in _c2compiler/test/Functions/struct_functions/
 
 ###bigger example
 
-Or another example, also using opaque pointers:
-Module inner offers an API:
+Or another example, which also uses the opaque pointers:
+Module __inner__ offers an API:
 
 ```c
 module inner;
@@ -116,7 +116,7 @@ public func void shape_free(Shape* shape) {
 }
 ```
 
-is used by outer:
+which is used by module outer:
 
 ```c
 module outer;
@@ -130,7 +130,7 @@ func void example() {
 }
 ```
 
-_NOTE_: outer is not allowed access Shape's regular members directly.
+_NOTE_: outer is not allowed to access Shape's regular members directly.
 
 Since struct-functions are _syntactic-sugar_, the same example can also be done
 without them:
@@ -142,8 +142,8 @@ import inner local;
 
 func void example() {
     Shape* s = shape_create(3);
-    shape_print(&s);
-    shape_free(&s);
+    shape_print(s);
+    shape_free(s);
 }
 ```
 
