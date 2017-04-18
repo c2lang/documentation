@@ -6,30 +6,30 @@ This section describes how the C2 compiler (c2c) is structured.
 
 Each component will be described in detail below. The colors mean:
 
-- green: used un-modified
-- light blue: not-used
+- green: used unmodified
+- light blue: not used
 - blue: new components
 - orange: modified from the original
 
 ### LLVM
-The [LLVM Project](http://llvm.org) provides great building block for
+The [LLVM Project](http://llvm.org) provides great building blocks for
 compilers. Just what we need!
 
 __IR__ (Intermediate Representation) is roughly an assembly-like language
 and is used as input for LLVM. On the IR code, various optimizations can be
-applied and code can be generated for various targets (like ARM, PowerPC, X86, etc)
-Additionally the LLVM code holds many util-like functionality.
+applied and code can be generated for various targets (like ARM, PowerPC, X86, etc.).
+Additionally the LLVM code holds much utility functionality.
 
-For C2 we use LLVM unmodified!
+For C2 we use the LLVM unmodified!
 
 ### Clang
 [Clang](http://clang.llvm.org) is a C/C++/Objective-C compiler that uses
-LLVM as back-end. Very briefly, it works like this.
+LLVM as its back-end. Very briefly, it works like this:
 
 Clang has a __Lexer__ that provides symbols to the __Parser__. The Parser then calls
 the  __Sema__ (Semantic Analyser) to do analysis and build up the __AST__ (abstract syntax tree).
 The __CodeGen__ components take the __AST__ and convert it into __IR__ code for LLVM.
-To support this, there are various Util libraries and a __Diagostics__ component to
+For this, there are various Util libraries and a __Diagostics__ component to
 display beautiful error messages.
 
 Both LLVM and Clang are compiled into roughly 50 static libraries that can
@@ -40,9 +40,9 @@ __designer's note__:
 
 C2C does not use Clang's AST and Parser/Sema. This would have provided a *lot* of
 functionality out of the box. However, since C2 does not have forward declarations
-and does not require any ordering on file level, it requires multi-pass analysis.
-This does not fit at all into Clang's intra-structure that is based on C-like
-langugages, where there can be single pass compilation.
+and does not require any ordering on file level, a multi-pass analysis is required.
+This does not fit into Clang's infrastructure all, since it is based on C-like
+languages, where can be just a single pass compilation.
 
 
 ### C2 Compiler
