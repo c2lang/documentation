@@ -1,10 +1,10 @@
 
 ## naming
 
-Unlike many other languages, C2 enforces the way way elements of the language
+Unlike many other languages, C2 enforces the way the elements of the language
 are named. This is done to unify coding styles and make it easier to read the
-code. Currently only the first character of a name is enforced as either Upper
-cased or lower cased, depending on the type of element.
+code. Currently only the first character of a name is enforced as either Upper-cased
+or lower-cased, depending on the type of element.
 
 Elements that must start with a *lower* cased character:
 
