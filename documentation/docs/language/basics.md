@@ -1,7 +1,7 @@
 
 ## comments
 
-C2 allows comments in the same way as C. Thus 2 forms are available:
+C2 comments work in the same way as C's. Thus both forms are available:
 
 ```c
 // a one line comment
@@ -13,7 +13,7 @@ C2 allows comments in the same way as C. Thus 2 forms are available:
 
 ## semi-colons
 
-Every statement in C2 is followed by a semi-colon, __except__ when it ends with
+Every statement in C2 is followed by a semicolon, __except__ when it ends with
 a __right-hand brace__: } !!
 Trailing attributes never change the rule above.
 
