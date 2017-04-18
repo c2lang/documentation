@@ -1,5 +1,5 @@
 
-variables in C2 look a lot like variables in C (on purpose), so:
+Variables in C2 look a lot like variables in C (on purpose), so:
 
 ```c
 int32 counter = 0;
@@ -7,15 +7,15 @@ public bool hasBool = false;
 Point* p = nil;
 ```
 
-the __public__ keyword can only be used for `global` variables. The __local__ keyword
+The __public__ keyword can only be used for `global` variables. The __local__ keyword
 only on `non-global` ones. Easy.
 
 ### local keyword
 
 The __local__ keyword has the same meaning as the __static__ keyword when used on local
-(as in non-global)
-variables in C; their lifetime is bigger then the function. for example calling the function below
-3 times
+(as in non-global) variables in C; their lifetime is bigger then that of the function.
+For example calling the function below 3 times:
+
 ```c
 func void increment() {
     local int32 counter = 0;
@@ -115,7 +115,7 @@ Point[] array = {
 
 ## incremental arrays
 A special feature in C2 are incremental arrays. These can be used to avoid messy macros when
-have some elements of the array depending on some external condition (#ifdef'ed).
+it is required to have some elements of the array present depending on some external condition (__#ifdef__'ed).
 
 To define an incremental array, use the `[+]` array subscript. Entries can then be added from
 different points in the code.
