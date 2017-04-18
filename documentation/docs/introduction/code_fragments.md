@@ -1,7 +1,7 @@
 
-This section just shows some code fragments to give you a feel for the language.
-As you'll see, must code *inside* function bodies is almost identical to C, but
-code *outside* differs just a bit.
+This section just shows some code fragments to give you a feel of the language.
+As you'll see, most code *inside* function bodies is almost identical to C, but
+code *outside* differs a bit.
 
 ### if-statement
 ```c
@@ -78,7 +78,7 @@ func void demo_enum(Height h) {
 ```
 
 To prevent having to add artificial enum constants to determine the range of an enum (for int to enum
-conversion etc), C2 adds two keywords _enum_min_ and _enum_max_.
+conversion etc.), C2 adds two keywords - _enum_min_ and _enum_max_.
 
 ```c
 type State enum uint32 {
