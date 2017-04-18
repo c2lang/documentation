@@ -1,11 +1,11 @@
 
-The c2c sources include a *test/* directory will automated tests. To tool to run
-these in located in <c2compiler/tools/tester>. These tests are modelled after
-clang's unit test framework and are designed to create tests with minimal effort.
+The c2c sources include a *test/* directory with automated tests. The tool to run
+these is located in <c2compiler/tools/tester>. These tests are modelled after
+clang's unit test framework and are designed allow creating tests with minimal effort.
 
-There are several types of tests:
+There are several types of test for testing:
 
-* test generated diagnostic notes, warnings and errors
-* test generated C code
-* test generated IR code
+* generated diagnostic notes, warnings and errors
+* generated C code
+* generated IR code
 
