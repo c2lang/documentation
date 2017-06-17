@@ -11,35 +11,33 @@ type Point struct {
     int32 y;
 }
 
-func void point_add(Point* p, int32 x) {
+func void Point.add(Point* p, int32 x) {
     p.x = x;
 }
 
 func void example() {
     Point p = { 1, 2 }
 
-    // the 2 statements below are equal
-
-    // without struct-functions
-    point_add(&p, 10);
-
     // with struct-functions
     p.add(10);
+
+    // without struct-functions (if defined as non struct-function)
+    /// point_add(&p, 10);
 }
 ```
 
 ## rules
 * struct-functions only work on struct/union types
 * struct-functions are defined in the same module as the struct (not necessary the same file!)
-* for a type type named _Foo_, struct functions must start with _foo\__ prefix. The initial character is
-    changed to lower case and the name is followed by an underscore
-* there cannot be a regular member _x_ and a struct function _foo\_x_.
+* for a type type named _Foo_, struct functions must start with _Foo._ prefix.
+* there cannot be a regular member _x_ and a struct function _foo.x_.
 * a static struct-function is called on the type itself: Foo.myfunc(); It's not allowed
     to call this on a variable
-* a static struct-function has no argument requirements
+* a static struct-function has no argument requirements and can only be called on the type:
+    _Foo.add()_. _f.add()_ is not allowed.
 * a (non-static) struct-function is required to have 'Type\*' or 'const Type\*' as the first argument
-* it's not allowed to use a struct-function for other uses than to be called. So 'Ptr p = var.init'
-    will result in an error
+* struct-function can also be assigned to variables of type Function with the correct proto-type:
+    _callback = Foo.add;_
 * sub-structs cannot have struct functions
 
 Extra notes:
@@ -57,14 +55,14 @@ type Inner struct {
     // ...
 }
 
-func void inner_modify(Inner* inner, /* ... */) {
+func void Inner.modify(Inner* inner, /* ... */) {
     // ...
 }
 
 func void example() {
     Outer outer;
     outer.inner.modify(/* ... */);
-    // translates to inner_modify(&outer.inner);
+    // translates to Inner.modify(&outer.inner);
 }
 ```
 
@@ -94,24 +92,24 @@ public type Shape struct {
 } @(opaque)
 
 // a non-public struct-function
-func void shape_init(Shape* shape, uint8 sides) {
+func void Shape.init(Shape* shape, uint8 sides) {
    shape.sides = sides;
 }
 
 // a static struct-function, called as Shape.create(..)
-public func Shape* shape_create(uint8 sides) {
+public func Shape* Shape.create(uint8 sides) {
     Shape* shape = stdlib.malloc(sizeof(Shape));
     shape.init(sides);
     return shape;
 }
 
 // a public, const struct-function, first argument: const Shape*
-public func void shape_print(const Shape* shape) {
+public func void Shape.print(const Shape* shape) {
     stdio.printf("shape with %d sides\n", shape.sides);
 }
 
 // a public, struct-function, first argument: Shape*
-public func void shape_free(Shape* shape) {
+public func void Shape.free(Shape* shape) {
     stdlib.free(shape);
 }
 ```
@@ -131,20 +129,4 @@ func void example() {
 ```
 
 _NOTE_: outer is not allowed to access Shape's regular members directly.
-
-Since struct-functions are _syntactic-sugar_, the same example can also be done
-without them:
-
-```c
-module outer;
-
-import inner local;
-
-func void example() {
-    Shape* s = shape_create(3);
-    shape_print(s);
-    shape_free(s);
-}
-```
-
 
