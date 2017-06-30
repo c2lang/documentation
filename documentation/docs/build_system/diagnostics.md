@@ -11,10 +11,10 @@ symbols are the most common.
 ```c
 module test;
 
-public int32 y;     // warning: unused variable 'test.y'
+public i32 y;     // warning: unused variable 'test.y'
 
 public func void foo() {
-    int32 x;          // warning: unused variable 'x'
+    i32 x;          // warning: unused variable 'x'
 }
 ```
 
@@ -42,7 +42,7 @@ module test;
 
 public func void foo() {}   // warning: function 'test.foo' is not used public
 
-public func int32 main() {
+public func i32 main() {
     foo();
     return 0;
 }
@@ -53,7 +53,7 @@ public func int32 main() {
 module test;
 
 type Object struct {        // warning: unused type 'test.Object'
-    int32 x;
+    i32 x;
 }
 ```
 
@@ -62,7 +62,7 @@ c2c can even warn when a specific field of a struct is not used!
 
 ```c
 type Object struct {
-    int32 x;
+    i32 x;
     Object* next;       // warning: unused struct member 'next'
 }
 

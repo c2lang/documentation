@@ -17,7 +17,7 @@ module hello;
 
 import stdio as io;
 
-public func int32 main(int32 argc, char*[] argv) {
+public func i32 main(i32 argc, char*[] argv) {
     io.printf("Hello C2!\n");
     return 0;
 }

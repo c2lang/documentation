@@ -15,7 +15,7 @@ The definition can be:
 
 enum types use the following syntax:
 ```c
-type State enum int8 {
+type State enum i8 {
     BEGIN = 0,
     MIDDLE,
     END
@@ -27,7 +27,7 @@ type State enum int8 {
 Instead of the obscure C syntax to defined function-pointer types, C2 uses the
 following:
 ```c
-public type Callback func void(int32 a, bool b);
+public type Callback func void(i32 a, bool b);
 ```
 This defines a function pointer type to functions that return nothing and require two
 arguments.
@@ -36,11 +36,11 @@ arguments.
 
 ```c
 type Person struct {
-    uint8 age;
+    u8 age;
     char* name;
     union {
-        int32 employee_nr;
-        uint32 other_nr;
+        i32 employee_nr;
+        u32 other_nr;
     }
     union subname {
         bool b;
@@ -54,7 +54,7 @@ Alias types are used to give a name to other types, like:
 
 ```c
 type CharPtr char*;
-type Numbers int32[10];
+type Numbers i32[10];
 ```
 
 

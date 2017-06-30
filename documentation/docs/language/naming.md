@@ -33,14 +33,14 @@ See below
 Point p = { 3, 4 }          // variable
 const Point P = { 5, 6 }    // constant
 
-const int32 Max = 5;        // constant
+const i32 Max = 5;        // constant
 
 char* cp1 = "foo";          // variable
 const char* cp2 = "foo";    // variable, since pointer itself is not constant
 
 const char* const Cp3 = "foo";     // constant, but not supported *yet*
 
-const int32[] Numbers = { 1, 2, 3}  // arrays are constant if the element type is constant
+const i32[] Numbers = { 1, 2, 3}  // arrays are constant if the element type is constant
 
 ```
 

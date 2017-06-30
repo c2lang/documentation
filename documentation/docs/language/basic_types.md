@@ -4,12 +4,12 @@
 C2 has the following built-in primitive types:
 
 * __bool__. can be either __true__ or __false__
-* __int8__, __int16__, __int32__, __int64__. The signed types
-* __uint8__, __uint16__, __uint32__, __uint64__. The unsigned types
-* __float32__, __float64__. Floating point types
+* __i8__, __i16__, __i32__, __i64__. The signed types
+* __u8__, __u16__, __u32__, __u64__. The unsigned types
+* __f32__, __f64__. Floating point types
 
 There is also a  builtin __void__ type, used for pointers (eg __void*__)
-For convenience, the __char__ keyword is also available and is identical to the __int8__ type.
+For convenience, the __char__ keyword is also available and is identical to the __i8__ type.
 
 Note that C2 does __not__ have any type specifiers like __signed__, __unsigned__, __long__, __short__, etc.
 
@@ -18,20 +18,20 @@ The c2compiler always has a pseudo module called __c2__. This module is used to
 store some language symbols such as min/max values and things like build time, etc.
 For each integer type there exists a min/max value:
 
-* __min_int8__, __max_int8__
-* __min_int16__, __max_int16__
-* __min_int32__, __max_int32__
-* __min_int64__, __max_int64__
-* __min_uint8__, __max_uint8__
-* __min_uint16__, __max_uint16__
-* __min_uint32__, __max_uint32__
-* __min_uint64__, __max_uint64__
+* __min_i8__, __max_i8__
+* __min_i16__, __max_i16__
+* __min_i32__, __max_i32__
+* __min_i64__, __max_i64__
+* __min_u8__, __max_u8__
+* __min_u16__, __max_u16__
+* __min_u32__, __max_u32__
+* __min_u64__, __max_u64__
 
 ```c
 module foo;
 import c2;
 
-int32 highest = c2.max_int32;
+i32 highest = c2.max_i32;
 ```
 
 It also includes some C type for mapping C declarations in libraries to C2 interface types.
@@ -43,7 +43,7 @@ Pointer types are created by adding an asterix (*) after the type they refer to,
 
 ```c
 void* a;
-int8* b;
+i8* b;
 Point* c;
 char**
 ```

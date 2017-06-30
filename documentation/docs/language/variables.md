@@ -2,7 +2,7 @@
 Variables in C2 look a lot like variables in C (on purpose), so:
 
 ```c
-int32 counter = 0;
+i32 counter = 0;
 public bool hasBool = false;
 Point* p = nil;
 ```
@@ -18,7 +18,7 @@ For example calling the function below 3 times:
 
 ```c
 func void increment() {
-    local int32 counter = 0;
+    local i32 counter = 0;
     counter++;
     printf("%d\n", counter);
 }
@@ -37,9 +37,9 @@ Initialization also looks very similar to C, so
 
 ```c
 type Data struct {
-    int32 a;
+    i32 a;
     char* text;
-    float f;
+    f32 f;
 }
 
 Data[] mydata = {
@@ -56,25 +56,25 @@ The examples below show some C2 initialization options.
 
 ### array index designators
 ```c
-int32[] array = {
+i32[] array = {
     [10] = 0,
     [11] = 3,
 }
 
 // mixing index designators with default (incremental) initialization
-int32[4] array2 = {
+i32[4] array2 = {
     0,
     [3] = 3,
     4,          // error: access elements in array initializer
 }
 
 // using enum constant as index designator value
-type Enum enum int8 {
+type Enum enum i8 {
     FOO = 2,
     BAR = 5,
 }
 
-int32[] array = {
+i32[] array = {
     [BAR] = 5,
     0,          // index 6
     [FOO] = 2
@@ -84,10 +84,10 @@ int32[] array = {
 }
 
 // using non-compile-time constant as index value is not allowed
-int32 a = 1;
-const int32 b = 2;
+i32 a = 1;
+const i32 b = 2;
 
-int32 array2 = {
+i32 array2 = {
     [a] = 1,    // error: initializer element is not a compile-time constant
     [b] = 2,
 }
@@ -99,8 +99,8 @@ Field designators initialize struct members by name.
 // basic struct fields
 
 type Point struct {
-    int32 x;
-    const uint8* name;
+    i32 x;
+    const u8* name;
 }
 
 Point[] array = {
@@ -121,8 +121,8 @@ To define an incremental array, use the `[+]` array subscript. Entries can then 
 different points in the code.
 ```c
 type Point struct {
-    int32 x;
-    int32 y;
+    i32 x;
+    i32 y;
 }
 
 Point[+] points;

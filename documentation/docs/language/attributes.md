@@ -22,16 +22,16 @@ Please, take a look at the following example showing how to add them to various 
 
 ```c
 // variables
-int32 counter @(unused);
-int32[1024] bigdata @(section="data") = {};
+i32 counter @(unused);
+i32[1024] bigdata @(section="data") = {};
 
 // types
 type Point struct {
-    int32 x;
-    int32 y;
+    i32 x;
+    i32 y;
 } @(packed, aligned=16)
 
-type Weird enum uint32 {
+type Weird enum u32 {
     FOO,
     BAR,
     FAA

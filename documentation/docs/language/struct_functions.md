@@ -7,11 +7,11 @@ The example below shows how it works:
 
 ```c
 type Point struct {
-    int32 x;
-    int32 y;
+    i32 x;
+    i32 y;
 }
 
-func void Point.add(Point* p, int32 x) {
+func void Point.add(Point* p, i32 x) {
     p.x = x;
 }
 
@@ -87,17 +87,17 @@ import stdlib;
 import stdio;
 
 public type Shape struct {
-    uint8 sides;
+    u8 sides;
     // ..
 } @(opaque)
 
 // a non-public struct-function
-func void Shape.init(Shape* shape, uint8 sides) {
+func void Shape.init(Shape* shape, u8 sides) {
    shape.sides = sides;
 }
 
 // a static struct-function, called as Shape.create(..)
-public func Shape* Shape.create(uint8 sides) {
+public func Shape* Shape.create(u8 sides) {
     Shape* shape = stdlib.malloc(sizeof(Shape));
     shape.init(sides);
     return shape;
