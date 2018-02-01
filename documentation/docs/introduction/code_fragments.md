@@ -17,7 +17,7 @@ func void demo_if(i32 a) {
 ### for-loop
 ```c
 func void demo_for() {
-    // the foor-loop is the same as C. You can declare the loop variable (i) inside.
+    // the for-loop is the same as C. You can declare the loop variable (i) inside.
     for (i32 i=0; i<10; i++) {
         io.printf("%d\n", i);
     }
