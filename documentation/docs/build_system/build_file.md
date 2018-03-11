@@ -19,7 +19,6 @@ Telling the C2 compiler to use a build file can be done in several ways:
 The build file uses the [TOML format](https://github.com/toml-lang/toml) and use
 the *.toml* filename extension.
 
-
 ```toml
 target = "arm-linux-gnueabi"
 
@@ -34,6 +33,8 @@ dir = "$ARM_SYSROOT"
 [output]
 dir="output_arm"
 ```
+
+All entries are optional, but when specified will override the default values.
 
 #### Value expansion
 
@@ -73,6 +74,4 @@ A build file changes the way C2C searches for libraries. C2C uses the following 
 * If no build file is used, it **only** uses the *C2\_LIBDIR* environment variable.
 * If a build file is used, the *C2\_LIBDIR* environment variable is not used.
 * The build file can specify a list of paths that are search in the same order as in the file.
-* 
-
 
