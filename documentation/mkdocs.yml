@@ -25,6 +25,8 @@ pages:
   - language/struct_functions.md
 - Build system:
   - build_system/intro.md
+  - build_system/recipe_file.md
+  - build_system/build_file.md
   - Export Control: build_system/symbols.md
   - C2 Module: build_system/c2module.md
   - External Libraries: build_system/libraries.md
