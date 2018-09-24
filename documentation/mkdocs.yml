@@ -1,6 +1,10 @@
 site_name: C2 Language Documentation
 repo_url: https://github.com/c2lang
 theme: readthedocs
+extra_css:
+  - css/highlight.css
+extra_javascript:
+  - js/highlight.pack.js
 pages:
 - Introduction:
   - Philosophy: index.md

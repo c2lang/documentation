@@ -46,6 +46,7 @@ func void demo_while() {
 ```
 
 ### enum + switch
+
 ```c
 
 type Height enum u32 {
@@ -56,26 +57,29 @@ type Height enum u32 {
 
 func void demo_enum(Height h) {
     switch (h) {
-    case LOW:       // fallthrough
-    case MEDIUM:
+    case Height.LOW:       // fallthrough
+    case Height.MEDIUM:
         // ..
         break;
-    case HIGH:
+    case Height.HIGH:
         // ..
         break;
     }
 
     // special checking of switching on enum types
     switch (h) {
-        case LOW:
-        case MEDIUM:
-        case HIGH:
+        case Height.LOW:
+        case Height.MEDIUM:
+        case Height.HIGH:
             break;
         default:    // warning: default label in switch which covers all enumeration value
             break;
     }
 }
 ```
+
+Enum constants are always in their own namespace. This avoids global/module
+namespace pollution and allows multiple enums to have the same constant name.
 
 To prevent having to add artificial enum constants to determine the range of an enum (for int to enum
 conversion etc.), C2 adds two keywords - _enum_min_ and _enum_max_.

@@ -75,9 +75,9 @@ type Enum enum i8 {
 }
 
 i32[] array = {
-    [BAR] = 5,
+    [Enum.BAR] = 5,
     0,          // index 6
-    [FOO] = 2
+    [Enum.FOO] = 2
     3,          // index 3
     4,
     5,          // error: duplicate initialization of array index

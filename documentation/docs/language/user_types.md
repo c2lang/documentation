@@ -22,6 +22,9 @@ type State enum i8 {
 }
 ```
 
+Note that all enum constants are in only available through the enum type namespace
+(eg State.BEGIN, not BEGIN).
+
 ## function types
 
 Instead of the obscure C syntax to defined function-pointer types, C2 uses the
