@@ -181,3 +181,20 @@ func void demo_cb() {
     // ..
 }
 ```
+
+### inline ASM
+C2 supports the GNU inline ASM syntax.
+See [GNU site for syntax](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html).
+
+```c
+func u64 rdtsc() @(inline) {
+    u32 lo;
+    u32 hi;
+    asm volatile ("rdtsc" : "=a" (lo), "=d" (hi));
+    u32 res = hi;
+    res << 32;
+    res |= lo;
+    return res;
+}
+```
+
