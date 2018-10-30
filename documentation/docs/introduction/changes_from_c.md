@@ -25,6 +25,9 @@ _changes_ made and the design philosophy behind it.
 
 * better external library control
 
+* [Improved operator precedence](../language/operators)
+
+
 
 ### New Features
 C2 also introduces some *NEW* features:
