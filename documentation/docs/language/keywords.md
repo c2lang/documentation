@@ -11,6 +11,7 @@ C2 has the following keywords:
 
 ### Type related
 * auto
+* asm
 * bool
 * cast
 * char
@@ -22,12 +23,14 @@ C2 has the following keywords:
 * false
 * f32
 * f64
+* func
 * i8
 * i16
 * i32
 * i64
 * local
 * nil
+* offsetof
 * sizeof
 * struct
 * true
