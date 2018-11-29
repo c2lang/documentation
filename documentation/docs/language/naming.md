@@ -45,3 +45,9 @@ const i32[] Numbers = { 1, 2, 3}  // arrays are constant if the element type is 
 ```
 
 Also it's currently up to the developer to use CamelCasing or UPPERCASING for constants.
+
+## Maximum Identifier length
+
+All identifiers (module/variable/function/type names) are limited to a length of 31 characters.
+This ensures that full names (*module\_name*) fit inside 64 characters.
+
