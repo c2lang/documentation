@@ -32,6 +32,11 @@ the module `bar`.
 Modules allow the developer to split functionality into several files, *without*
 sacrificing speed or introducing extra complexity.
 
+Modules only add a single layer of namespacing, so they are not nested like is some
+languages (eg. Java). This single, extra layer is consider enough, since C went by
+with only the global layer. If case of very big codebases, longer module names are
+advices (eg. *network\_utils*).
+
 ## import
 For a file to use declarations from another module, it must __import__ said module.
 The __import__ keyword has a file scope. Therefore, if `file1.c2` imports module `stdio`,
