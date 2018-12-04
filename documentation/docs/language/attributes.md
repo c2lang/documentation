@@ -15,6 +15,8 @@ The currently supported attributes are:
 * __aligned__ (type, func, var), requires argument
 * __weak__ (func, var)
 * __opaque__ (public struct/union types)
+* __cname__ (type, func, var), interface
+* __no_typedef__ (interface struct/union types)
 
 The standard syntax for all attributes is `@(  )`  (get it?!, @, at, attributes... ;) )
 
@@ -72,4 +74,46 @@ type Handle struct {} @(opaque)
 Note that it is allowed to put other non-public types as full members inside
 a public opaque struct, since the members are not visible outside the module.
 
+
+### Cname / No\_typedef
+Some legacy C types/functions don't map really well to the C2 style. An example
+of this is _stat.h_:
+
+```c
+struct stat {
+    // ...
+};
+
+int stat(const char *pathname, struct stat *statbuf);
+```
+
+So both the struct and the function are called _stat_.
+
+To solve this situation and offer a nice way to embed these calls into a C2 application,
+C2 offers the attributes *cname* and *no_typedef*. In the C2 version of sys\_stat.h:
+
+```c
+type Stat struct {
+    // ...
+} @(cname="stat", no_typedef)
+
+func c_int stat(const c_char* pathname, Stat* buf);
+```
+
+This means C2 code can use 'Stat' instead of 'struct stat', so the spelling conventions
+stay intact (Types start with capital case). Also for the C-backend, we cannot generate:
+```c
+typedef struct stat_ stat;
+
+struct stat_ {
+    // ...
+};
+```
+since that would clash with the function stat. So the attribute *no_typedef* tell c2c not
+to generate the typedef, but just:
+```c
+struct stat {
+    // ...
+};
+```
 
