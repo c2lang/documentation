@@ -20,7 +20,7 @@ The currently supported attributes are:
 
 The standard syntax for all attributes is `@(  )`  (get it?!, @, at, attributes... ;) )
 
-Please, take a look at the following example showing how to add them to various declarations:
+Take a look at the following example showing their usage in various declarations:
 
 ```c
 // variables
@@ -66,7 +66,7 @@ public type Handle struct {
 } @(opaque)
 ```
 
-when c2c generates an *interface file* (eg. module.c2i), it will only generate
+When c2c generates an *interface file* (eg. module.c2i), it will only generate:
 ```c
 type Handle struct {} @(opaque)
 ```
@@ -101,7 +101,7 @@ func c_int stat(const c_char* pathname, Stat* buf);
 ```
 
 This means C2 code can use 'Stat' instead of 'struct stat', so the spelling conventions
-stay intact (Types start with capital case). Also for the C-backend, we cannot generate:
+stay intact (types start with capital case). Also for the C-backend, we cannot generate:
 ```c
 typedef struct stat_ stat;
 
@@ -109,8 +109,8 @@ struct stat_ {
     // ...
 };
 ```
-since that would clash with the function stat. So the attribute *no_typedef* tell c2c not
-to generate the typedef, but just:
+...since that would clash with the function `stat`. So the attribute *no_typedef* tells c2c not
+to generate the typedef, instead simply:
 ```c
 struct stat {
     // ...
