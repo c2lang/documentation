@@ -1,7 +1,6 @@
+__Bit-offsets__ are a new feature in C2.
 
-A new feature in C2 are __bit-offsets__.
-
-NOTE: Dont confuse __bit-offsets__ with __bit-fields__, which are x-bits wide fields inside a
+NOTE: Don't confuse __bit-offsets__ with __bit-fields__, which are fields x-bits wide inside a
 struct for memory conservation.
 
 Bit-offsets are used in code that often needs to fetch certain bits from registers, such as
@@ -9,7 +8,7 @@ driver code.
 
 The syntax of a bit-offset is `value[<highest bit>:<lowest bit>]`.
 
-So the width will be highest - lowest + 1. The syntax was chosen to match
+So the width is `highest - lowest + 1`. This syntax was chosen to match
 hardware specifications that often specify bits in registers in the same way.
 
 ```c
@@ -25,7 +24,7 @@ func void demo() {
 }
 ```
 
-Overflows are checked and produce errors, like
+Type overflows are checked and produce errors, like
 
 ```c
 
