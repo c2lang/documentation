@@ -3,20 +3,22 @@
 
 C2 has the following built-in primitive types:
 
-* __bool__. can be either __true__ or __false__
-* __i8__, __i16__, __i32__, __i64__. The signed types
-* __u8__, __u16__, __u32__, __u64__. The unsigned types
-* __f32__, __f64__. Floating point types
+* __bool__: Either __true__ or __false__.
+* __i8__, __i16__, __i32__, __i64__: Signed integral types.
+* __u8__, __u16__, __u32__, __u64__: Unsigned integral types.
+* __f32__, __f64__. Single and double precision floating point types, respectively.
 
-There is also a  builtin __void__ type, used for pointers (eg __void*__)
+There is also a built-in void pointer type (__void*__), not to be confused with the
+keyword __void__, which denotes a function that returns nothing.
+
 For convenience, the __char__ keyword is also available and is identical to the __i8__ type.
 
-Note that C2 does __not__ have any type specifiers like __signed__, __unsigned__, __long__, __short__, etc.
+Note that C2 does __not__ have any type specifiers like __signed__, __unsigned__, __long__ or __short__.
 
 ### c2 pseudo-module ###
 The c2compiler always has a pseudo module called __c2__. This module is used to
 store some language symbols such as min/max values and things like build time, etc.
-For each integer type there exists a min/max value:
+For each integral type there exists a minimum and maximum value:
 
 * __min_i8__, __max_i8__
 * __min_i16__, __max_i16__
@@ -34,12 +36,12 @@ import c2;
 i32 highest = c2.max_i32;
 ```
 
-It also includes some C type for mapping C declarations in libraries to C2 interface types.
+It also includes some C types for mapping C declarations in libraries to C2 interface types.
 See [External Libraries](../build_system/libraries/) for more information.
 
 ## pointer types
 
-Pointer types are created by adding an asterix (*) after the type they refer to, like
+Pointer types are created by adding an asterix (`*`) after the type they refer to, like
 
 ```c
 void* a;
@@ -50,17 +52,17 @@ char**
 
 ## array types
 
-Arrays in C2 differ from C arrays in that the [] always come right after the element type, so
+Arrays in C2 differ from C arrays in that the `[]` always come right after the element type, e.g:
 
 ```c
 void*[]  a;
 Point[4] b;
 ```
 
-For array types, C2 introduces a new operator, namely __elemsof()__. This returns the number
+For array types, C2 introduces a new operator, namely `elemsof()`. This returns the number
 of elements in an array and avoids C macros like:
 ```c
 #define ARRAY_SIZE(x) ( sizeof(x) / sizeof(x[0]) )
 ```
-The __sizeof()__ operator is also still available.
+The `sizeof()` operator is also still available.
 
