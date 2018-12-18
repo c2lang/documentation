@@ -21,13 +21,13 @@ Elements that must start with an *Upper* cased character:
 ### libraries
 
 Since external (C) libraries may require different names, no name checks are
-performed on external libraries (or .c2i files).
+performed on external libraries (or `.c2i` files).
 
 ### constants
 
-Since C2 uses some of the type syntax from C, it's not always clear whether a
+Since C2 borrows some type syntax from C, it's not always clear whether a
 declaration is a *constant* or a *variable*, especially with pointer types.
-See below
+See below:
 
 ```c
 Point p = { 3, 4 }          // variable
@@ -46,8 +46,8 @@ const i32[] Numbers = { 1, 2, 3}  // arrays are constant if the element type is 
 
 Also it's currently up to the developer to use CamelCasing or UPPERCASING for constants.
 
-## Maximum Identifier length
+## maximum identifier length
 
 All identifiers (module/variable/function/type names) are limited to a length of 31 characters.
-This ensures that full names (*module\_name*) fit inside 64 characters.
+This ensures that full names (`module_name.item`) fit inside 64 characters.
 
