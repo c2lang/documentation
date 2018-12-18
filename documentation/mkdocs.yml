@@ -16,7 +16,7 @@ pages:
   - getting_started/installation.md
   - getting_started/my_first_project.md
 - C2 Language:
-  - language/basics.md
+  - language/formatting.md
   - language/naming.md
   - language/keywords.md
   - language/basic_types.md
