@@ -11,11 +11,10 @@ C2 comments work in the same way as C's. Thus both forms are available:
 */
 ```
 
-## semi-colons
+## semicolons
 
 Every statement in C2 is followed by a semicolon, __except__ when it ends with
-a __right-hand brace__: } !!
+a __right-hand brace__.
 Trailing attributes never change the rule above.
 
-That means you will never see `};`.  Makes it easier on the eyes ;)
-
+This means that in C2, you'll never see `};`.  It's easier on the eyes ;)
