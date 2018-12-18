@@ -1,9 +1,9 @@
 ## modules
 
-Like many other modern languages, C2 uses the concept of `modules`. Modules are
-used to create logical groups of functions, types and variables. Each __.c2__
-file has to start with the __module__ keyword, specifying which module it belongs
-to. A module can consist of several files, for example:
+Like many other modern languages, C2 utilises the concept of `modules`. Modules are
+used to create logical groups of functions, types and variables. Each `.c2` file must
+begin with the __module__ keyword, specifying which module it belongs to. A module can
+consist of several files, for example:
 
 `file1.c2`
 ```c
@@ -26,19 +26,19 @@ module bar;
 // ..
 ```
 
-file1.c2 and file2.c2 belong to the same module, `foo`, while file3.c2 belongs to
+`file1.c2` and `file2.c2` belong to the same module, `foo`, while `file3.c2` belongs to
 the module `bar`.
 
-Modules allow the developer to split functionality into several files, *without*
+Modules allow the developer to split functionality into several files without
 sacrificing speed or introducing extra complexity.
 
-Modules only add a single layer of namespacing, so they are not nested like is some
-languages (eg. Java). This single, extra layer is consider enough, since C went by
-with only the global layer. If case of very big codebases, longer module names are
-advices (eg. *network\_utils*).
+Modules only add a single layer of namespacing, so they are not nested like in some
+languages (eg. Java). Nested namespaces aren't necessary - just look at C - it went by
+with only the global layer. In the case of very big codebases, longer module names are
+advised (eg. *network\_utils*).
 
 ## import
-For a file to use declarations from another module, it must __import__ said module.
+For a file to use declarations from another module, it must __import__ the said module.
 The __import__ keyword has a file scope. Therefore, if `file1.c2` imports module `stdio`,
 `file2.c2` still cannot use `stdio`'s symbols, unless it imports `stdio` as well.
 
@@ -65,14 +65,14 @@ import net;
 So `file1.c2` can use external symbols from `file` and `storage`, while `file2.c2`
 can only use symbols from `file` and `net`.
 
-One big advantage of not using C-style header-file includes is that no filenames will
-ever appear in the code. This means renaming/moving the files of modules requires
-**NO** change to other code whatsoever, even if said code uses the module itself!! Powerful stuff.
+One advantage of not using C-style header-file includes is that filenames will never
+appear in the code. This means renaming/moving the files of modules requires
+**NO** change to other code whatsoever, even if said code uses the module itself! How convenient!
 
 ## symbol visibility
 
-All files of the same module have access to all the declarations of that module. Other
-modules can only use the __public__ ones.
+All files of the same module have access to all the declarations in the module. Other
+modules can only use declarations specified as `public`.
 
 `file.c2`
 ```c
@@ -84,10 +84,10 @@ func void open() { .. }
 ```
 
 In this example, the other modules can use the `init()` function after importing foo, but
-only files in the `foo` module can use `open()`.
+only files in the `foo` module can use `open()`, as it isn't specified as `public`.
 
 ## symbol resolving
-To access symbols of other modules, the module prefix is added, followed by a dot:
+To access symbols contained in other modules, dot notation is used:
 
 ```c
 module foo;
@@ -101,37 +101,46 @@ func void test() {
     open();
 }
 ```
-A global symbol is only allowed ONCE per module, whether __public__ or not. This makes
-`module.symbol` unique. In the example above, all three modules have the
-`test` symbol, but no clash occurs, since it is always apparent from which module which symbol comes.
+Global symbols __must__ have unique names within their module, whether `public` or not. This ensures that
+`module.symbol` is unique. In the example above, all three modules have contain a `test` symbol, but no clash
+occurs, as the module which the symbol comes from is always specified.
 
 ### import as
-When importing a module with a long name, C2 allows aliasing the module name (applied to the
-current file only!), like this:
+When importing a module with a long name, C2 allows aliasing the module name (in the
+current file only), like this:
 
 ```c
 module foo;
 
 import extended_filesystems_io as fs;
 ```
-external symbols can now use the shorter `fs` prefix. Even after aliasing, using the full name is still allowed!
+External symbols can now use the shorter `fs` alias. Even after aliasing, using the full name of the module is still allowed!
 
 ### import local
-When using a lot of external symbols, the constant prefixing can be cumbersome. C2
+When using many external symbols, the constant prefixing can be cumbersome. C2
 allows using the external symbols of a module directly (without any prefix) when the
-import statement is followed by the keyword __local__. This can also be combined with
+import statement is followed by the keyword `local`. This may also be used with
 aliasing (the __as__ keyword), making the prefix completely optional.
 ```c
 import networking as net local;
 import filesystem local;
+
+// Equivalent
+filesystem.doSomething();
+doSomething();
+
+// Equivalent
+net.connect();
+networking.connect();
+connect();
 ```
-Symbols of both `networking` and `filesystem` can be used without prefix. If a symbol
+The symbols of both `networking` and `filesystem` can be used without prefixing. If a symbol
 can be resolved unambiguously (for the current module and set of imports), the module
 prefix is optional. So if both `networking` and `filesystem` have a function called `open()`,
 it will still have to be prefixed, since C2 does not allow usage of ambiguous symbols.
 
 The result of __modules__ and the __import .. (as ..) (local)__ is that there is no
-need to constantly prefix the __definition__ part of the code anymore. In C it is common
+need to constantly prefix the definitions of the module anymore. In C it's common
 for a library to prefix all symbols to avoid name clashes, for example:
 
 `networking.h`
