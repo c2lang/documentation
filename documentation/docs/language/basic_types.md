@@ -1,5 +1,5 @@
 
-## primitive types
+## Primitive types
 
 C2 has the following built-in primitive types:
 
@@ -15,8 +15,8 @@ For convenience, the __char__ keyword is also available and is identical to the 
 
 Note that C2 does __not__ have any type specifiers like __signed__, __unsigned__, __long__ or __short__.
 
-### c2 pseudo-module ###
-The c2compiler always has a pseudo module called __c2__. This module is used to
+### C2 pseudo-module ###
+The C2 compiler always has a pseudo module called __c2__. This module is used to
 store some language symbols such as min/max values and things like build time, etc.
 For each integral type there exists a minimum and maximum value:
 
@@ -39,7 +39,7 @@ i32 highest = c2.max_i32;
 It also includes some C types for mapping C declarations in libraries to C2 interface types.
 See [External Libraries](../build_system/libraries/) for more information.
 
-## pointer types
+## Pointer types
 
 Pointer types are created by adding an asterix (`*`) after the type they refer to, like
 
@@ -50,9 +50,9 @@ Point* c;
 char**
 ```
 
-## array types
+## Array types
 
-Arrays in C2 differ from C arrays in that the `[]` always come right after the element type, e.g:
+Arrays in C2 differ from C arrays in that `[]` always comes right after the element type, e.g:
 
 ```c
 void*[]  a;
