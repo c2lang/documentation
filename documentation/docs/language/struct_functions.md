@@ -1,7 +1,7 @@
+# Struct functions
+__Struct functions__ are another new feature in C2.
 
-Another new feature in C2 are the __struct-functions__.
-
-The struct-functions are a _syntatic-sugar_ feature that makes code more readable.
+Struct functions are _syntactic-sugar_ that makes code more readable.
 
 The example below shows how it works:
 
@@ -26,25 +26,23 @@ func void example() {
 }
 ```
 
-## rules
-* struct-functions only work on struct/union types
-* struct-functions are defined in the same module as the struct (not necessary the same file!)
-* for a type type named _Foo_, struct functions must start with _Foo._ prefix.
-* there cannot be a regular member _x_ and a struct function _foo.x_.
-* a static struct-function is called on the type itself: Foo.myfunc(); It's not allowed
-    to call this on a variable
-* a static struct-function has no argument requirements and can only be called on the type:
-    _Foo.add()_. _f.add()_ is not allowed.
-* a (non-static) struct-function is required to have 'Type\*' or 'const Type\*' as the first argument
-* struct-function can also be assigned to variables of type Function with the correct proto-type:
+## Rules
+* Struct functions only work on struct/union types
+* Struct functions are defined in the same module as the struct (not necessarily the same file!)
+* For a type type named `Foo`, struct functions must start with `Foo.` prefix.
+* There cannot be a struct member `x` and a struct function `Foo.x`.
+* A (non-static) struct function is required to have 'Type\*' or 'const Type\*' as its first argument.
+* A static struct function has no argument requirements and can only be called on the type itself,
+    not an instance of the type. `Foo.add()` and `f.add()` cannot both exist.
+* A struct function may also be assigned to variables of type Function with the correct prototype:
     _callback = Foo.add;_
-* sub-structs cannot have struct functions
+* Sub-structs cannot have struct functions
 
 Extra notes:
 
-* it's possible to have public or non-public struct-functions for a public struct.
-* a struct-function itself is a regular function and can also be used as such
-* it's also possible to use a struct-function call if the variable of struct type is a member of
+* It's possible to have public or non-public struct functions for a public struct.
+* A struct-function itself is a regular function and can also be used as such
+* It's also possible to use a struct function call if the variable of struct type is a member of
     another struct
 ```c
 type Outer struct {
@@ -66,7 +64,7 @@ func void example() {
 }
 ```
 
-* the following is ok, since a struct-function is not a real dereference
+* The following is OK, as struct functions implicitly dereference the object on which they are called:
 ```c
     Type* t = nil;
     t.init();
@@ -75,10 +73,9 @@ func void example() {
 for more examples, see the tests in _c2compiler/test/Functions/struct_functions/_
 
 
-###bigger example
+### Complex example
 
-Or another example, which also uses the opaque pointers:
-Module __inner__ offers an API:
+See below a more complex example, which uses opaque pointers. The module `inner` offers an API:
 
 ```c
 module inner;
@@ -114,7 +111,7 @@ public func void Shape.free(Shape* shape) {
 }
 ```
 
-which is used by module outer:
+which is used by the module `outer`:
 
 ```c
 module outer;
@@ -128,5 +125,5 @@ func void example() {
 }
 ```
 
-_NOTE_: outer is not allowed to access Shape's regular members directly.
+_NOTE_: `outer` is not allowed to access Shape's regular members directly.
 
