@@ -25,7 +25,7 @@ pages:
   - language/functions.md
   - language/modules.md
   - language/attributes.md
-  - language/bitoffsets.md
+  - language/bit_offsets.md
   - language/struct_functions.md
   - language/operators.md
 - Build system:
