@@ -26,7 +26,7 @@ func void demo() {
 }
 ```
 
-Type overflows are checked and produce errors, like
+Type overflows are checked and produce errors, like:
 
 ```c
 
