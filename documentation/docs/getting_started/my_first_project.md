@@ -1,5 +1,5 @@
 
-Creating your first project in C2 is easy, just do:
+Creating your first project in C2 is easy, just run:
 
 ```bash
 ~$ mkdir hello
