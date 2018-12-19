@@ -3,10 +3,10 @@
 
 C2 has the following built-in primitive types:
 
-* __bool__: Either __true__ or __false__.
-* __i8__, __i16__, __i32__, __i64__: Signed integral types.
-* __u8__, __u16__, __u32__, __u64__: Unsigned integral types.
-* __f32__, __f64__. Single and double precision floating point types, respectively.
+* `bool`: Either `true` or `false`.
+* `i8`, `i16`, `i32`, `i64`: Signed integral types.
+* `u8`, `u16`, `u32`, `u64`: Unsigned integral types.
+* `f32`, `f64`. Single and double precision floating point types, respectively.
 
 There is also a built-in void pointer type (__void*__), not to be confused with the
 keyword __void__, which denotes a function that returns nothing.
@@ -20,14 +20,14 @@ The C2 compiler always has a pseudo module called __c2__. This module is used to
 store some language symbols such as min/max values and things like build time, etc.
 For each integral type there exists a minimum and maximum value:
 
-* __min_i8__, __max_i8__
-* __min_i16__, __max_i16__
-* __min_i32__, __max_i32__
-* __min_i64__, __max_i64__
-* __min_u8__, __max_u8__
-* __min_u16__, __max_u16__
-* __min_u32__, __max_u32__
-* __min_u64__, __max_u64__
+* `min_i8`, `max_i8`
+* `min_i16`, `max_i16`
+* `min_i32`, `max_i32`
+* `min_i64`, `max_i64`
+* `min_u8`, `max_u8`
+* `min_u16`, `max_u16`
+* `min_u32`, `max_u32`
+* `min_u64`, `max_u64`
 
 ```c
 module foo;
@@ -47,7 +47,12 @@ Pointer types are created by adding an asterix (`*`) after the type they refer t
 void* a;
 i8* b;
 Point* c;
-char**
+char** d; // Pointer to a pointer to a char
+```
+
+The `nil` keyword may be used to assign a null value to a pointer:
+```c
+char* name = nil;
 ```
 
 ## Array types
