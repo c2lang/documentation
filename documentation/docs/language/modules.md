@@ -1,6 +1,6 @@
-## modules
+# Modules
 
-Like many other modern languages, C2 utilises the concept of `modules`. Modules are
+Like many other modern languages, C2 utilises the concept of __modules__. Modules are
 used to create logical groups of functions, types and variables. Each `.c2` file must
 begin with the __module__ keyword, specifying which module it belongs to. A module can
 consist of several files, for example:
@@ -37,7 +37,7 @@ languages (eg. Java). Nested namespaces aren't necessary - just look at C - it w
 with only the global layer. In the case of very big codebases, longer module names are
 advised (eg. *network\_utils*).
 
-## import
+## `import`ing modules
 For a file to use declarations from another module, it must __import__ the said module.
 The __import__ keyword has a file scope. Therefore, if `file1.c2` imports module `stdio`,
 `file2.c2` still cannot use `stdio`'s symbols, unless it imports `stdio` as well.
