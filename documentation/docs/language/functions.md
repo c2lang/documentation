@@ -1,4 +1,4 @@
-## functions
+## Functions
 
 Functions declarations start with the __func__ keyword; otherwise they look very similar
 to C. Since there are no forward declarations of any kind in C2, there is just one form
