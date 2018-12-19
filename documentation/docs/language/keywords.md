@@ -1,14 +1,14 @@
-## keywords
+## Keywords
 
 C2 has the following keywords:
 
-### module related
+### Module related
 * `module`
 * `import`
 * `as`
 * `public`
 
-### type related
+### Type related
 * `auto`
 * `asm`
 * `bool`
@@ -42,7 +42,7 @@ C2 has the following keywords:
 * `void`
 * `volatile`
 
-### control flow related
+### Control flow related
 * `break`
 * `case`
 * `continue`
