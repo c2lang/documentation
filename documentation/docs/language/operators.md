@@ -1,25 +1,26 @@
 ## Operator precedence
 
-Precedence rules in C2 are different from C/C++:
+Precedence rules in C2 are different from C/C++. Here are all precedence levels in C2, listed
+from highest (1) to lowest (11):
 
-1. `()` `[]` `.` postfix `++` and `--`
-2. `-` `~` prefix `*` `&` prefix `++` and `--`
-3. `*` `/` `%`
-4. `<<` `>>`
-5. `^` `|` `&`
-6. `+` `-`
-7. `==` `!=` `>=` `<=` `>` `<`
-8. `&&` `||`
-9. `?:` (ternary operator)
-10. `=` `*=` `/=` `%=` `+=` `-=` `<<=` `>==` `&=` `^=` `|=`
+1. `()`, `[]`, `.`, postfix `++` and `--`
+2. prefix `-`, `~`, prefix `*`, `&`, prefix `++` and `--`
+3. infix `*`, `/`, `%`
+4. `<<`, `>>`
+5. `^`, `|`, infix `&`
+6. `+`, infix `-`
+7. `==`, `!=`, `>=`, `<=`, `>`, `<`
+8. `&&`, `||`
+9. ternary `?:`
+10. `=`, `*=`, `/=`, `%=`, `+=`, `-=`, `<<=`, `>>=`, `&=`, `^=`, `|=`
 11. `,`
 
 The main difference is that bitwise operations and shift has higher precedence than
-addition and multiplication in C2. Bitwise operations also have higher precedence than
-the relational operators. There is also no difference in precedence between && || or
+addition and subtraction in C2. Bitwise operations also have higher precedence than
+the relational operators. Also, there is no difference in precedence between && || or
 between the bitwise operators.
 
-###Examples
+### Examples
 
 ```c
 a + b >> c + d
@@ -52,13 +53,14 @@ a | ((b ^ c) & d)  // C  (All bitwise operators have different precedence)
 ((a | b) ^ c) & d  // C2 (Same precedence, left-to-right evaluation)
 ```
 
-The change of precedence of bitwise operators corrects a long standing issue in the C
+The change in precedence of the bitwise operators corrects a long standing issue in the C
 specification. The change in precedence for shift operations goes towards making the
 precedence less surprising.
 
-Conflating precedence of || with &&, relational with equality operations, and bitwise
-operations with each other is motivated by simplification: few remember the exact
-internal differences in precedence between bitwise operators (to take an example).
-Left-to-right offers a very simple model to think reason about the internal ordering,
-and encourages use of explicit ordering where best practice in C is to use parenthesis anyway.
+Conflating the precedence of || and &&, relational and equality operations, and all bitwise
+operations was motivated by simplification: few remember the exact internal differences in
+precedence between bitwise operators.
+
+Left-to-right offers a very simple model to think about the internal order of operations,
+and encourages use of explicit ordering, as best practice in C is to use parentheses anyway.
 
