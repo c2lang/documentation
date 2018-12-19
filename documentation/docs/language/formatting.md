@@ -1,5 +1,6 @@
+# Formatting
 
-## comments
+## Comments
 
 C2 comments work in the same way as C's. Thus both forms are available:
 
@@ -11,7 +12,7 @@ C2 comments work in the same way as C's. Thus both forms are available:
 */
 ```
 
-## semicolons
+## Semicolons
 
 Every statement in C2 is followed by a semicolon, __except__ when it ends with
 a __right-hand brace__.
