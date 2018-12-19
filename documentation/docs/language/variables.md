@@ -1,5 +1,6 @@
+# Variables
 
-Variables in C2 look a lot like variables in C (on purpose), so:
+Variable definitions in C2 look a lot like variable definitions in C (on purpose):
 
 ```c
 i32 counter = 0;
@@ -7,10 +8,9 @@ public bool hasBool = false;
 Point* p = nil;
 ```
 
-The __public__ keyword can only be used for `global` variables. The __local__ keyword
-only on `non-global` ones. Easy.
+The __public__ keyword may only be used with `global` variables. 
 
-### local keyword
+## The `local` keyword
 
 The __local__ keyword has the same meaning as the __static__ keyword when used on local
 (as in non-global) variables in C; their lifetime is bigger then that of the function.
@@ -30,10 +30,11 @@ will result in:
 3
 ```
 
-## initialization
+The __local__ keyword may only be used on `non-global` variables.
 
-C2 has some powerful variable initialization features.
-Initialization also looks very similar to C, so
+## Initialization
+
+C2 has some convenient variable initialization syntax:
 
 ```c
 type Data struct {
@@ -54,7 +55,7 @@ if no explicit initialization is done.
 
 The examples below show some C2 initialization options.
 
-### array index designators
+### Array index designators
 ```c
 i32[] array = {
     [10] = 0,
@@ -69,15 +70,15 @@ i32[4] array2 = {
 }
 
 // using enum constant as index designator value
-type Enum enum i8 {
+type E enum i8 {
     FOO = 2,
     BAR = 5,
 }
 
 i32[] array = {
-    [Enum.BAR] = 5,
+    [E.BAR] = 5,
     0,          // index 6
-    [Enum.FOO] = 2
+    [E.FOO] = 2
     3,          // index 3
     4,
     5,          // error: duplicate initialization of array index
@@ -93,7 +94,7 @@ i32 array2 = {
 }
 ```
 
-### field designators
+### Field designators
 Field designators initialize struct members by name.
 ```c
 // basic struct fields
@@ -113,11 +114,11 @@ Point[] array = {
 ```
 
 
-## incremental arrays
-A special feature in C2 are incremental arrays. These can be used to avoid messy macros when
+## Incrementally declared arrays
+Incrementally declared arrays are a special feature in C2. These can be used to avoid messy macros when
 it is required to have some elements of the array present depending on some external condition (__#ifdef__'ed).
 
-To define an incremental array, use the `[+]` array subscript. Entries can then be added from
+To incrementally declare array, use the `[+]` array subscript in the initial declaration. Entries can then be added from
 different points in the code.
 ```c
 type Point struct {
@@ -138,12 +139,6 @@ points += { 20, 22 }
 points += { 30, 31 }
 ```
 
-the __sizeof()__ and __elemsof()__ operators will keep track if this of course.
-
-NOTE: Incremental arrays can only be used at __global__ level (not inside functions).
-
-
-### nil
-Instead of having to define `NULL` somewhere, C2 have the __nil__ keyword. This can only
-be used for pointer types.
+Note that incrementally defined arrays can only be used at the __global__ level (not inside functions), as their length must be
+known at compile time.
 
