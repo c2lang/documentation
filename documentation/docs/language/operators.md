@@ -16,9 +16,9 @@ from highest (1) to lowest (11):
 11. `,`
 
 The main difference is that bitwise operations and shift has higher precedence than
-addition and subtraction in C2. Bitwise operations also have higher precedence than
-the relational operators. Also, there is no difference in precedence between && || or
-between the bitwise operators.
+addition/subtraction and multiplication/division in C2. Bitwise operations also have
+higher precedence than the relational operators. Also, there is no difference in
+precedence between && || or between the bitwise operators.
 
 ### Examples
 

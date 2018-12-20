@@ -6,10 +6,8 @@ C2 has the following built-in primitive types:
 * `bool`: Either `true` or `false`.
 * `i8`, `i16`, `i32`, `i64`: Signed integral types.
 * `u8`, `u16`, `u32`, `u64`: Unsigned integral types.
-* `f32`, `f64`. Single and double precision floating point types, respectively.
-
-There is also a built-in void pointer type (__void*__), not to be confused with the
-keyword __void__, which denotes a function that returns nothing.
+* `f32`, `f64`: Single and double precision floating point types, respectively.
+* `void`: Same as in C.
 
 For convenience, the __char__ keyword is also available and is identical to the __i8__ type.
 

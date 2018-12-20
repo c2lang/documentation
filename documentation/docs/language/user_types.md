@@ -12,6 +12,7 @@ The type can define:
 * a `struct`
 * a `union`
 * an alias for another type
+* a `func`
 
 ## Enum types
 
@@ -71,6 +72,21 @@ io.printf("%d", i.as_u8); // Undefined behaviour: as_u8 is not the active member
 
 Note that unions only take up as much space as their largest member, so `sizeof(Integral)` is equivalent to `sizeof(u64)`.
 
+C2 also features (anonymous) sub-structs/unions:
+```c
+type Person struct {
+    u8 age;
+    char* name;
+    union {
+        i32 employee_nr;
+        u32 other_nr;
+    }
+    union subname {
+        bool b;
+        Callback cb;
+    }
+```
+
 
 ## Alias types
 Alias types are used to give an alias to a different type, like:
@@ -89,4 +105,19 @@ This defines an alias to function pointer type of a function that returns nothin
 arguments: an `i32` and a `bool`.
 
 
+
+## Function types
+Function types are used to pass a function as an argument to another function or to store
+it in a variable:
+
+```c
+type Callback func i32(i32, void*);
+```
+
+A usage example is given below:
+```c
+// in some function body
+Callback cb = my_callback
+cb(10, nil);
+```
 

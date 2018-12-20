@@ -18,7 +18,6 @@ This philosophy leads to the following design goals:
 * Easy integration with C libraries
 * Should be easy to learn for C programmers
 * Should help to avoid common mistakes
-* Should be easy to write a compiler for
 
 As C2 is an __evolution__ of C, it also has explicit __non goals__:
 
@@ -36,12 +35,26 @@ So *why* would you choose C2 over C?
 
 ### Domain
 New programming languages appear quite frequently nowadays. You may have
-heard of some of the more notable projects like __D__, __Rust__, __Go__ 
+heard of some of the more notable projects like __D__, __Rust__, __Go__
 and __Swift__. Each of these try to solve problems in a specific *domain*.
-For example, both __D__ and __Rust__ aim to be *system-level* programming 
+For example, both __D__ and __Rust__ aim to be *system-level* programming
 languages that have *higher level abstractions* - superceding C++.
 
-*C2 aims to bridge the gap between the comfortability of C++, D and Rust,
-and the ubiquity of C.* Low-level programs like bootloaders, kernels, 
+C2 aims to be the programming language of choice for situations where C would
+currently be used.  Low-level programs like bootloaders, kernels,
 drivers and system-level tooling are what C2 was designed for. It aims
 to *directly replace C* - no more, no less.
+
+### Programming language evolution
+
+![languages](introduction/languages.svg)
+
+In the recent history of programming language development, there has been a trend towards more
+high-level abstractions. Java and C# are a prime example of this - they sacrifice performance
+for abstraction. In the systems programming domain, newer languages like D, Rust and C++ all
+provide more abstractions in the hope of making systems programming more friendly.
+-
+However, abstractions tend to sacrifice simplicity for ease of use. They don't seem to fill the gap
+for low-level programs like operating systems. C is so common in this field because of its
+simplicity! C2 aims to be nicer than C, but still have it's core simplicity.
+
