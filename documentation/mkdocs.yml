@@ -28,6 +28,7 @@ pages:
   - language/bit_offsets.md
   - language/struct_functions.md
   - language/operators.md
+  - language/builtin_functions.md
 - Build system:
   - build_system/intro.md
   - build_system/recipe_file.md
