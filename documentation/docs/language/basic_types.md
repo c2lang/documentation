@@ -6,6 +6,7 @@ C2 has the following built-in primitive types:
 * `bool`: Either `true` or `false`.
 * `i8`, `i16`, `i32`, `i64`: Signed integral types.
 * `u8`, `u16`, `u32`, `u64`: Unsigned integral types.
+* `isize`, `usize`: architecture dependent, either i32/i64 or u32/u64.
 * `f32`, `f64`: Single and double precision floating point types, respectively.
 * `void`: Same as in C.
 
@@ -22,10 +23,12 @@ For each integral type there exists a minimum and maximum value:
 * `min_i16`, `max_i16`
 * `min_i32`, `max_i32`
 * `min_i64`, `max_i64`
+* `min_isize`, `max_isize`
 * `min_u8`, `max_u8`
 * `min_u16`, `max_u16`
 * `min_u32`, `max_u32`
 * `min_u64`, `max_u64`
+* `min_uize2`, `max_usize`
 
 ```c
 module foo;
