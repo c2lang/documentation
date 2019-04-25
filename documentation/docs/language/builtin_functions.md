@@ -25,7 +25,7 @@ So
 
 ```c
 char[15] name;
-const u32 len = elemsof(name];   // len will be 15
+const u32 len = elemsof(name);   // len will be 15
 ```
 Note that this also works for [incremental arrays](variables/#incremental-arrays).
 
