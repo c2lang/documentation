@@ -42,6 +42,8 @@ C2 also introduces some *NEW* features:
 
 * [Incremental arrays](../language/variables/#incremental-arrays)
 
+* [Match statement](../language/match_statement.md)
+
 * More tooling integration like dependency and refs file generation
 
 

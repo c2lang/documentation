@@ -78,6 +78,9 @@ func void demo_enum(Height h) {
 }
 ```
 
+The Switch statement differs from C in that the default case (if present) must be last. Also
+empty switch statements are also not allowed.
+
 Enum constants are always in their own namespace. This avoids global/module
 namespace pollution and allows multiple enums to have the same constant name.
 

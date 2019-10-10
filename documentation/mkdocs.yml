@@ -5,7 +5,7 @@ extra_css:
   - css/highlight.css
 extra_javascript:
   - js/highlight.pack.js
-pages:
+nav:
 - Introduction:
   - Philosophy: index.md
   - introduction/evolution.md
@@ -28,6 +28,7 @@ pages:
   - language/bit_offsets.md
   - language/struct_functions.md
   - language/operators.md
+  - language/match_statement.md
   - language/builtin_functions.md
 - Build system:
   - build_system/intro.md

@@ -67,7 +67,7 @@ The syntax is `to_container`(type, member, pointer), where:
 
 For example:
 
-```c
+``` c
 type Struct struct {
     i32 a;
     i32 b;
