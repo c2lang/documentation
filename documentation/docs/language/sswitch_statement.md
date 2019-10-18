@@ -1,12 +1,12 @@
 
-# Match statement
+# Sswitch statement
 
-C2 introduces a new statement: *match* that can be used to
-make a switch-like stament, but with strings.
+C2 introduces a new statement: *sswitch* that can be used to
+make a switch-like stament, but with strings (sswitch = string switch).
 
 ```c
 func void handleCommand(const i8* cmd) {
-   match (cmd) {
+   sswitch (cmd) {
    case nil:
       return;
    case "start":
@@ -19,9 +19,9 @@ func void handleCommand(const i8* cmd) {
    }
 ```
 
-Rules for using match:
+Rules for using sswitch:
 
-* empty match (no cases/default) is not allowed
+* empty sswitch (no cases/default) is not allowed
 * default case (if present) must be last
 * case argument must be a *string literal* or *nil*
 * there is no fallthrough
