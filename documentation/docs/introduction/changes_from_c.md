@@ -27,6 +27,7 @@ _changes_ made and the design philosophy behind it.
 
 * [Improved operator precedence](../language/operators)
 
+* [No auto-fallthrough in switch cases](../language/sswitch)
 
 
 ### New Features

@@ -56,6 +56,7 @@ C2 has the following keywords:
 * `if`
 * `return`
 * `switch`
+* `sswitch`
 * `while`
 
 
