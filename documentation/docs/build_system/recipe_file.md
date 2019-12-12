@@ -16,6 +16,8 @@ The exact format of the recipe file is still in progress, but it currently looks
 ```ini
 # an example recipe file
 
+config ENABLE_DEBUG
+
 executable hello
   $warnings no-unused
   sources/hello.c2
@@ -30,6 +32,13 @@ end
 ```
 Note that the path to each c2 file is relative to the position of the __recipe file__, not
 to that of the c2c binary.
+
+### Global options
+
+Before all executable/lib targets, global configs may be specified. These have
+the same syntax as config inside a target (see below), but are applied to all
+targets.
+
 
 ### Target options
 
