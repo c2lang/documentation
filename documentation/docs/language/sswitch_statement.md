@@ -11,7 +11,7 @@ The switch statement is similar to C, except for the changes below:
 
 Unexpected fallthrough is a big source of issues in C programs, so in C2
 this implicit behaviour has been removed. Any case statement must end in
-either: *break* | *fallthrough* | *return* | *continue*.
+either: *break* | *fallthrough* | *return* | *continue* | *noreturn-func*.
 The fallthrough statement can only appear at the top-level of the case body,
 not in some sub-expression (eg. _if (x) { fallthrough; }_ is not allowed).
 
