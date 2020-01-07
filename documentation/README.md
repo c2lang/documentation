@@ -1,6 +1,7 @@
-# Pony Tutorials
+# C2 Documentation
 
-This is the source code for generating the Pony tutorials. They are generated with [MkDocs](http://www.mkdocs.org).
+This is the source code for generating the C2 documenation.
+They are generated with [MkDocs](http://www.mkdocs.org).
 
 To install mkdocs:
 
