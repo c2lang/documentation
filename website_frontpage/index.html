@@ -20,6 +20,26 @@
             <div class="navLink"><a href="http://github.com/c2lang/">GitHub</a></div>
       </div>
 
+    <div class="contentTitle"><h1>Library management<font size="1" color="grey">(2020-02-14 by Bas vd Berg)</font></h1></div>
+    <div class="contentText">
+    C has only very limited library support: You add some search paths for header-files, include some header files, and link to static or
+    dynamic libraries. These steps are all separate. If you call library functions without linking
+    to them, you can undefined references. C2 has fixed this by making library usage a single
+    atomic thing. You use the library or you dont. Additionally C2 now supports <b>source libraries</b>.
+    These are libraries that are used in source (=C2) form. This allows better inlining and
+    optimizations, especially when using many 'simple' functions that just return a member of
+    an opaque struct for example. Also it allows developers to organize their code archives in
+    a much easier way.
+    <br>
+    <br>
+    C2 also distinguishes different roles: <b>developers</b> create the code
+    and <b>builders</b> build it. Usually developers create the <i>recipe.txt</i> file, while
+    the builders create the <i>build.toml</i> file. This also allows for a very nice integration
+    into more complex build tools like <i>buildroot</i> or <i>yocto</i>.
+    <br>
+    Give it a try!
+    </div>
+
     <div class="contentTitle"><h1>inline ASM <font size="1" color="grey">(2018-10-02 by Bas vd Berg)</font></h1></div>
     <div class="contentText">
     After a period without any big feature additions, C2 now supports inline ASM! Since
