@@ -17,6 +17,7 @@ The exact format of the recipe file is still in progress, but it currently looks
 # an example recipe file
 
 config ENABLE_DEBUG
+config MAX_BUFFERS 500
 
 executable hello
   $warnings no-unused
@@ -44,7 +45,7 @@ targets.
 
 Inside a target, the following options are available:
 
- * *config [names]* - specify definitions for the preprocessor, like #define feature1
+ * *config [name] <value> - specify definitions for the preprocessor, like #define feature1
  * *export [modules]* - export the modules in libraries and generated headers
  * *generate-c* - enable generation of C code
  * *generate-ir* - enable generation of LLVM IR code
