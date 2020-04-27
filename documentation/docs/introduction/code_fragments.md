@@ -38,7 +38,7 @@ func void demo_while() {
         a--;
     }
 
-    // not allowed in C, but Okey in C++ and C2
+    // not allowed in C, but Okay in C++ and C2
     while (Point* p = getPoint()) {
         // ..
     }

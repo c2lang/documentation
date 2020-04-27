@@ -43,3 +43,4 @@ pages:
   - development/internals.md
   - development/automated_tests.md
   - development/current_status.md
+dev_addr: 0.0.0.0:8000
