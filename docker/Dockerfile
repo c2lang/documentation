@@ -5,7 +5,7 @@ MAINTAINER b.van.den.berg.nl@gmail.com
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
-    apt-get install -y mkdocs locales && \
+    apt-get install -y mkdocs locales python-pygments && \
     apt-get clean && \
     useradd -m user && echo "user:user" | chpasswd && \
     useradd -m dummy && \
