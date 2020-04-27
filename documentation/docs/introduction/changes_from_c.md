@@ -27,7 +27,7 @@ _changes_ made and the design philosophy behind it.
 
 * [Improved operator precedence](../language/operators)
 
-* [No auto-fallthrough in switch cases](../language/sswitch)
+* [No auto-fallthrough in switch cases](../language/sswitch_statement.md)
 
 * [no arrays as function arguments](../language/functions.md)
 
