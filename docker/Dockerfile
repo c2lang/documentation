@@ -5,14 +5,18 @@ MAINTAINER b.van.den.berg.nl@gmail.com
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
-    apt-get install -y mkdocs && \
+    apt-get install -y mkdocs locales && \
     apt-get clean && \
+    useradd -m user && echo "user:user" | chpasswd && \
     useradd -m dummy && \
-    useradd -m user && echo "user:user" | chpasswd
+    locale-gen --purge en_US.UTF-8 && \
+    echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' > /etc/default/locale && \
+    echo 'export PS1="\e[0;31m[\u@\h \w]\$ \e[m"' >> /home/user/.bashrc
 
 USER user
-
-COPY --chown=user .ssh /home/user/.ssh
-
 WORKDIR /build
+
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
 
