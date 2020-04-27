@@ -9,7 +9,7 @@ module hello;
 import stdio as io;
 import c2;
 
-public func i32 main(i32 argc, char*[] argv) {
+public func i32 main(i32 argc, char** argv) {
     io.printf("buildtime is %s\n", c2.buildtime);
     io.printf("c2c version is %s\n", c2.version);
     return 0;

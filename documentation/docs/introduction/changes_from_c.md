@@ -29,6 +29,7 @@ _changes_ made and the design philosophy behind it.
 
 * [No auto-fallthrough in switch cases](../language/sswitch)
 
+* [no arrays as function arguments](../language/functions.md)
 
 ### New Features
 C2 also introduces some *NEW* features:
