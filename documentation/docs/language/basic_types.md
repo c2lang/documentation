@@ -8,6 +8,7 @@ C2 has the following built-in primitive types:
 * `u8`, `u16`, `u32`, `u64`: Unsigned integral types.
 * `isize`, `usize`: architecture dependent, either i32/i64 or u32/u64.
 * `f32`, `f64`: Single and double precision floating point types, respectively.
+* `reg8`, `reg16`, `reg32`, `reg64`: Register types (volatile, unsigned).
 * `void`: Same as in C.
 
 For convenience, the __char__ keyword is also available and is identical to the __i8__ type.
