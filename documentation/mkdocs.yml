@@ -28,7 +28,7 @@ pages:
   - language/bit_offsets.md
   - language/struct_functions.md
   - language/operators.md
-  - language/sswitch_statement.md
+  - language/switch_statement.md
   - language/builtin_functions.md
 - Build system:
   - build_system/intro.md
