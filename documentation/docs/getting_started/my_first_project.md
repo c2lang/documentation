@@ -4,8 +4,10 @@ Creating your first project in C2 is easy, just run:
 ```bash
 ~$ mkdir hello
 ~$ cd hello
-~/hello$ <your favourite editor> hello.c2
-~/hello$ <your favourite editor> recipe.txt
+~/hello$ c2c --create hello
+~/hello$ ls
+   main.c2
+   recipe.txt
 ~/hello$ c2c
 ```
 
