@@ -29,6 +29,10 @@ const u32 len = elemsof(name);   // len will be 15
 ```
 Note that this also works for [incremental arrays](variables/#incremental-arrays).
 
+The `elemsof` function can also be used on Enum types, to return the number of elements
+in the Enum.
+
+
 ### offsetof
 `offsetof` is the same as in C, only it comes with the language (no need to include something).
 The syntax is offsetof(type, member). For example:
