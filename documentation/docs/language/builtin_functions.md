@@ -88,3 +88,18 @@ func void example(const i32* i) {
 
 Unline the macro version, the _const_ status of the original pointer is maintained.
 
+
+### assert
+
+C2 has builtin assert functionality. It looks similar to C, namely:
+
+```c
+func void test1() {
+    assert(2 == 2);
+}
+```
+
+But this doesn't use the macro preprocessor. All asserts are enabled in the recipe with the
+*$enable-assert* option. Note that they are always parsed, to avoid getting errors when you do
+enable them after some time.
+

@@ -44,6 +44,7 @@ C2 has the following keywords:
 * `volatile`
 
 ### Control flow related
+* `assert`
 * `break`
 * `case`
 * `continue`

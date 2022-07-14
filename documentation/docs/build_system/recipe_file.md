@@ -49,9 +49,8 @@ Inside a target, the following options are available:
  * *export [modules]* - export the modules in libraries and generated headers
  * *generate-c* - enable generation of C code
  * *generate-ir* - enable generation of LLVM IR code
+ * *enable-assert* - enables generation of asserts
  * *warnings [list]* - enable/disable specific warnings during compilation
- * *deps [options]* - enable generation of dependency file with certain options
- * *refs* - generate reference file (used for jumping to definition)
  * *use [libs]* - depend on given libraries
 
 
