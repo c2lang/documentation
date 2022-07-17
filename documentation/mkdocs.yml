@@ -30,6 +30,7 @@ pages:
   - language/operators.md
   - language/switch_statement.md
   - language/builtin_functions.md
+  - language/plugins.md
 - Build system:
   - build_system/intro.md
   - build_system/recipe_file.md

@@ -8,14 +8,18 @@ _changes_ made and the design philosophy behind it.
 ### Language changes
 
 * no Header files
-    consequence: import statement and modules
+
+    _consequence_: import statement and modules
 
 * no forward declarations
-    philosophy: types the same thing twice, reduces development speed
-    consequence: requires a multi-pass compiler
 
-* member access always through '.', not sometimes '->'
-    philosophy: remove clutter/reduce change effort
+    _philosophy_: types the same thing twice, reduces development speed
+
+    _consequence_: requires a multi-pass compiler
+
+* member access always through dot-operator ' . ' , not sometimes ' -> '
+
+    _philosophy_: remove clutter/reduce change effort
 
 * Unified type definitions
 
@@ -45,6 +49,8 @@ C2 also introduces some *NEW* features:
 * [Incremental arrays](../language/variables/#incremental-arrays)
 
 * [SSwitch statement](../language/sswitch_statement.md)
+
+* [Plugins](../language/plugins.md)
 
 * More tooling integration like dependency and refs file generation
 

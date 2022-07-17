@@ -19,12 +19,17 @@ The exact format of the recipe file is still in progress, but it currently looks
 config ENABLE_DEBUG
 config MAX_BUFFERS 500
 
+plugin deps_generator [all-targets private]
+plugin refs_generator [all-targets]
+plugin git_version [git options go here]
+
 executable hello
   $warnings no-unused
   sources/hello.c2
 end
 
 lib graphics static
+  $plugin load_file [load_file.yml]
   $export api
   sources/file1.c2
   file2.c2
@@ -50,6 +55,7 @@ Inside a target, the following options are available:
  * *generate-c* - enable generation of C code
  * *generate-ir* - enable generation of LLVM IR code
  * *enable-assert* - enables generation of asserts
+ * *plugin* - load a target-specific plugin, or override with target-specific config
  * *warnings [list]* - enable/disable specific warnings during compilation
  * *use [libs]* - depend on given libraries
 
