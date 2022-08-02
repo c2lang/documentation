@@ -45,6 +45,31 @@ not in some sub-expression (eg. _if (x) { fallthrough; }_ is not allowed).
 
 Finally, the default statement must be last, to increase code-uniformity.
 
+## Automatic Enum scoping
+
+C2 places enum constants in the Enum type namespace, for example:
+
+```
+State s = State.Begin;
+```
+
+For a switch statement using an enum type, the scope is automatic, so it's possible
+to do:
+
+```
+func void demo(State s) {
+    switch (s) {
+    case Begin:
+        break;
+    case Middle:
+        break;
+    case End:
+        break;
+    }
+}
+```
+
+So no need to add `State.` to every case.
 
 # Sswitch statement
 
