@@ -57,20 +57,20 @@ type Height enum u32 {
 
 func void demo_enum(Height h) {
     switch (h) {
-    case Height.LOW:       // fallthrough
-    case Height.MEDIUM:
+    case LOW:       // fallthrough
+    case MEDIUM:
         // ..
         break;
-    case Height.HIGH:
+    case HIGH:
         // ..
         break;
     }
 
     // special checking of switching on enum types
     switch (h) {
-        case Height.LOW:
-        case Height.MEDIUM:
-        case Height.HIGH:
+        case LOW:
+        case MEDIUM:
+        case HIGH:
             break;
         default:    // warning: default label in switch which covers all enumeration value
             break;
@@ -82,7 +82,9 @@ The Switch statement differs from C in that the default case (if present) must b
 empty switch statements are also not allowed.
 
 Enum constants are always in their own namespace. This avoids global/module
-namespace pollution and allows multiple enums to have the same constant name.
+namespace pollution and allows multiple enums to have the same constant name. But when switching on an
+enum type, only the constant is allowed (for readability and consistency). When switching on a non-enum
+type, the prefix must be used.
 
 To prevent having to add artificial enum constants to determine the range of an enum (for int to enum
 conversion etc.), C2 adds two keywords - _enum_min_ and _enum_max_.

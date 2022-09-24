@@ -37,42 +37,40 @@ NOTE: In the near future, extra paths can be given in the recipe file.
 ```bash
 c2libs/
 └── libc
-    ├── manifest
+    ├── manifest.yaml
     ├── stdio.c2i
     ├── stdlib.c2i
     ├── string.c2i
     └── strings.c2i
 ```
 
-To be valid, a library directory has to contain a *manifest* file and one or
+To be valid, a library directory has to contain a *manifest.yaml* file and one or
 more *interface* files.
 
 ###manifest file
 Since C2 doesn't use *#include* headers, a new mechanism is required to map C header
 files to C2 modules. This is the purpose of a *manifest* file.
 
-```toml
+```yaml
 # C2 wrapper for the standard C library
 
-[library]
-language = "C"
-type = [ "static", "dynamic" ]
+info:
+    language: c
+    type: library
+    kinds:
+        - static
+        - dynamic
 
-[[modules]]
-name = "stdio"
-
-[[modules]]
-name = "stdlib"
-
-[[modules]]
-name = "string"
-
-[[modules]]
-name = "strings"
+modules:
+    - c_errno
+    - csetjmp
+    - csignal
+    - stdio
+    - ...
 ```
 
-The manifest file uses the [TOML-format](https://github.com/toml-lang/toml). The
-key-values under *library* describe the generic setting for that library. For *langugage*
+The manifest file uses the [YAML-format](https://yaml.org). The
+key-values under *info* describe the generic setting for that library. For *langugage*
 there can be two options: C or C2. Using C indicates that symbol-generation should not
 prefix the declaration name with the module name. For example: *printf* simply becomes
 the symbol *printf*, not *stdio_printf*.
@@ -82,23 +80,26 @@ line describes which C header should be included by the C generation back-end.
 
 It's also possible to specify dependencies of a library in the manifest file:
 
-```toml
+```yaml
 ...
 
-[[deps]]
-name = "libc"
-type = "dynamic"
+dependencies:
+    libc: dynamic
+    math: dynamic
 
 ...
 ```
 
 To specify the link name to use (what is passed to -l option, eg -lmyname)
 
-```toml
-[library]
-language = "C"
-type = [ "dynamic" ]
-linkname = "z"
+```yaml
+info:
+    language: c
+    type: library
+    linkname: myname
+    kinds:
+        - dynamic
+    linkname = "z"
 ```
 
 
