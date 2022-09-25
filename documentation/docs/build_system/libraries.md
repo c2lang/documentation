@@ -185,7 +185,7 @@ will take care of the rest and generate the *application-binary*
 
 The recipe with a dependency looks like:
 
-```toml
+```
 executable myapp
     $use mylib static
     myapp.c2

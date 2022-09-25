@@ -11,27 +11,27 @@ A build file is optional, but can used to specify:
 ### Specifying a build file
 Telling the C2 compiler to use a build file can be done in several ways:
 
-* By default, C2C looks for a file named *build.toml* in the same directory as the recipe file
+* By default, C2C looks for a file named *build.yaml* in the same directory as the recipe file
 * it can be specified on the command-line with the *-b <build_file\>* option
 
 
 ### Format
-The build file uses the [TOML format](https://github.com/toml-lang/toml) and use
-the *.toml* filename extension.
+The build file uses the [YAML format](https://yaml.org) and use
+the *.yaml* filename extension.
 
-```toml
-target = "arm-linux-gnueabi"
+```yaml
+target: "arm-linux-gnueabi"
 
-[toolchain]
-cc = "arm-linux-gnueabi-gcc"
-cflags = "-march=armv7-a -marm -mfpu=neon  -mfloat-abi=hard -mcpu=cortex-a9"
-ldflags = "-Wl,-O1"
+output_dir: "output_arm"
 
-[[libdir]]
-dir = "$ARM_SYSROOT"
+toolchain:
+    cc: "arm-linux-gnueabi-gcc"
+    cflags: "-march=armv7-a -marm -mfpu=neon  -mfloat-abi=hard -mcpu=cortex-a9"
+    ldflags: "-Wl,-O1"
 
-[output]
-dir="output_arm"
+libdir:
+    - "$ARM_SYSROOT"
+
 ```
 
 All entries are optional, but when specified will override the default values.
@@ -39,21 +39,21 @@ All entries are optional, but when specified will override the default values.
 #### Value expansion
 
 Instead of specifying a fixed value in the build file, all values that start with a *$* are
-instead interpreted as *environment variables*. For example, the *build_generic.toml* file
+instead interpreted as *environment variables*. For example, the *build_generic.yaml* file
 
-```toml
-target = "$TARGET_PREFIX"
+```yaml
+target: "$TARGET_PREFIX"
 
-[toolchain]
-cc = "$CC"
-cflags = "$CFLAGS"
-ldflags = "$LDFLAGS"
+output_dir: "output_cross"
 
-[[libdir]]
-dir = "$C2_LIBDIR"
+toolchain:
+    cc: "$CC"
+    cflags: "$CFLAGS"
+    ldflags: "$LDFLAGS"
 
-[output]
-dir="output_cross"
+libdir:
+    - "$C2_LIBDIR"
+
 ```
 
 can be used with many different cross-compile toolchains that just export the right
@@ -63,8 +63,8 @@ variable to the search path.
 Please note that the entire value after the *$* is interpreted as the
 environment variable name, so the following is NOT allowed:
 
-```toml
-key = "$ENV1 $ENV2"
+```yaml
+key: "$ENV1 $ENV2"
 ```
 
 
