@@ -47,6 +47,17 @@ p.name - "John Doe";
 io.printf("%s is %d years old.", p.age, p.name);
 ```
 
+Structs may also contain *bit-fields*. These are the same as C.
+```c
+type MyStruct struct {
+    u32 first : 1;
+    u32 : 8;
+    u32 more : 4;
+}
+```
+
+Unnamed bit-fields are allowed.
+
 
 ## Union types
 
