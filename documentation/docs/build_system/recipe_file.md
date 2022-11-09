@@ -60,3 +60,17 @@ Inside a target, the following options are available:
  * *use [libs]* - depend on given libraries
 
 
+#### Warning options
+Different warnings can be disabled by one of more options after _$warnings_:
+
+ * *no-unused* - silence all unused warnings
+ * *no-unused-variable* - silence warnings about unused variables
+ * *no-unused-function* - silence warnings about unused functions
+ * *no-unused-parameter* - silence warnings about unused parameters
+ * *no-unused-type* - silence warnings about unused types
+ * *no-unused-module* - silence warnings about unused modules
+ * *no-unused-import* - silence warnings about unused imports
+ * *no-unused-public* - silence warnings about unused public keywords
+ * *no-unused-label* - silence warnings about unused labels
+ * *promote-to-error* - promote  warnings to errors
+
