@@ -64,13 +64,14 @@ Inside a target, the following options are available:
 Different warnings can be disabled by one of more options after _$warnings_:
 
  * *no-unused* - silence all unused warnings
- * *no-unused-variable* - silence warnings about unused variables
+ * *no-unused-enum-constants* - silence warnings about unused enum constants
  * *no-unused-function* - silence warnings about unused functions
- * *no-unused-parameter* - silence warnings about unused parameters
- * *no-unused-type* - silence warnings about unused types
- * *no-unused-module* - silence warnings about unused modules
  * *no-unused-import* - silence warnings about unused imports
- * *no-unused-public* - silence warnings about unused public keywords
  * *no-unused-label* - silence warnings about unused labels
+ * *no-unused-module* - silence warnings about unused modules
+ * *no-unused-parameter* - silence warnings about unused parameters
+ * *no-unused-public* - silence warnings about unused public keywords
+ * *no-unused-type* - silence warnings about unused types
+ * *no-unused-variable* - silence warnings about unused variables
  * *promote-to-error* - promote  warnings to errors
 
