@@ -20,6 +20,20 @@
             <div class="navLink"><a href="http://github.com/c2lang/">GitHub</a></div>
       </div>
 
+    <div class="contentTitle"><h1>The next step..<font size="1" color="grey">(2022-11-13 by Bas vd Berg)</font></h1></div>
+    <div class="contentText">
+    C2 is designed for creating kernels, bootloaders, webservers, compilers and other low-level/high-performance applications
+    that you would currently use C(or C++) for. In the trend of 'eat your own dog food', I decided to re-write the C2 compiler
+    (written in C++) in C2. This has been a fun project! Running into some small bugs in the original compiler since it was the
+    largest C2 project so far (140 files, around 25K lines of code) did not lessen the fun. I'm very happy with the result. The
+    original C++ based compiler was 6.9 Mb since it used some Clang components and statically linked LLVM. The new compiler is
+    only 200 Kb and has almost the same front-end functionality. Speed-wise, the original compiler parser + analyser around
+    1 million lines/second. The new one over 2 million lines/second. The diagnostics messages are the same.
+    <br>
+    I am very content with how C2 came together, it feels very smooth to program in and the struct-functions make the
+    code much more concise. Also it's blindingly fast. If you are looking for something newer than C/C++, give it a try..
+    </div>
+
     <div class="contentTitle"><h1>Library management <font size="1" color="grey">(2020-02-14 by Bas vd Berg)</font></h1></div>
     <div class="contentText">
     C has only very limited library support: You add some search paths for header-files, include some header files, and link to static or
