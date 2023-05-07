@@ -99,7 +99,7 @@ func void test1() {
 }
 ```
 
-But this doesn't use the macro preprocessor. All asserts are enabled in the recipe with the
-*$enable-assert* option. Note that they are always parsed, to avoid getting errors when you do
-enable them after some time.
+But this doesn't use the macro preprocessor. Arasserts are enabled by default, but can be disabled
+in the recipe with the *$disable-asserts* option. Note that they are always parsed, to avoid getting
+errors when you do re-enable them after some time.
 

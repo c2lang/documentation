@@ -54,7 +54,7 @@ Inside a target, the following options are available:
  * *export [modules]* - export the modules in libraries and generated headers
  * *generate-c* - enable generation of C code
  * *generate-ir* - enable generation of LLVM IR code
- * *enable-assert* - enables generation of asserts
+ * *disable-asserts* - disables generation of asserts
  * *plugin* - load a target-specific plugin, or override with target-specific config
  * *warnings [list]* - enable/disable specific warnings during compilation
  * *use [libs]* - depend on given libraries
