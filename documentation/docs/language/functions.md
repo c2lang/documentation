@@ -14,5 +14,11 @@ Functions may also have attributes. More information on attributes can be found 
 
 ### Arrays
 In C2 arrays cannot be used as function arguments, so pointers must be used instead. This is done
-because in C passing 'int numbers[20]' is not a copy, but a pointer to an array.
+because in C passing 'int numbers[20]' is not a copy, but a pointer to an array, which is confusing
+and could lead to bugs.
+
+
+### Arguments
+Default arguments (like: func void test(i32 a = 10) {} ) are not allowed in C2.
+
 
