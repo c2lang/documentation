@@ -44,7 +44,6 @@ C2 has the following keywords:
 * `volatile`
 
 ### Control flow related
-* `assert`
 * `break`
 * `case`
 * `continue`
@@ -60,4 +59,7 @@ C2 has the following keywords:
 * `sswitch`
 * `while`
 
+### other
+* `assert`
+* `static_assert`
 

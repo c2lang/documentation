@@ -16,7 +16,7 @@ u32 size = sizeof(void*);
 
 ### elemsof ###
 For array types, C2 introduces a new operator, namely `elemsof`. This returns the number
-of elements in an array and avoids C macros like:
+of elements in an array or the number of constants in an enum and avoids C macros like:
 ```c
 #define ARRAY_SIZE(x) ( sizeof(x) / sizeof(x[0]) )
 ```
@@ -25,9 +25,12 @@ So
 
 ```c
 char[15] name;
-const u32 len = elemsof(name);   // len will be 15
+const u32 len = elemsof(name);   // will be 15
+
+type Colors enum u8 { Red, Green, Blue }
+const u32 count = elemsof(Colors); // will be 3
 ```
-Note that this also works for [incremental arrays](variables/#incremental-arrays).
+Note that this also works for [incremental arrays](../variables/#incremental-arrays).
 
 The `elemsof` function can also be used on Enum types, to return the number of elements
 in the Enum.
@@ -99,7 +102,7 @@ func void test1() {
 }
 ```
 
-But this doesn't use the macro preprocessor. Arasserts are enabled by default, but can be disabled
-in the recipe with the *$disable-asserts* option. Note that they are always parsed, to avoid getting
+But this doesn't use the macro preprocessor. Asserts are enabled by default, but can be disabled
+in the [recipe](../../build_system/recipe_file/) with the *$disable-asserts* option. Note that they are always parsed, to avoid getting
 errors when you do re-enable them after some time.
 

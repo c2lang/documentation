@@ -19,14 +19,33 @@ The type can define:
 Enum (enumerated) types use the following syntax:
 ```c
 type State enum i8 {
-    BEGIN = 0,
-    MIDDLE,
-    END
+    Begin = 0,
+    Middle,
+    End,
 }
 ```
 
 Note that all enum constants are in only available through the enum type's namespace
-(eg. State.BEGIN, not BEGIN).
+(eg. State.Begin, not Begin). This allows the names to be much shorter (not COLOR_GREEN,
+but just Green).
+
+### Incremental Enums
+
+Just like [incremental arrays](../variables/#incremental-arrays) C2 allows enums to be
+incremental. This can be used when the software has a lot of compile-time configurations.
+The additional enum constants can even be added from separate files (from the same module).
+
+The syntax looks like:
+
+```c
+type Colors enum u8 { + }
+
+Colors += Red;
+Colors += Green;
+Colors += Blue;
+```
+
+Enums must always have at least one constant.
 
 ## Struct types
 
