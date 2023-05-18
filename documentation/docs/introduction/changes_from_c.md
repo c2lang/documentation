@@ -31,7 +31,7 @@ _changes_ made and the design philosophy behind it.
 
 * [Improved operator precedence](../language/operators)
 
-* [No auto-fallthrough in switch cases](../language/sswitch_statement.md)
+* [No auto-fallthrough in switch cases](../language/switch_statement/#auto-fallthrough)
 
 * [no arrays as function arguments](../language/functions.md)
 
@@ -48,7 +48,7 @@ C2 also introduces some *NEW* features:
 
 * [Incremental arrays](../language/variables/#incremental-arrays)
 
-* [SSwitch statement](../language/sswitch_statement.md)
+* [SSwitch statement](../language/switch_statement/#sswitch-statement)
 
 * [Plugins](../language/plugins.md)
 

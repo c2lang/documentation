@@ -1,4 +1,5 @@
 site_name: C2 Language Documentation
+site_url: http://www.c2lang.org/site/
 repo_url: https://github.com/c2lang
 theme: readthedocs
 extra_css:

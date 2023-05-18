@@ -66,7 +66,7 @@ void*[]  a;
 Point[4] b;
 ```
 
-For array types, C2 introduces a new operator, namely [elemsof](../builtin_functions/#elemsof) This returns the number
+For array types, C2 introduces a new operator, namely [elemsof](../language/builtin_functions/#elemsof) This returns the number
 of elements in an array and avoids C macros like:
 ```c
 #define ARRAY_SIZE(x) ( sizeof(x) / sizeof(x[0]) )

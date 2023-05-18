@@ -31,7 +31,7 @@ but just Green).
 
 ### Incremental Enums
 
-Just like [incremental arrays](../variables/#incremental-arrays) C2 allows enums to be
+Just like [incremental arrays](variables/#incremental-arrays) C2 allows enums to be
 incremental. This can be used when the software has a lot of compile-time configurations.
 The additional enum constants can even be added from separate files (from the same module).
 
