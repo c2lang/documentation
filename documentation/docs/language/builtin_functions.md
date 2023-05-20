@@ -25,10 +25,15 @@ So
 
 ```c
 char[15] name;
-const u32 len = elemsof(name);   // will be 15
+const u32 Len = elemsof(name);   // will be 15
+
+u32[10][20] multi;
+const u32 Cols = elemsof(multi); // will be 10
+const u32 Rows = elemsof(multi[0]); // will be 20
 
 type Colors enum u8 { Red, Green, Blue }
-const u32 count = elemsof(Colors); // will be 3
+const u32 Count = elemsof(Colors); // will be 3
+
 ```
 Note that this also works for [incremental arrays](variables/#incremental-arrays).
 
