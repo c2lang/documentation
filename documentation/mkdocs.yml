@@ -22,6 +22,7 @@ pages:
   - language/keywords.md
   - language/basic_types.md
   - User-defined types: language/user_types.md
+  - Strings and characters: language/char_string.md
   - language/variables.md
   - language/functions.md
   - language/modules.md
