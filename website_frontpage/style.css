@@ -134,6 +134,12 @@ a:hover
 color:#5478D6;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
 
 #footer {
 width: 750px;

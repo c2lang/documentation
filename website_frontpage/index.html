@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 
 <title>C2 Programming Language</title>
@@ -20,7 +21,50 @@
             <div class="navLink"><a href="http://github.com/c2lang/">GitHub</a></div>
       </div>
 
-    <div class="contentTitle"><h1>The next step..<font size="1" color="grey">(2022-11-13 by Bas vd Berg)</font></h1></div>
+    <div class="contentTitle"><h1>A Year later <font size="1" color="grey">(2023-05-24 by Bas vd Berg)</font></h1></div>
+    <div class="contentText">
+    A little more than a year ago, I started to re-implement the C2 compiler in C2 itself. At
+    <a href="http://fosdem.org">Fosdem 2023</a> I gave a presentation about it. Now c2c-native (as opposed to c2c-cpp)
+    supports more than 900 unit tests, can self-compile and is generally usable. It was also the graduation test
+    for the C2 language as far as I'm concerned. I find it really smooth to program: it gives you the power of C,
+    but removes the sharp edges and generally speeds up development. C2c-native is also blindingly fast: parsing 35K
+    lines of C2 code takes around 12ms. Analysing it takes less than 6ms. This allows editor plugins that check while you type.
+    <br>
+    c2c-native also supports something c2c-cpp does not: template-functions.
+    <br>
+    <br>
+    The next things that I will be adding are:
+    <ul style="list-style-type:disc">
+        <li><b>Struct Templates</b> Template structs with struct functions</li>
+        <li><b>ASM</b> re-add ASM support for embedded/bare-metal targets</li>
+        <li><b>Tooling</b> more editor plugins</li>
+    </ul><br>
+
+    Another thing I (re-)experienced while implementing the c2c-native is the <b>brainpower-factor</b>:
+
+    <center>
+    <img src="brainpower.svg" alt="Brainpower" class="center">
+    </center>
+
+    The concept of this is simple:
+    <br>
+    <b><i>when programming a developer has to divide his/her brain-power between the problem-domain and
+            the solution-domain</i></b>.
+    <br>
+    The problem-domain contains the tools you use to solve the problem. The solution-domain is the actual thing
+    you are trying to implement/solve for your customer. So the more brainpower you use for one domain, the less
+    is left for the other domain.
+    <br>
+    I notice this a lot when programming in C++: You're constantly busy thinking about design patters, class
+    hierarchies, template use etc. A <b>LOT</b> less brainpower is left to solve the actual problem. In a language
+    like C or C2, the language offers you basic constructs to work with, so you're much more focused on solving
+    the actual problem: a higher development speed. The idea that a <i>higher-level</i> language makes development
+    faster only works for a 'lot-higher' languages like Python, not for C++/Rust that aren't really a lot 'higher'.
+    <br>
+    <b>Do not underestimate the power of a 'simple' language.</b>
+    </div>
+
+    <div class="contentTitle"><h1>The next step.. <font size="1" color="grey">(2022-11-13 by Bas vd Berg)</font></h1></div>
     <div class="contentText">
     C2 is designed for creating kernels, bootloaders, webservers, compilers and other low-level/high-performance applications
     that you would currently use C(or C++) for. In the trend of 'eat your own dog food', I decided to re-write the C2 compiler
