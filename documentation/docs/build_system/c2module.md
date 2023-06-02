@@ -1,5 +1,5 @@
 
-For code to insert information like the git version, build time, compiler version etc,
+For code to insert information like the git version, compiler version etc,
 there is a special module called `c2`. This pseudo-module exports symbols that contain
 this information and can be easily used like:
 
@@ -10,7 +10,6 @@ import stdio as io;
 import c2;
 
 public func i32 main(i32 argc, char** argv) {
-    io.printf("buildtime is %s\n", c2.buildtime);
     io.printf("c2c version is %s\n", c2.version);
     return 0;
 }
