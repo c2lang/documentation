@@ -115,7 +115,9 @@ C2 provides the following built-in primitive types:
 * __i8__, __i16__, __i32__, __i64__
 * __u8__, __u16__, __u32__, __u64__
 * __f32__, __f64__
-* __char__ (equal to i8)
+* __char__
+* __isize__, __usize__
+
 
 The default __int__ and __float__ types have been removed along with type modifiers such as
 __short__, __long__, __signed__, or __unsigned__.

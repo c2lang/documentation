@@ -24,6 +24,7 @@ pages:
   - User-defined types: language/user_types.md
   - Strings and characters: language/char_string.md
   - language/variables.md
+  - Printf specifiers: language/printf_specifiers.md
   - language/functions.md
   - language/modules.md
   - language/attributes.md

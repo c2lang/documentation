@@ -11,6 +11,7 @@ The currently supported attributes are:
 * __unused_params__ (func)
 * __section__ (func, var), requires argument
 * __noreturn__ (func)
+* __printf_format__ (func)
 * __inline__ (func)
 * __aligned__ (type, func, var), requires argument
 * __weak__ (func, var)
@@ -46,7 +47,34 @@ public func void init() @(export) {
 ```
 
 `NOTE: compiler-specific attributes will be required to start with an underscore,
-like _c3_my_attribute_, so other compilers can recognize and ignore them`
+like _c2_my_attribute_, so other compilers can recognize and ignore them`
+
+### Printf_format
+
+Printf_format is the C2 equivalent of C:
+```__attribute__((format=(printf, 1, 2)));``` and is used like:
+
+```c
+func void log(const char* format, ...) @(printf_format=1) {
+ // ..
+}
+
+```
+
+Where the argument points to the (1-based) index of the format argument.
+
+Any call to this function can than have its format checked and possibly give errors like:
+
+```c
+func void test() {
+    log("%s", 10);  // error: "format '%s' expects a string argument"
+              ^
+}
+
+```
+
+See also [Printf specifiers](../language/printf_specifiers/)
+
 
 ### Opaque pointers
 
