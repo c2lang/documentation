@@ -18,6 +18,8 @@ The currently supported attributes are:
 * __opaque__ (public struct/union types)
 * __cname__ (type, func, var), interface
 * __no_typedef__ (interface struct/union types)
+* __constructor__ (func)
+* __destructor__ (func)
 
 The standard syntax for all attributes is `@(  )`  (get it?!, @, at, attributes... ;) )
 
