@@ -26,6 +26,7 @@ pages:
   - language/variables.md
   - Printf specifiers: language/printf_specifiers.md
   - language/functions.md
+  - language/flow_control.md
   - language/modules.md
   - language/attributes.md
   - language/bit_offsets.md
