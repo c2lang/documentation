@@ -1,6 +1,6 @@
 ## Plugins
 
-The C2 compiler is more than a tool to convert c2 code into binaries. It aim to speed up
+The C2 compiler is more than a tool to convert c2 code into binaries. It aims to speed up
 development and help developers get things done.
 
 For example:
