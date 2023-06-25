@@ -27,6 +27,7 @@ C2 has the following keywords:
 * `i16`
 * `i32`
 * `i64`
+* `isize`
 * `local`
 * `nil`
 * `offsetof`
@@ -40,6 +41,7 @@ C2 has the following keywords:
 * `u32`
 * `u64`
 * `union`
+* `usize`
 * `void`
 * `volatile`
 
