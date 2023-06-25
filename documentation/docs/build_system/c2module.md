@@ -22,6 +22,6 @@ resolved by the programmer.
 
 See [Basic types](../language/basic_types.md) for a list of symbols.
 
-The C2 also contains several C types used to map C functions to C2's interface files.
+The C2 module also contains several C types used to map C functions to C2's interface files.
 See [External Libraries](libraries/) for information on the types and interface files.
 
