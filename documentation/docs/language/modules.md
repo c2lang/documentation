@@ -168,6 +168,6 @@ func void test() {
 }
 ```
 Global symbols __must__ have unique names within their module, whether `public` or not. This ensures that
-`module.symbol` is unique. In the example above, all three modules have contain a `test` symbol, but no clash
+`module.symbol` is unique. In the example above, all three modules contain a `test` symbol, but no clash
 occurs, as the module which the symbol comes from is always specified.
 
