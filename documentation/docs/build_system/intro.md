@@ -3,7 +3,7 @@ The scope of C2 language is larger than just the code itself; it also includes t
 build system. Including this allows doing many nice things easily, like LTO (link
 time optimization), etc.
 
-The C2 build system use two different configuration files: the `recipe` and the
+The C2 build system uses two different configuration files: the `recipe` and the
 `build file`.
 
 ### Recipe
