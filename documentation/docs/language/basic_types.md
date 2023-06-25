@@ -29,7 +29,7 @@ For each integral type there exists a minimum and maximum value:
 * `min_u16`, `max_u16`
 * `min_u32`, `max_u32`
 * `min_u64`, `max_u64`
-* `min_uize2`, `max_usize`
+* `min_usize`, `max_usize`
 
 ```c
 module foo;
