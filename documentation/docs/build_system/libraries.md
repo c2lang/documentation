@@ -29,7 +29,7 @@ in the recipe file. There is one exception to this rule: usage of *libc* is opt-
 default each program uses it. This is a convenience choice.
 
 c2c uses an environment variable called *$C2_LIBDIR* indicating the directory where
-libraries can be found. In this directory, each library as its own subdirectory, as
+libraries can be found. In this directory, each library has its own subdirectory, as
 shown below.
 
 NOTE: In the near future, extra paths can be given in the recipe file.
@@ -175,7 +175,7 @@ and *mylib_extra.c2i*. For C client programs, c2c can generate *mylib.h* and *my
 Also the library itself *mylib.a* (in this case a static lib) is generated.
 
 Currently c2c uses a C-backend. This means that the C2 sources are transformed into
-C and then compiled using clang/gcc. This part in shown in the *c2c C-backend* box.
+C and then compiled using clang/gcc. This part is shown in the *c2c C-backend* box.
 
 ###building C2-application
 So now we have a library and some c2 interface files. At this stage, we might be
