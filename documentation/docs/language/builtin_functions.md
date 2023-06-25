@@ -94,7 +94,7 @@ func void example(const i32* i) {
 }
 ```
 
-Unline the macro version, the _const_ status of the original pointer is maintained.
+Unlike the macro version, the _const_ status of the original pointer is maintained.
 
 
 ### assert
