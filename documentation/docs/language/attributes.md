@@ -92,7 +92,7 @@ modules can only use that type *by pointer* and are not allowed to dereference i
 
 ```c
 public type Handle struct {
-    ..   // members are not visible outside module
+    ..   // members are not visible outside of the module
 } @(opaque)
 ```
 
