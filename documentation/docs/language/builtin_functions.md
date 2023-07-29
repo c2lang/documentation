@@ -111,3 +111,12 @@ But this doesn't use the macro preprocessor. Asserts are enabled by default, but
 in the [recipe](../build_system/recipe_file/) with the *$disable-asserts* option. Note that they are always parsed, to avoid getting
 errors when you do re-enable them after some time.
 
+### cast
+
+The format of the C-style cast has been changed to make the cast-subject explicit:
+
+```c
+   i32 a = cast<i32>(b);
+   Foo* f = cast<Foo*>(bar);
+```
+
