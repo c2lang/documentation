@@ -52,8 +52,8 @@ Inside a target, the following options are available:
 
  * *config [name] <value> - specify definitions for the preprocessor, like #define feature1
  * *export [modules]* - export the modules in libraries and generated headers
- * *generate-c* - enable generation of C code
- * *generate-ir* - enable generation of LLVM IR code
+ * *backend c* - enable generation of C code
+ * *backend llvm* - enable generation of LLVM IR code
  * *disable-asserts* - disables generation of asserts
  * *plugin* - load a target-specific plugin, or override with target-specific config
  * *warnings [list]* - enable/disable specific warnings during compilation

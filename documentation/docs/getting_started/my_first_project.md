@@ -29,7 +29,7 @@ public fn i32 main(i32 argc, char** argv) {
 ```ini
 executable hello
   $warnings no-unused
-  $generate-c
+  $backend c
   hello.c2
 end
 ```
