@@ -57,7 +57,7 @@ For a switch statement using an enum type, the scope is automatic, so it's possi
 to do:
 
 ```
-func void demo(State s) {
+fn void demo(State s) {
     switch (s) {
     case Begin:
         break;
@@ -77,7 +77,7 @@ C2 introduces a new statement: *sswitch* that can be used to
 make a switch-like stament, but with strings (sswitch = string switch).
 
 ```c
-func void handleCommand(const i8* cmd) {
+fn void handleCommand(const i8* cmd) {
    sswitch (cmd) {
    case nil:
       return;

@@ -5,7 +5,7 @@ code *outside* differs a bit.
 
 ### if-statement
 ```c
-func void demo_if(i32 a) {
+fn void demo_if(i32 a) {
     if (a > 0) {
         // ..
     } else {
@@ -16,7 +16,7 @@ func void demo_if(i32 a) {
 
 ### for-loop
 ```c
-func void demo_for() {
+fn void demo_for() {
     // the for-loop is the same as C. You can declare the loop variable (i) inside.
     for (i32 i=0; i<10; i++) {
         io.printf("%d\n", i);
@@ -31,7 +31,7 @@ func void demo_for() {
 
 ### while-loop
 ```c
-func void demo_while() {
+fn void demo_while() {
     // again exactly the same as C
     i32 a = 10;
     while (a > 0) {
@@ -55,7 +55,7 @@ type Height enum u32 {
     HIGH,
 }
 
-func void demo_enum(Height h) {
+fn void demo_enum(Height h) {
     switch (h) {
     case LOW:       // fallthrough
     case MEDIUM:
@@ -102,7 +102,7 @@ const u32 highest = enum_max(State);
 
 ### struct types
 ```c
-type Callback func i32(char c);
+type Callback fn i32(char c);
 
 type Status enum i32 {
     IDLE,
@@ -163,7 +163,7 @@ persons += { "Peter", 30 }
 // you can add more entries later (in the same/other file of the same module)
 persons += { "Alice", 40 }
 
-func void demo_elemsof() {
+fn void demo_elemsof() {
     i32 a = elemsof(persons);     // will be 4
 }
 ```
@@ -172,16 +172,16 @@ func void demo_elemsof() {
 ```c
 module demo;
 
-type Callback func i32(const char* text, i32 value);
+type Callback fn i32(const char* text, i32 value);
 
 // also shows function attribute
-func i32 my_callback(const char* text, i32 value) @(unused_params) {
+fn i32 my_callback(const char* text, i32 value) @(unused_params) {
     return 0;
 }
 
 Callback cb = demo.my_callback;
 
-func void demo_cb() {
+fn void demo_cb() {
     i32 result = cb("demo", 123);
     // ..
 }
@@ -192,7 +192,7 @@ C2 supports the GNU inline ASM syntax.
 See [GNU site for syntax](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html).
 
 ```c
-func u64 rdtsc() @(inline) {
+fn u64 rdtsc() @(inline) {
     u32 lo;
     u32 hi;
     asm volatile ("rdtsc" : "=a" (lo), "=d" (hi));

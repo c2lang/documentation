@@ -12,7 +12,7 @@ The type can define:
 * a `struct`
 * a `union`
 * an alias for another type
-* a `func`
+* a `fn`
 
 ## Enum types
 
@@ -129,7 +129,7 @@ type Numbers i32[10];
 Instead of the obscure C syntax used to alias a function pointer type, C2 uses the
 following:
 ```c
-public type Callback func void(i32 a, bool b);
+public type Callback fn void(i32 a, bool b);
 ```
 This defines an alias to function pointer type of a function that returns nothing and requires two
 arguments: an `i32` and a `bool`.
@@ -141,7 +141,7 @@ Function types are used to pass a function as an argument to another function or
 it in a variable:
 
 ```c
-type Callback func i32(i32, void*);
+type Callback fn i32(i32, void*);
 ```
 
 A usage example is given below:

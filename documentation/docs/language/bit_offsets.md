@@ -14,7 +14,7 @@ So the width is `highest - lowest + 1`. This syntax was chosen to match
 hardware specifications that often specify bits in registers in the same way.
 
 ```c
-func void demo() {
+fn void demo() {
     u32 value = 0x1234;
     u8 a = value[15:8]; // will be 0x12
     u8 b = value[11:4]; // will be 0x23

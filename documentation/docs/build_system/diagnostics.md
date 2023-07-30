@@ -13,7 +13,7 @@ module test;
 
 public i32 y;     // warning: unused variable 'test.y'
 
-public func void foo() {
+public fn void foo() {
     i32 x;          // warning: unused variable 'x'
 }
 ```
@@ -24,7 +24,7 @@ All functions of the entire program can be checked for usage.
 ```c
 module test;
 
-func foo() {}    // warning: unused function 'test.foo'
+fn foo() {}    // warning: unused function 'test.foo'
 ```
 
 ### unused imports
@@ -40,9 +40,9 @@ import stdlib;      // warning: unused module 'stdlib'
 ```c
 module test;
 
-public func void foo() {}   // warning: function 'test.foo' is not used public
+public fn void foo() {}   // warning: function 'test.foo' is not used public
 
-public func i32 main() {
+public fn i32 main() {
     foo();
     return 0;
 }
@@ -66,7 +66,7 @@ type Object struct {
     Object* next;       // warning: unused struct member 'next'
 }
 
-func Object foo() {
+fn Object foo() {
     Object o;
     o.x = 10;
 }

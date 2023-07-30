@@ -124,11 +124,11 @@ FILE* stdin;
 FILE* stdout;
 FILE* stderr;
 
-func c_int fclose(FILE* __stream);
-func c_int fflush(FILE* __stream);
-func c_int fprintf(FILE* __stream, const c_char* __format, ...);
-func c_int printf(const c_char* __format, ...);
-func c_int sprintf(c_char* __s, const c_char* __format, ...);
+fn c_int fclose(FILE* __stream);
+fn c_int fflush(FILE* __stream);
+fn c_int fprintf(FILE* __stream, const c_char* __format, ...);
+fn c_int printf(const c_char* __format, ...);
+fn c_int sprintf(c_char* __s, const c_char* __format, ...);
 
 // .. (stuff left out)
 ```

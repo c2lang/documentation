@@ -16,7 +16,7 @@ module main;
 import stdio;
 import git_version;
 
-func i32 main(i32 argc, char** argv) {
+fn i32 main(i32 argc, char** argv) {
     io.printf("Git version: %s\n", git_version.describe);
     return 0;
 }

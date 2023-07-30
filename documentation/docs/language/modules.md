@@ -115,9 +115,9 @@ In C2 this would simply be:
 ```c
 module networking;
 
-public func void open() { .. }
+public fn void open() { .. }
 
-public func void close() { .. }
+public fn void close() { .. }
 
 public type NetData struct {
     ..
@@ -144,9 +144,9 @@ modules can only use declarations specified as `public`.
 ```c
 module foo;
 
-public func void init() { .. }
+public fn void init() { .. }
 
-func void open() { .. }
+fn void open() { .. }
 ```
 
 In this example, the other modules can use the `init()` function after importing foo, but
@@ -161,7 +161,7 @@ module foo;
 import one;
 import two;
 
-func void test() {
+fn void test() {
     one.test();
     two.test();
     open();

@@ -11,11 +11,11 @@ type Point struct {
     i32 y;
 }
 
-func void Point.add(Point* p, i32 x) {
+fn void Point.add(Point* p, i32 x) {
     p.x = x;
 }
 
-func void example() {
+fn void example() {
     Point p = { 1, 2 }
 
     // with struct-functions
@@ -53,11 +53,11 @@ type Inner struct {
     // ...
 }
 
-func void Inner.modify(Inner* inner, /* ... */) {
+fn void Inner.modify(Inner* inner, /* ... */) {
     // ...
 }
 
-func void example() {
+fn void example() {
     Outer outer;
     outer.inner.modify(/* ... */);
     // translates to Inner.modify(&outer.inner);
@@ -89,24 +89,24 @@ public type Shape struct {
 } @(opaque)
 
 // a non-public struct-function
-func void Shape.init(Shape* shape, u8 sides) {
+fn void Shape.init(Shape* shape, u8 sides) {
    shape.sides = sides;
 }
 
 // a static struct-function, called as Shape.create(..)
-public func Shape* Shape.create(u8 sides) {
+public fn Shape* Shape.create(u8 sides) {
     Shape* shape = stdlib.malloc(sizeof(Shape));
     shape.init(sides);
     return shape;
 }
 
 // a public, const struct-function, first argument: const Shape*
-public func void Shape.print(const Shape* shape) {
+public fn void Shape.print(const Shape* shape) {
     stdio.printf("shape with %d sides\n", shape.sides);
 }
 
 // a public, struct-function, first argument: Shape*
-public func void Shape.free(Shape* shape) {
+public fn void Shape.free(Shape* shape) {
     stdlib.free(shape);
 }
 ```
@@ -118,7 +118,7 @@ module outer;
 
 import inner local;
 
-func void example() {
+fn void example() {
     Shape* s = Shape.create(3);
     s.print();
     s.free();

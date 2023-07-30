@@ -1,11 +1,11 @@
 # Functions
 
-Functions declarations always start with the `func` keyword; otherwise they look very similar
+Functions declarations always start with the `fn` keyword; otherwise they look very similar
 to C. Since there are no forward declarations of any kind in C2, there is just one form
 of a function declaration, which is the definition:
 
 ```c
-public func i32 main(i32 argc, char** argv) {
+public fn i32 main(i32 argc, char** argv) {
     return 0;
 }
 ```
@@ -19,6 +19,6 @@ and could lead to bugs.
 
 
 ## Arguments
-Default arguments (like: func void test(i32 a = 10) {} ) are not allowed in C2.
+Default arguments (like: fn void test(i32 a = 10) {} ) are not allowed in C2.
 
 

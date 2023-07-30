@@ -17,7 +17,7 @@ The __local__ keyword has the same meaning as the __static__ keyword when used o
 For example calling the function below 3 times:
 
 ```c
-func void increment() {
+fn void increment() {
     local i32 counter = 0;
     counter++;
     printf("%d\n", counter);

@@ -50,7 +50,7 @@ dictates as it is with C. The example below is valid:
 
 ```c
 // type Number and global variable n are used here
-func void add(Number a) { total += a; }
+fn void add(Number a) { total += a; }
 
 // type Number is used here
 Number total = 10;

@@ -5,21 +5,21 @@ to do all sorts of funky things the compilers do.
 
 The currently supported attributes are:
 
-* __export__ (type, func, var)
+* __export__ (type, fn, var)
 * __packed__ (type)
-* __unused__ (type, func, var)
-* __unused_params__ (func)
-* __section__ (func, var), requires argument
-* __noreturn__ (func)
-* __printf_format__ (func)
-* __inline__ (func)
-* __aligned__ (type, func, var), requires argument
-* __weak__ (func, var)
+* __unused__ (type, fn, var)
+* __unused_params__ (fn)
+* __section__ (fn, var), requires argument
+* __noreturn__ (fn)
+* __printf_format__ (fn)
+* __inline__ (fn)
+* __aligned__ (type, fn, var), requires argument
+* __weak__ (fn, var)
 * __opaque__ (public struct/union types)
-* __cname__ (type, func, var), interface
+* __cname__ (type, fn, var), interface
 * __no_typedef__ (interface struct/union types)
-* __constructor__ (func)
-* __destructor__ (func)
+* __constructor__ (fn)
+* __destructor__ (fn)
 
 The standard syntax for all attributes is `@(  )`  (get it?!, @, at, attributes... ;) )
 
@@ -43,7 +43,7 @@ type Weird enum u32 {
 } @(unused)
 
 // functions
-public func void init() @(export) {
+public fn void init() @(export) {
     // ..
 }
 ```
@@ -57,7 +57,7 @@ Printf_format is the C2 equivalent of C:
 ```__attribute__((format=(printf, 1, 2)));``` and is used like:
 
 ```c
-func void log(const char* format, ...) @(printf_format=1) {
+fn void log(const char* format, ...) @(printf_format=1) {
  // ..
 }
 
@@ -68,7 +68,7 @@ Where the argument points to the (1-based) index of the format argument.
 Any call to this function can than have its format checked and possibly give errors like:
 
 ```c
-func void test() {
+fn void test() {
     log("%s", 10);  // error: "format '%s' expects a string argument"
               ^
 }
@@ -127,7 +127,7 @@ type Stat struct {
     // ...
 } @(cname="stat", no_typedef)
 
-func c_int stat(const c_char* pathname, Stat* buf);
+fn c_int stat(const c_char* pathname, Stat* buf);
 ```
 
 This means C2 code can use 'Stat' instead of 'struct stat', so the spelling conventions

@@ -85,11 +85,11 @@ type Struct struct {
     i32 b;
 }
 
-func void example(i32* i) {
+fn void example(i32* i) {
     Struct* s = to_container(Struct, b, i); // so i points to member b
 }
 
-func void example(const i32* i) {
+fn void example(const i32* i) {
     const Struct* s = to_container(Struct, b, i); // const status is maintained
 }
 ```
@@ -102,7 +102,7 @@ Unlike the macro version, the _const_ status of the original pointer is maintain
 C2 has builtin assert functionality. It looks similar to C, namely:
 
 ```c
-func void test1() {
+fn void test1() {
     assert(2 == 2);
 }
 ```
