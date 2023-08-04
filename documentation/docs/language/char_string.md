@@ -19,6 +19,17 @@ String literals are used like this:
 char* s = "the quick brown fox\n";
 ```
 
+Multi-part strings are also supported:
+
+```c
+const char[] Multi = "the"
+    " quick"
+    " brown"
+    " fox\n";
+```
+
+No backspaces are required after each line.
+
 
 ## Escape sequences:
 
