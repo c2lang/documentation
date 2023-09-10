@@ -1,7 +1,8 @@
 ## Attributes
 
-C2 incorporates standardized __attributes__. There can also be compiler-specific attributes
-to do all sorts of funky things the compilers do.
+C2 incorporates standardized __attributes__. This means that the *syntax* of attributes is
+defined, but attribute types can be added (by plugins, etc). There can also be compiler-specific
+attributes to do all sorts of funky things the compilers do.
 
 The currently supported attributes are:
 
@@ -21,7 +22,7 @@ The currently supported attributes are:
 * __constructor__ (fn)
 * __destructor__ (fn)
 
-The standard syntax for all attributes is `@(  )`  (get it?!, @, at, attributes... ;) )
+The standard syntax for all attributes is `@(  )`  (Hint: the @ (at) is for attributes... ;) )
 
 Take a look at the following example showing their usage in various declarations:
 
@@ -146,4 +147,67 @@ struct stat {
     // ...
 };
 ```
+
+### Auto-arguments
+
+There are two attributes for function parameters: *auto_file* and *auto_line*.
+These are special is that you define them with a function parameter and that causes
+them to be _auto-filled_ when a call to that function is made and are called *auto-arguments*.
+*Auto-arguments* are part of the work to avoid using macros to do \_\_FILE\_\_ and \_\_LINE\_\_.
+
+Example:
+```c
+fn void log(const char* file @(auto_file), u32 line @(auto_line), const char* fmt, ...) {
+    // ...
+}
+
+fn void test() {
+    log("%p %d", nil, 10);  // <- file + line parameters are auto filled
+}
+```
+
+#### Rules
+
+- Auto-arguments come after the self-pointer for struct functions
+- Auto-arguments come before other arguments
+- The type for _auto\_file_ needs to be _const char*_
+- The type for _auto\_line_ needs to be _u32_
+- The filename that is generated is *project relative* (no more /home/bas/project_x/..)
+- Auto-arguments cannot be used with _pure_ functions
+- Auto-arguments can be used with _template_ functions
+- Auto-arguments can be used in the type-definition of Function type
+- Auto-arguments cannot be used in functions used as Function pointers (see example below)
+
+
+Example with struct function:
+```c
+fn void Foo.log(Foo* f, u32 line @(auto_line), void* ptr) {
+    // ...
+}
+
+fn void test(Foo* f) {
+    f.log(nil); // 'translates' into Foo.log(f, 123, nil);
+    Foo.log(f, nil); // equivalent to the call above
+}
+```
+
+Function pointer example:
+
+```c
+type Callback fn void (const char* file @(auto_file), u32 line @(auto_line), void* arg);
+
+fn void test1(const char* file, u32 line, void* arg) {
+    // ...
+}
+Callback f1 = test1; // ok
+
+fn void test2(const char* file @(auto_file), u32 line @(auto_line), void* arg) {
+    // ...
+}
+Callback f2 = test2; // error: test2 cannot have auto-arguments
+```
+
+#### Unit test framework ####
+In combination with the *unit_test* plugin, _auto-arguments_ can be used to implement a unit test framework.
+See the example code archive for a full implementation.
 
