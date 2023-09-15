@@ -83,10 +83,10 @@ module inner;
 import stdlib;
 import stdio;
 
-public type Shape struct {
+public type Shape struct @(opaque) {
     u8 sides;
     // ..
-} @(opaque)
+}
 
 // a non-public struct-function
 fn void Shape.init(Shape* shape, u8 sides) {

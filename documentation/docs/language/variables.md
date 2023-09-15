@@ -8,7 +8,7 @@ public bool hasBool = false;
 Point* p = nil;
 ```
 
-The __public__ keyword may only be used with `global` variables. 
+The __public__ keyword may only be used with `global` variables.
 
 ## The `local` keyword
 

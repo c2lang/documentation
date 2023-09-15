@@ -32,16 +32,16 @@ i32 counter @(unused);
 i32[1024] bigdata @(section="data") = {};
 
 // types
-type Point struct {
+type Point struct @(packed, aligned=16) {
     i32 x;
     i32 y;
-} @(packed, aligned=16)
+}
 
-type Weird enum u32 {
+type Weird enum u32 @(unused) {
     FOO,
     BAR,
     FAA
-} @(unused)
+}
 
 // functions
 public fn void init() @(export) {
@@ -92,14 +92,14 @@ be used on *public struct/union types* and tells the compiler that *other*
 modules can only use that type *by pointer* and are not allowed to dereference it.
 
 ```c
-public type Handle struct {
+public type Handle struct @(opaque) {
     ..   // members are not visible outside of the module
-} @(opaque)
+}
 ```
 
 When c2c generates an *interface file* (eg. module.c2i), it will only generate:
 ```c
-type Handle struct {} @(opaque)
+type Handle struct @(opaque) {}
 ```
 
 Note that it is allowed to put other non-public types as full members inside
@@ -124,9 +124,9 @@ To solve this situation and offer a nice way to embed these calls into a C2 appl
 C2 offers the attributes *cname* and *no_typedef*. In the C2 version of sys\_stat.h:
 
 ```c
-type Stat struct {
+type Stat struct @(cname="stat", no_typedef) {
     // ...
-} @(cname="stat", no_typedef)
+}
 
 fn c_int stat(const c_char* pathname, Stat* buf);
 ```

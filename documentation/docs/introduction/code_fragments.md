@@ -147,10 +147,10 @@ type MyData struct {
 Incremental arrays are a special C2 feature. See [Variables](../language/variables.md)
 section for more information.
 ```c
-type Person struct {
+type Person struct @(packed) {
     const char* name;
     u8 age;
-} @(packed)
+}
 
 // the + indicates 'persons' is an incremental array
 // the attribute indicates that the data should be placed into the indicated section
