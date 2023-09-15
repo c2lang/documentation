@@ -48,4 +48,8 @@ pages:
   - development/internals.md
   - development/automated_tests.md
   - development/current_status.md
+- Language Specification:
+  - specification/specification.md
+  - specification/keywords.md
+  - Structs/Unions: specification/struct_type.md
 dev_addr: 0.0.0.0:8000
