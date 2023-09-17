@@ -12,7 +12,7 @@ The currently supported attributes are:
 * __unused_params__ (fn)
 * __section__ (fn, var), requires argument
 * __noreturn__ (fn)
-* __printf_format__ (fn)
+* __printf_format__ (parameter)
 * __inline__ (fn)
 * __aligned__ (type, fn, var), requires argument
 * __weak__ (fn, var)
@@ -21,6 +21,8 @@ The currently supported attributes are:
 * __no_typedef__ (interface struct/union types)
 * __constructor__ (fn)
 * __destructor__ (fn)
+* __ auto_file__ (parameter)
+* __ auto_line__ (parameter)
 
 The standard syntax for all attributes is `@(  )`  (Hint: the @ (at) is for attributes... ;) )
 
@@ -58,7 +60,7 @@ Printf_format is the C2 equivalent of C:
 ```__attribute__((format=(printf, 1, 2)));``` and is used like:
 
 ```c
-fn void log(const char* format, ...) @(printf_format=1) {
+fn void log(const char* format @(printf_format), ...) {
  // ..
 }
 

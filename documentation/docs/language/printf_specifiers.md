@@ -36,3 +36,4 @@ printf("%-4s  %06d  %7.3f", text, number, float_number);
 ### Attribute
 
 To allow checking of the format, a function must be marked with the [printf_format attribute](../language/attributes/#printf_format).
+
