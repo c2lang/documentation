@@ -54,6 +54,8 @@ C2 also introduces some *NEW* features:
 
 * [Multi-condition case statements](../language/switch_statement/#multi-condition-case-statements)
 
+* [Sane printf format specifiers](../language/printf_specifiers)
+
 * [Compiler Plugins](../language/plugins.md)
 
 * More tooling integration like dependency and refs file generation
