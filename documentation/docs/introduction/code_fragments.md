@@ -50,27 +50,22 @@ fn void demo_while() {
 ```c
 
 type Height enum u32 {
-    LOW = 0,
-    MEDIUM,
-    HIGH,
+    Low = 0,
+    Medium,
+    High,
 }
 
 fn void demo_enum(Height h) {
     switch (h) {
-    case LOW:       // fallthrough
-    case MEDIUM:
-        // ..
-        break;
-    case HIGH:
-        // ..
+    case Low:
+        fallthrough;
+    case Medium - High: // multi-condition case
         break;
     }
 
     // special checking of switching on enum types
     switch (h) {
-        case LOW:
-        case MEDIUM:
-        case HIGH:
+        case Low - High:
             break;
         default:    // warning: default label in switch which covers all enumeration value
             break;
@@ -105,9 +100,9 @@ const u32 highest = enum_max(State);
 type Callback fn i32(char c);
 
 type Status enum i32 {
-    IDLE,
-    BUSY,
-    DONE,
+    Idle,
+    Busy,
+    Done,
 }
 
 type MyData struct {

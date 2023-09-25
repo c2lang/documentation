@@ -71,10 +71,42 @@ fn void demo(State s) {
 
 So no need to add `State.` to every case.
 
+
+## Multi-condition case statements
+
+C2 adds a new feature to C that allows multiple conditions to be specified in a single case statement. This lowers
+the needs for *fallthrough* and increases code readability. This feature can only be used when switching an *enum* type.
+
+Rules for multi-condition cases:
+
+* Multi-conditions contain one or more single conditions, comma separated
+* A single condition can be either an *identifier* or *identifier* - *identifier*
+* Default cannot be combined with other conditions
+* Can also be used with incremental enums
+
+Example:
+
+```
+type Foo enum u8 { A, B, C, D, E, F, G, H, I }
+
+fn void test(Foo f) {
+    switch (f) {
+    case A:     // single case
+        break;
+    case B-C, H:   // range of enums + single
+        break;
+    case D-F, G, I:    // range + single cases
+        break;
+    }
+}
+
+```
+
 # Sswitch statement
 
 C2 introduces a new statement: *sswitch* that can be used to
 make a switch-like stament, but with strings (sswitch = string switch).
+
 
 ```c
 fn void handleCommand(const i8* cmd) {

@@ -6,7 +6,7 @@ are named. This is done to unify coding styles and make it easier to read the
 code. Currently only the first character of a name is enforced as either Upper-cased
 or lower-cased, depending on the type of element.
 
-Elements that must start with a *lower* cased character:
+Elements that must start with a *lower* case character:
 
 * module names
 * functions
@@ -15,7 +15,7 @@ Elements that must start with a *lower* cased character:
 * local constants
 * struct/union members (including sub-structs/unions)
 
-Elements that must start with an *Upper* cased character:
+Elements that must start with an *Upper* case character:
 
 * user-defined types
 * enum constants

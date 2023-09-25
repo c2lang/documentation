@@ -50,7 +50,11 @@ C2 also introduces some *NEW* features:
 
 * [SSwitch statement](../language/switch_statement/#sswitch-statement)
 
-* [Plugins](../language/plugins.md)
+* [Auto-arguments](../language/attributes/#auto-arguments)
+
+* [Multi-condition case statements](../language/switch_statement/#multi-condition-case-statements)
+
+* [Compiler Plugins](../language/plugins.md)
 
 * More tooling integration like dependency and refs file generation
 
