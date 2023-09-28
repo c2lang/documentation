@@ -14,6 +14,9 @@ C2 has the following built-in functions:
 u32 size = sizeof(void*);
 ```
 
+C2 does not allow the use of *[ ]* inside a sizeof expression, since this introduces
+ambiguity between _arrays_ and _subscript expressions_.
+
 ### elemsof ###
 For array types, C2 introduces a new operator, namely `elemsof`. This returns the number
 of elements in an array or the number of constants in an enum and avoids C macros like:
