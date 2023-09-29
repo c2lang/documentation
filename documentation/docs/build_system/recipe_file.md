@@ -2,7 +2,7 @@
 
 A C2 project requires a `recipe` file (named *recipe.txt*). This file specifies:
 
-* the target type (executable, shared library or static library)
+* the target type (executable, dynamic library or static library)
 * which options are used (compile time flags)
 * which source files are used
 * external dependencies
