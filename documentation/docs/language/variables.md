@@ -113,6 +113,14 @@ Point[] array = {
 }
 ```
 
+Rules:
+
+* Array and Field designators may not be combined to initialize members of a single struct
+
+* Sub-structs may use different initializers from their parent struct
+
+* Union can only be initialized using Field-designators
+
 
 ## Incrementally declared arrays
 Incrementally declared arrays are a special feature in C2. These can be used to avoid messy macros when
