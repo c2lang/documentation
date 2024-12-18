@@ -83,7 +83,7 @@ the needs for *fallthrough* and increases code readability. This feature can onl
 Rules for multi-condition cases:
 
 * Multi-conditions contain one or more single conditions, comma separated
-* A single condition can be either an *identifier* or *identifier* - *identifier*
+* A single condition can be either an *identifier* or *identifier* .. *identifier*
 * Default cannot be combined with other conditions
 * Can also be used with incremental enums
 
@@ -96,9 +96,9 @@ fn void test(Foo f) {
     switch (f) {
     case A:     // single case
         break;
-    case B-C, H:   // range of enums + single
+    case B..C, H:   // range of enums + single
         break;
-    case D-F, G, I:    // range + single cases
+    case D..F, G, I:    // range + single cases
         break;
     }
 }
