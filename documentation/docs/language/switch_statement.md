@@ -14,6 +14,8 @@ this implicit behaviour has been removed. Any case statement must end in
 either: *break* | *fallthrough* | *return* | *continue* | *noreturn-func*.
 The fallthrough statement can only appear at the top-level of the case body,
 not in some sub-expression (eg. _if (x) { fallthrough; }_ is not allowed).
+The only exception to this is for empty case statements, there the default
+behaviour is fallthrough.
 
 ```c
    switch (i) {
@@ -21,7 +23,8 @@ not in some sub-expression (eg. _if (x) { fallthrough; }_ is not allowed).
                // break/fallthrough/continue/return.
       case 2:
          fallthrough;    // will fallthrough
-      case 3:
+      case 3: // implicit fallthrough allowed, since empty case
+      case 4:
          break;
       default:
          fallthrough; // not allowed in last case
