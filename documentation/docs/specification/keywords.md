@@ -66,3 +66,12 @@ C2 has the following builtin types and keywords
 * `assert`
 * `static_assert`
 
+### Feature selection
+* `#if`
+* `#ifdef`
+* `#ifndef`
+* `#elif`
+* `#else`
+* `#warning`
+* `#error`
+

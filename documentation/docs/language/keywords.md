@@ -65,3 +65,12 @@ C2 has the following keywords:
 * `assert`
 * `static_assert`
 
+### Feature selection
+* `#if`
+* `#ifdef`
+* `#ifndef`
+* `#elif`
+* `#else`
+* `#warning`
+* `#error`
+

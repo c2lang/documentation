@@ -11,7 +11,8 @@ C2 has the following built-in primitive types:
 * `reg8`, `reg16`, `reg32`, `reg64`: Register types (volatile, unsigned).
 * `void`: Same as in C.
 
-For convenience, the __char__ keyword is also available and is identical to the __i8__ type.
+For convenience, the __char__ keyword is also available and is identical to the __u8__ type.
+The idea is to only use this for strings.
 
 Note that C2 does __not__ have any type specifiers like __signed__, __unsigned__, __long__ or __short__.
 
