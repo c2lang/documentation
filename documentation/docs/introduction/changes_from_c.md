@@ -40,7 +40,7 @@ C2 also introduces some *NEW* features:
 
 * [BitOffsets](../language/bitoffsets)
 
-* [Struct-functions](../language/struct_functions.md)
+* [Type-functions](../language/type_functions.md)
 
 * [Modules](../language/modules)
 

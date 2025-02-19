@@ -170,7 +170,7 @@ fn void test() {
 
 #### Rules
 
-- Auto-arguments come after the self-pointer for struct functions
+- Auto-arguments come after the self-pointer for type-functions
 - Auto-arguments come before other arguments
 - The type for _auto\_file_ needs to be _const char*_
 - The type for _auto\_line_ needs to be _u32_
@@ -181,7 +181,7 @@ fn void test() {
 - Auto-arguments cannot be used in functions used as Function pointers (see example below)
 
 
-Example with struct function:
+Example with type-function:
 ```c
 fn void Foo.log(Foo* f, u32 line @(auto_line), void* ptr) {
     // ...

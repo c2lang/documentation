@@ -13,6 +13,7 @@ pages:
   - Hello World: introduction/helloworld.md
   - introduction/code_fragments.md
   - Changes from C: introduction/changes_from_c.md
+  - The C2 compiler: introduction/the_c2_compiler.md
 - Getting Started:
   - getting_started/installation.md
   - getting_started/my_first_project.md
@@ -30,7 +31,7 @@ pages:
   - language/modules.md
   - language/attributes.md
   - language/bit_offsets.md
-  - language/struct_functions.md
+  - language/type_functions.md
   - language/operators.md
   - language/switch_statement.md
   - language/builtin_functions.md
