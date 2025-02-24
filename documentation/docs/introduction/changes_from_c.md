@@ -35,6 +35,9 @@ _changes_ made and the design philosophy behind it.
 
 * [no arrays as function arguments](../language/functions.md)
 
+* remove do..while, since it's not needed without macros
+
+
 ### New Features
 C2 also introduces some *NEW* features:
 

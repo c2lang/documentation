@@ -21,13 +21,9 @@ Note that C2 does allow a declaration to be used as condition (see example above
 
 ## Do-while
 
-Do-while statements are exactly the same as C.
+Do-while statements have been removed from C2, since they were very error prone
+and often only used for macro expansions.
 
-```c
-do {
-    i++;
-} while (i<10);
-```
 
 ## If
 
