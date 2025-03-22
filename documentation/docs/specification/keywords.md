@@ -58,7 +58,6 @@ C2 has the following builtin types and keywords
 * `goto`
 * `if`
 * `return`
-* `sswitch`
 * `switch`
 * `while`
 

@@ -35,7 +35,7 @@ _changes_ made and the design philosophy behind it.
 
 * [no arrays as function arguments](../language/functions.md)
 
-* remove do..while, since it's not needed without macros
+* removed do..while, since it's not needed without macros
 
 
 ### New Features
@@ -51,7 +51,7 @@ C2 also introduces some *NEW* features:
 
 * [Incremental arrays](../language/variables/#incremental-arrays)
 
-* [SSwitch statement](../language/switch_statement/#sswitch-statement)
+* [Switch statement on strings](../language/switch_statement/#string-switch-statement)
 
 * [Auto-arguments](../language/attributes/#auto-arguments)
 

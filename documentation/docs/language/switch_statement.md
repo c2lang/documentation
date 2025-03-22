@@ -105,20 +105,20 @@ fn void test(Foo f) {
 
 ```
 
-# Sswitch statement
+# String switch statement
 
-C2 introduces a new statement: *sswitch* that can be used to
-make a switch-like stament, but with strings (sswitch = string switch).
-
+C2 introduces a new option for the switch statement: the ability to switch on strings.
 
 ```c
-fn void handleCommand(const i8* cmd) {
-   sswitch (cmd) {
+fn void handleCommand(const char* cmd) {
+   switch (cmd) {
    case nil:
       return;
+   case "":
+    break;
    case "start":
       return;
-   case "stop": // NOTE: NO fallthrough!
+   case "stop":
    case "move":
        break;
    default:
@@ -126,12 +126,10 @@ fn void handleCommand(const i8* cmd) {
    }
 ```
 
-Rules for using sswitch:
+Rules for using switch for strings:
 
-* empty sswitch (no cases/default) is not allowed
-* default case (if present) must be last
-* case argument must be a *string literal* or *nil*
-* there is no fallthrough (fallthrough keyword cannot be used)
-* break can be used like in switch statement
+* the case conditions must be: nil or a string literal
+* the case strings must be < 255 bytes (including 0)
+* there may be no duplicate cases
 
 
