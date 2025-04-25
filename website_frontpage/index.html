@@ -21,6 +21,33 @@
             <div class="navLink"><a href="http://github.com/c2lang/">GitHub</a></div>
       </div>
 
+    <div class="contentTitle"><h1>2025 and beyond <font size="1" color="grey">(2025-04-24 by Bas vd Berg)</font></h1></div>
+    <div class="contentText">
+    A lot of work has happened on the C2 compiler in the past year! It now support more targets:
+    <ul style="list-style-type:disc">
+        <li><b>Linux (x86_64)</b></li>
+        <li><b>Darwin (x86_64)</b></li>
+        <li><b>Darwin (arm64)</b></li>
+        <li><b>FreeBSD (x86_64)</b></li>
+        <li><b>OpenBSD (x86_64)</b></li>
+    </ul><br>
+
+    A selection of some of the other changes:
+    <ul style="list-style-type:disc">
+        <li><b>Many bugfixes</b></li>
+        <li><b>Parser optimizations</b> (using less memory and being even faster)</li>
+        <li><b>Switch now supports strings</b> (sswitch has been removed)</li>
+        <li><b>Work has started on a custom back-end</b></li>
+    </ul><br>
+
+    For the comping period, a few syntax changes are on the horizon. These are mainly minor anti-patterns
+    that we see appear in C2 code. Also the new back-end will take a lot of time, but working on this is
+    a lot of fun!. The goal of the new back-end is to have very fast builds that have a reasonable level
+    of optimization.
+
+    If you want to participate or follow the discussions, see the Github archive.
+    </div>
+
     <div class="contentTitle"><h1>Another problem solved.. <font size="1" color="grey">(2023-09-10 by Bas vd Berg)</font></h1></div>
     <div class="contentText">
     One of the big changes between C and C2 is <b>macros</b>. C has them, C2 doesn't. Also every C program larger than Hello World
