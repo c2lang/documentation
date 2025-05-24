@@ -116,7 +116,8 @@ errors when you do re-enable them after some time.
 
 ### cast
 
-The format of the C-style cast has been changed to make the cast-subject explicit:
+The format of the C-style cast has been changed to make the cast-subject explicit.
+Please note that in C, the cast is a *unary* operator.
 
 ```c
    i32 a = cast<i32>(b);

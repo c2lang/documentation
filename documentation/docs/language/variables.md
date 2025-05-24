@@ -30,7 +30,9 @@ will result in:
 3
 ```
 
-The __local__ keyword may only be used on `non-global` variables.
+The __local__ keyword may only be used on non-global variables. The 'local' variable is
+automatically zero-initialized (like global variables). If explicitly initialized, the
+init expression must be a compile-time constant/value.
 
 ## Initialization
 
