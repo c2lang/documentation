@@ -107,6 +107,33 @@ Rules
 | Foo.func(Foo)        | ok    | auto  |  ok       |     auto   |
 | Foo.func(const Foo)  | ok    | auto  |  ok       |     auto   |
 
+### Init calls
+
+Type-function can also be used in a variable declaration, so combine
+the _definition_ and _initialization_ in one line:
+
+```c
+fn void test1() {
+    Foo f.init(1);
+}
+```
+
+which is equivalent to:
+```c
+fn void test1() {
+    Foo f;
+    f.init(1);
+}
+```
+
+The called function should be a regular type function with `Foo*` as first argument.
+This concept is called *init calls* and cannot be used when a declaration
+is used inside a *condition*, eg
+
+```c
+   while (Foo f.init(1)) {} // ERROR not allowed
+```
+
 
 ### Enum example
 

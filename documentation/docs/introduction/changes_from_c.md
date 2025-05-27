@@ -39,7 +39,8 @@ _changes_ made and the design philosophy behind it.
 
 
 ### New Features
-C2 also introduces some *NEW* features:
+While C2 introduces some *NEW* features, these dont break the C philosophy and are
+mainly *Syntax cleanup*, *syntactic-sugar* or remove a C anti-pattern:
 
 * [BitOffsets](../language/bitoffsets)
 
