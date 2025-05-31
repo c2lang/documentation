@@ -54,6 +54,7 @@ C2 places enum constants in the Enum type namespace, for example:
 
 ```
 State s = State.Begin;
+State s2 = Begin;   // shorthand, also allowed, but only for Initializations
 ```
 
 For a switch statement using an enum type, the scope is automatic, so it's possible

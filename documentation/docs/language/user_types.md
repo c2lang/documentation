@@ -26,8 +26,25 @@ type State enum i8 {
 ```
 
 Note that all enum constants are in only available through the enum type's namespace
-(eg. State.Begin, not Begin). This allows the names to be much shorter (not COLOR_GREEN,
-but just Green).
+(eg. State.Begin, not Begin). This allows the names to be much shorter (not STATE_BEGIN,
+but just Begin).
+
+### Enum init
+When *initializing* an enum variable, the enum prefix can be left out:
+```c
+Color c1 = Color.Red; // allowed
+Color c2 = Green; // also allowed
+
+Color[] cs = { Red, Green, Blue }  // ok
+```
+
+Note that for non-initialization usage, the use of the enum prefix is mandatory:
+```c
+c = Color.Red;
+line.draw(Color.Green);
+```
+
+
 
 ### Incremental Enums
 
