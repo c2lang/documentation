@@ -7,7 +7,7 @@ module hello_world;
 
 import stdio as io;
 
-fn i32 main(i32 argc, char** argv) {
+public fn i32 main(i32 argc, char** argv) {
     io.printf("Hello World!\n");
     return 0;
 }
