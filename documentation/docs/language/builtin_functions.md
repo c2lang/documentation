@@ -116,11 +116,18 @@ errors when you do re-enable them after some time.
 
 ### cast
 
-The format of the C-style cast has been changed to make the cast-subject explicit.
-Please note that in C, the cast is a *unary* operator.
+A new cast-syntax was added to make casts more explicit and enforce the fact that cast is a
+unary operator. The C-style cast is also allowed.
+
+Please note that in C (and C2), the cast is a *unary* operator.
 
 ```c
+   // new style
    i32 a = cast<i32>(b);
    Foo* f = cast<Foo*>(bar);
+
+   // old style
+   i32 c = (i32)b;
+   Foo8 g = (Foo*)bar;
 ```
 

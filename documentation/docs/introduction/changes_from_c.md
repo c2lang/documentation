@@ -2,8 +2,6 @@
 Since C2 is an _evolution_ of C, this page is here to summarize the
 _changes_ made and the design philosophy behind it.
 
-*TODO this page is in progress*
-
 
 ### Language changes
 
@@ -35,7 +33,7 @@ _changes_ made and the design philosophy behind it.
 
 * [no arrays as function arguments](../language/functions.md)
 
-* removed do..while, since it's not needed without macros
+* removed do .. while, since it's not needed without macros and error prone
 
 
 ### New Features
