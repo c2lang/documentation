@@ -62,6 +62,8 @@ mainly *Syntax cleanup*, *syntactic-sugar* or remove a C anti-pattern:
 
 * [Compiler Plugins](../language/plugins.md)
 
+* [Raw strings](../language/raw_strings.md)
+
 * More tooling integration like dependency and refs file generation
 
 
