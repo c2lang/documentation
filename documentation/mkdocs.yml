@@ -45,6 +45,7 @@ pages:
   - C2 Module: build_system/c2module.md
   - External Libraries: build_system/libraries.md
   - build_system/diagnostics.md
+  - build_system/tracing.md
 - Development:
   - development/contributing.md
   - development/internals.md
