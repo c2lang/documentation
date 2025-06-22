@@ -10,6 +10,21 @@ Point* p = nil;
 
 The __public__ keyword may only be used with `global` variables.
 
+## Multiple variable declarations
+
+Like in C, C2 allows multiple variables to be declared in one line:
+```c
+i32 a, b, c;
+```
+
+However, to avoid the C pitfall of
+```
+int* a, b;
+```
+where b would be an 'int' and not an 'int*', defining multiple variables is not allowed
+for pointer and array types.
+
+
 ## The `local` keyword
 
 The __local__ keyword has the same meaning as the __static__ keyword when used on local
