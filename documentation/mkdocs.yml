@@ -37,6 +37,7 @@ pages:
   - language/builtin_functions.md
   - language/raw_strings.md
   - language/init_calls.md
+  - language/init_list.md
   - language/plugins.md
 - Build system:
   - build_system/intro.md

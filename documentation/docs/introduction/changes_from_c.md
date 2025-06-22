@@ -64,6 +64,8 @@ mainly *Syntax cleanup*, *syntactic-sugar* or remove a C anti-pattern:
 
 * [init calls](../language/init_calls.md)
 
+* [init list assignment](../language/init_list.md)
+
 * More tooling integration like dependency and refs file generation
 
 
