@@ -6,6 +6,7 @@ attributes to do all sorts of funky things the compilers do.
 
 The currently supported attributes are:
 
+* __embed__ (var)
 * __export__ (type, fn, var)
 * __packed__ (type)
 * __unused__ (type, fn, var)
@@ -22,6 +23,7 @@ The currently supported attributes are:
 * __constructor__ (fn)
 * __destructor__ (fn)
 * __ auto_file__ (parameter)
+* __ auto_func__ (parameter)
 * __ auto_line__ (parameter)
 
 The standard syntax for all attributes is `@(  )`  (Hint: the @ (at) is for attributes... ;) )
@@ -53,6 +55,17 @@ public fn void init() @(export) {
 
 `NOTE: compiler-specific attributes will be required to start with an underscore,
 like _c2_my_attribute_, so other compilers can recognize and ignore them`
+
+### Embed attribute
+
+The __embed__ attribute is used to embed external files into a variable:
+
+```c
+const char[] Data @(embed="data.txt");
+```
+
+The path is relative from the project root. The data will be 0-terminatated.
+
 
 ### Printf_format
 
@@ -155,7 +168,8 @@ struct stat {
 There are two attributes for function parameters: *auto_file* and *auto_line*.
 These are special is that you define them with a function parameter and that causes
 them to be _auto-filled_ when a call to that function is made and are called *auto-arguments*.
-*Auto-arguments* are part of the work to avoid using macros to do \_\_FILE\_\_ and \_\_LINE\_\_.
+*Auto-arguments* are part of the work to avoid using macros to do \_\_FILE\_\_, \_\_LINE\_\_ and
+\_\_FUNC\_\_.
 
 Example:
 ```c

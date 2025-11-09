@@ -8,14 +8,15 @@ This requires _bootstrapping_ as described in the build section.
 
 ### Performance
 
-C2C currently parses between 2-4 million lines of code per second, depending on the hardware.
+C2C currently parses between 3-5 million lines of code per second, depending on the hardware.
 Analysing that same code is roughly twice as fast.
 
-The current implementation of _c2c_ is around 40.000 lines of code. Parsing that with _c2c_ takes:
+The current implementation of _c2c_ is around 242 files and 53.000 lines of code. Parsing that with _c2c_ takes:
+
 
 ```bash
-parsing took 11215 usec
-analysis took 7345 usec
+parsing took 15392 usec
+analysis took 8960 usec
 ```
 
 So it is _fast_.

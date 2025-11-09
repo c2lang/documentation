@@ -28,26 +28,36 @@ atomic action; either you use it or not. Also every library in use needs to be s
 in the recipe file. There is one exception to this rule: usage of *libc* is opt-out. By
 default each program uses it. This is a convenience choice.
 
-c2c uses an environment variable called *$C2_LIBDIR* indicating the directory where
-libraries can be found. In this directory, each library has its own subdirectory, as
-shown below.
-
-NOTE: In the near future, extra paths can be given in the recipe file.
+c2c uses an environment variable called *$C2_LIBDIR* indicating the directories where
+libraries can be found. Paths are separated by ':' (eg C2_LIBDIR=/foo:/bar:/faa).
+In these directories, each library has its own subdirectory, as shown below.
 
 ```bash
 c2libs/
-└── libc
-    ├── manifest.yaml
-    ├── stdio.c2i
-    ├── stdlib.c2i
-    ├── string.c2i
-    └── strings.c2i
+├── libc
+│   ├── c_errno.c2i
+│   ├── manifest.yaml
+│   ├── stdio.c2i
+│   ├── stdlib.c2i
+│   ├── string.c2i
+│   ├── sys_stat.c2i
+│   ├── sys_time.c2i
+│   ├── (some files removed for brevity)
+│   └── unistd.c2i
+├── math
+│   ├── manifest.yaml
+│   └── math.c2i
+├── pthread
+│   ├── manifest.yaml
+│   └── pthread.c2i
 ```
 
 To be valid, a library directory has to contain a *manifest.yaml* file and one or
-more *interface* files.
+more *interface* or *source* files.
 
-###manifest file
+C2 supports three types of libraries: __dynamic__, __static__ and __source__. (see below)
+
+### manifest file
 Since C2 doesn't use *#include* headers, a new mechanism is required to map C header
 files to C2 modules. This is the purpose of a *manifest* file.
 
@@ -103,7 +113,7 @@ info:
 ```
 
 
-###interface files
+### Interface files
 While C2 does not have header files or an *#include* mechanism, it does have *interface*
 files. These are similar to regular .c2 files, except for:
 
@@ -144,6 +154,28 @@ C2 has special types for creation of interface files for C libraries. These are 
 * c_longlong
 * c_float
 * c_double
+
+## Library types
+C2 project can use external libraries by specifying ```$use lib <type>``` in the recipe file.
+Type can be dynamic, static or source.
+
+### Dynamic
+Dynamic libraries are loaded at __runtime__ by the loader. During building, the interface files are
+parsed to be able to verify the calling code.
+
+### Static
+Static libraries are linked at __build-time__ by the linker. After that, they no longer exist as a
+dependency.
+
+### Source
+Source libraries are libraries that only consist of .c2 sources. These sources are just like normal
+.c2 source files. In the manifest, one or more modules must be exported. There are allowed to be used
+by the user program.
+
+Source libraries allow full program optimization *including* libraries. This can be especially advantageous
+if the interface is a high-speed interface (ie many, many calls per second).
+
+Unused functions/variables in libraries are not placed in the resulting binary.
 
 
 ## C2 library build process

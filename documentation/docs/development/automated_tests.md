@@ -10,3 +10,10 @@ There are several types of tests:
 * generated diagnostic notes, warnings and errors
 * generated C code
 * generated IR code
+
+Running the tests can be done with:
+
+```sh
+./output/tester/tester test -v
+```
+

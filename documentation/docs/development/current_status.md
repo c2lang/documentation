@@ -7,15 +7,21 @@ Component | Status | Notes
 Parser | 100% | pretty much parses everything. Could do a bit better for *syntax errors*
 Analyser | 100% | fully working
 Plugins | 100% | c2c supports plugins (refs, deps, unit_test, load_file, shell_cmd, etc)
-C generator | 99% | some corner cases still need to be implemented
-IR generator | 5% | basically only *Hello World* works (functions, strings, function calls)
-Templates | 10 % | Function templates work, but Struct templates (with functions) are not in yet.
-Macros | 0 % | Still in the design phase, maybe not needed?
+C generator | 100% | some corner cases still need to be implemented
+IR generator | 20% | Generating IR, some optimizations, no lowering yet
 Embedded | 10 % | This means generating images for embedded targets, .S files, linker scripts, etc
-QBE backend | 5 % | Hello world works currently, but not much more
 C2Format | 0 % | A 'style' tool (like astyle, clang-format)
 
+Supported Platforms:
 
-So the short status would be that for playing around with the language using the C-generating
-back-end, it's very usable for real projects
+* Linux x86_64
+* Darwin x86_64, arm64
+* FreeBSD amd64
+* OpenBSD amd64
+
+
+So the short status would be that for using c2c with C backend, it's usable for real projects.
+The IR backend is targetted for very fast builds, but cannot self-compile c2c yet.
+
+
 

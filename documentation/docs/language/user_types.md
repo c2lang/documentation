@@ -33,17 +33,35 @@ but just Begin).
 When *initializing* an enum variable, the enum prefix can be left out:
 ```c
 Color c1 = Color.Red; // allowed
-Color c2 = Green; // also allowed
+Color c2 = Green; // also allowed, inferred from left-hand side
 
 Color[] cs = { Red, Green, Blue }  // ok
 ```
 
-Note that for non-initialization usage, the use of the enum prefix is mandatory:
+Whenever possible the RHS (right-hand side) is inferred from the LHS (Left-hand side).
+So even if two different enum types have the same Constant, it still works.
 ```c
-c = Color.Red;
-line.draw(Color.Green);
+c = Red;
+line.draw(Green);
 ```
 
+
+### Enum min/max
+A pattern often seen in C is to add a constant 'Max' at the end to be able to interate.
+In C2 every Enum type has automatic *min/max* constants for this:
+
+```c
+type Color enum u8 {
+    Red=0,
+    Green=1,
+    Blue=2,
+}
+
+fn void test() {
+    for (i32 i = Color.min; i <= Color.max; i++) {   // will run from [0, 2]
+    }
+}
+```
 
 
 ### Incremental Enums
@@ -167,4 +185,14 @@ A usage example is given below:
 Callback cb = my_callback
 cb(10, nil);
 ```
+
+For struct-members that are types, defining an explicit type is not required:
+```c
+type Callbacks struct {
+    fn void (void* arg, i32 a) func1;
+    fn void (void* arg) func2;
+}
+```
+
+
 

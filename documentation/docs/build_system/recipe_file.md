@@ -39,6 +39,8 @@ end
 Note that the path to each c2 file is relative to the position of the __recipe file__, not
 to that of the c2c binary.
 
+It's possible to let *c2c* show the latest recipe options by: *c2c --help-recipe*
+
 ### Global options
 
 Before all executable/lib targets, global configs may be specified. These have
@@ -53,7 +55,7 @@ Inside a target, the following options are available:
  * *config [name] <value> - specify definitions for the preprocessor, like #define feature1
  * *export [modules]* - export the modules in libraries and generated headers
  * *backend c* - enable generation of C code
- * *backend llvm* - enable generation of LLVM IR code
+ * *backend ir* - enable generation of IR (Intermediate Representation) code
  * *disable-asserts* - disables generation of asserts
  * *plugin* - load a target-specific plugin, or override with target-specific config
  * *warnings [list]* - enable/disable specific warnings during compilation
@@ -72,6 +74,7 @@ Different warnings can be disabled by one of more options after _$warnings_:
  * *no-unused-parameter* - silence warnings about unused parameters
  * *no-unused-public* - silence warnings about unused public keywords
  * *no-unused-type* - silence warnings about unused types
+ * *no-unreachable-code* - silence warnings about unreachable code
  * *no-unused-variable* - silence warnings about unused variables
  * *promote-to-error* - promote  warnings to errors
 

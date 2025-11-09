@@ -19,6 +19,33 @@ and could lead to bugs.
 
 
 ## Arguments
-Default arguments (like: fn void test(i32 a = 10) {} ) are not allowed in C2.
 
+### Default arguments
+Default arguments are also allowed in C2.
+
+```c
+fn void test(i32 a = 10, i32 b = 20) {}
+```
+
+### Named arguments
+Named arguments can be used when calling a function where many arguments are the same type,
+and re-ordering arguments would not cause a compilation error. For example:
+
+```c
+fn void foo(bool a, bool b, bool c, bool d) { .. }
+
+
+fn void bar() {
+    foo(true, false, true, false);
+}
+```
+
+In these cases it can be handy to name calling arguments:
+    foo(a: true, b: false, c: true, d: false);
+```
+
+The *order* of the arguments must still be correct.
+
+C2 allows combining __named__ arguments with __default__ arguments as long as there is
+no ambiguity.
 
