@@ -21,6 +21,17 @@
             <div class="navLink"><a href="http://github.com/c2lang/">GitHub</a></div>
       </div>
 
+    <div class="contentTitle"><h1>MILESTONE: C2C generated its first assembly output... <font size="1" color="grey">(2025-11-16 by Bas vd Berg)</font></h1></div>
+    <div class="contentText">
+    Since working on the custom IR backend, one milestone was to fully translate a (simple) program into assembly. That milestone was
+    reached today!! The program was not very complex (read very simple), just some addition, multiplication and subtraction and returning
+    that value, considering the architecture specific calling convention (of RV64 in this case). That means the basic IR plumbing,
+    the register allocation and the translation to and from SSA form works (at least in this case ;)..). Now work can start on adding
+    more instructions, adding Arm64 as second architecture and support more language constructs. Self-compiling c2c this way will require
+    a lot more more work. But at least some light can be seen at the end of that tunnel..  Also now might be a good time to start unit-tests
+    for this part as well.
+    </div>
+
     <div class="contentTitle"><h1>2025 and beyond <font size="1" color="grey">(2025-04-24 by Bas vd Berg)</font></h1></div>
     <div class="contentText">
     A lot of work has happened on the C2 compiler in the past year! It now support more targets:
